@@ -1,0 +1,28 @@
+<form [formGroup]="form">
+  <mat-form-field class="select-services" required>
+    <mat-label>Shift Assignment</mat-label>
+    <mat-select [value]="serviceId" panelClass="services-panel" formControlName="serviceId">
+      <mat-option *ngFor="let service of services$ | async" [value]="service.id">{{ service.name }}</mat-option>
+    </mat-select>
+    <mat-error>You must select a shift assignment before entering exams.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Exam Type" formControlName="examTypeId">
+      <mat-option *ngFor="let type of examTypes$ | async" [value]="type.id">
+        {{ type.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput #notes maxlength="250" formControlName="notes" placeholder="Notes"></textarea>
+    <mat-hint align="end">{{ notes.value.length }} / 250</mat-hint>
+    <mat-error *ngIf="form.controls['notes'].hasError('maxlength')">
+      Please enter a maximum of 250 characters!
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="warn" (click)="onDelete()">DELETE</button>
+  <button mat-raised-button color="accent" (click)="onSave()">SAVE</button>
+</form>

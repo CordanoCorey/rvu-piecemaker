@@ -1,0 +1,9 @@
+<div class="progress-bar">
+  <h3 class="end-label">{{ endLabel }}</h3>
+  <span class="fill" [style.height.%]="percentFilled" [class.primary]="primary" [class.accent]="!primary">
+    <h3 class="progress-label" [class.start]="percentFilled < 20">
+      {{ progressLabel }}
+    </h3>
+  </span>
+  <h3 class="start-label">{{ startLabel }}</h3>
+</div>

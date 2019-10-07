@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rvu-piecemaker.API", "rvu-piecemaker.API\rvu-piecemaker.API.csproj", "{6B0AD103-0374-4DD5-BF06-1D9D356390D2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rvu-piecemaker.Entity", "rvu-piecemaker.Entity\rvu-piecemaker.Entity.csproj", "{C5464246-9017-45D6-AAA4-682F21971BC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B0AD103-0374-4DD5-BF06-1D9D356390D2}.Debug|Any CPU.ActiveCfg = dev|Any CPU
+		{6B0AD103-0374-4DD5-BF06-1D9D356390D2}.Debug|Any CPU.Build.0 = dev|Any CPU
+		{6B0AD103-0374-4DD5-BF06-1D9D356390D2}.Debug|x64.ActiveCfg = dev|Any CPU
+		{6B0AD103-0374-4DD5-BF06-1D9D356390D2}.Debug|x64.Build.0 = dev|Any CPU
+		{6B0AD103-0374-4DD5-BF06-1D9D356390D2}.Debug|x86.ActiveCfg = dev|Any CPU
+		{6B0AD103-0374-4DD5-BF06-1D9D356390D2}.Debug|x86.Build.0 = dev|Any CPU
+		{6B0AD103-0374-4DD5-BF06-1D9D356390D2}.Release|Any CPU.ActiveCfg = staging|Any CPU
+		{6B0AD103-0374-4DD5-BF06-1D9D356390D2}.Release|Any CPU.Build.0 = staging|Any CPU
+		{6B0AD103-0374-4DD5-BF06-1D9D356390D2}.Release|x64.ActiveCfg = staging|Any CPU
+		{6B0AD103-0374-4DD5-BF06-1D9D356390D2}.Release|x64.Build.0 = staging|Any CPU
+		{6B0AD103-0374-4DD5-BF06-1D9D356390D2}.Release|x86.ActiveCfg = staging|Any CPU
+		{6B0AD103-0374-4DD5-BF06-1D9D356390D2}.Release|x86.Build.0 = staging|Any CPU
+		{C5464246-9017-45D6-AAA4-682F21971BC7}.Debug|Any CPU.ActiveCfg = dev|Any CPU
+		{C5464246-9017-45D6-AAA4-682F21971BC7}.Debug|Any CPU.Build.0 = dev|Any CPU
+		{C5464246-9017-45D6-AAA4-682F21971BC7}.Debug|x64.ActiveCfg = dev|Any CPU
+		{C5464246-9017-45D6-AAA4-682F21971BC7}.Debug|x64.Build.0 = dev|Any CPU
+		{C5464246-9017-45D6-AAA4-682F21971BC7}.Debug|x86.ActiveCfg = dev|Any CPU
+		{C5464246-9017-45D6-AAA4-682F21971BC7}.Debug|x86.Build.0 = dev|Any CPU
+		{C5464246-9017-45D6-AAA4-682F21971BC7}.Release|Any CPU.ActiveCfg = staging|Any CPU
+		{C5464246-9017-45D6-AAA4-682F21971BC7}.Release|Any CPU.Build.0 = staging|Any CPU
+		{C5464246-9017-45D6-AAA4-682F21971BC7}.Release|x64.ActiveCfg = staging|Any CPU
+		{C5464246-9017-45D6-AAA4-682F21971BC7}.Release|x64.Build.0 = staging|Any CPU
+		{C5464246-9017-45D6-AAA4-682F21971BC7}.Release|x86.ActiveCfg = staging|Any CPU
+		{C5464246-9017-45D6-AAA4-682F21971BC7}.Release|x86.Build.0 = staging|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {397DFE00-5D95-4CB1-8859-F1B9C5F7AD4A}
+	EndGlobalSection
+EndGlobal

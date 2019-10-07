@@ -1,0 +1,6 @@
+<rvu-container>
+  <div id="settings">
+    <rvu-user-form *ngIf="(routeName$ | async) === 'settings'"></rvu-user-form>
+    <router-outlet></router-outlet>
+  </div>
+</rvu-container>

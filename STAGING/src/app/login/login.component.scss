@@ -1,0 +1,19 @@
+@import '~@angular/material/_theming';
+@import '../../common';
+
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+.auth.content {
+  mat-card {
+
+    #reset-password-link {
+      position: absolute;
+      bottom: 230px;
+      right: 12%;
+      z-index: 2;
+    }
+  }
+}

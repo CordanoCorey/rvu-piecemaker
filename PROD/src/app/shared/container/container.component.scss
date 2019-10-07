@@ -1,0 +1,31 @@
+@import '~@angular/material/_theming';
+@import '../../../common';
+
+#container {
+  rvu-header {
+    z-index: 999;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  #content {
+    position: absolute;
+    top: 136px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #breadcrumbs {
+    background: $primary-color;
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    top: 56px;
+  }
+}

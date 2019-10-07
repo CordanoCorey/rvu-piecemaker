@@ -1,0 +1,40 @@
+<div class="auth content" fxLayout="column" fxFlex [style.height.px]="windowHeight$ | async" [style.width.px]="windowWidth$ | async">
+  <div class="login-content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
+    <mat-card>
+      <a class="link login-link" routerLink="/login">Have an Account? Login</a>
+      <h1>Create New Account</h1>
+
+      <form [formGroup]="form" (keyup.enter)="submit()">
+        <mat-form-field>
+          <input matInput placeholder="First Name*" formControlName="firstName" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Last Name*" formControlName="lastName" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Email Address*" formControlName="email" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Password*" type="password" formControlName="password" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Confirm Password*" type="password" formControlName="confirmPassword" />
+        </mat-form-field>
+
+        <button type="button" class="button buttonBlue" (click)="submit()">
+          Submit
+        </button>
+      </form>
+
+      <div class="footer">
+        <a href="http://www.caiu.org/" target="_blank">
+          <img src="../../assets/logo.png" style="height:30px; width:30px;" />
+        </a>
+        <p>
+          Powered by
+          <a href="http://www.caiu.org/" target="_blank"></a>
+        </p>
+      </div>
+    </mat-card>
+  </div>
+</div>

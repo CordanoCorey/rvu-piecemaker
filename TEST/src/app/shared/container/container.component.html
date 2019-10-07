@@ -1,0 +1,25 @@
+<div id="container">
+  <rvu-header [isMobile]="isMobile"></rvu-header>
+  <div class="sidenav-container scrollable" [style.min-height.px]="windowHeight" [style.width.px]="sidenavWidth" [@sidenavState]="sidenavOpened ? 'open' : 'closed'">
+    <rvu-sidenav [isMobile]="isMobile"></rvu-sidenav>
+  </div>
+  <div id="breadcrumbs" [style.width.px]="contentWidth" [style.left.px]="windowWidth - contentWidth">
+    <nav id="tabs" mat-tab-nav-bar>
+      <a *ngFor="let tab of tabs$ | async" mat-tab-link [routerLink]="tab.routerLink" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+        {{ tab.label }}
+      </a>
+    </nav>
+  </div>
+  <div
+    id="content"
+    class="scrollable"
+    fxLayout="column"
+    fxLayoutGap="16px"
+    [style.height.px]="contentHeight"
+    [style.width.px]="contentWidth"
+    [@contentState]="sidenavOpened ? 'open' : 'closed'"
+    [style.left.px]="windowWidth - contentWidth"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>

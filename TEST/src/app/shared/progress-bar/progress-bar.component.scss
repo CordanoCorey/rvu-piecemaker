@@ -1,0 +1,58 @@
+@import '~@angular/material/_theming';
+@import '../../../common';
+
+.progress-bar {
+    @include mat-elevation(8);
+    width: 100px;
+    height: 100%;
+    // margin: 10% 20px;
+    position: relative;
+    background: #fff;
+
+    .start-label,
+    .end-label {
+        position: absolute;
+        left: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .start-label {
+        bottom: -50px;
+    }
+
+    .end-label {
+        top: -50px;
+    }
+
+    .progress-label {
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: -10px;
+        left: 0px;
+    }
+
+    .progress-label.start {
+        color: #000;
+        top: -50px;
+    }
+
+    .fill {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+
+    .fill.primary {
+        background-color: $primary-color;
+        @include light-blue-gradient();
+    }
+
+    .fill.accent {
+        background-color: $accent-color;
+        @include neon-green-gradient();
+    }
+}

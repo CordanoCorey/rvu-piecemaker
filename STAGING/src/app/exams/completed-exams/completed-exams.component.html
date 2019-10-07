@@ -1,0 +1,79 @@
+<div class="completed-exams">
+  <mat-table [dataSource]="data" class="mat-elevation-z8 scrollable">
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions" *ngIf="!groupByExamType">
+      <mat-header-cell *matHeaderCellDef class="font-effect-3d-float grid-title"> {{ gridTitle }} </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-mini-fab color="primary" (click)="editExam(element)"><mat-icon>edit</mat-icon></button>
+        <button mat-mini-fab color="warn" (click)="onDeleteExam(element)"><mat-icon>delete</mat-icon></button>
+      </mat-cell>
+      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef class="font-effect-3d-float"> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+    </ng-container>
+
+    <!-- CPT Code Column -->
+    <ng-container *ngIf="!groupByExamType" matColumnDef="createdDate">
+      <mat-header-cell *matHeaderCellDef class="font-effect-3d-float"> Completed Time </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.createdDate | date: 'shortTime' }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+    </ng-container>
+
+    <!-- CPT Code Column -->
+    <ng-container *ngIf="groupByExamType" matColumnDef="cptCode">
+      <mat-header-cell *matHeaderCellDef class="font-effect-3d-float"> CPT Code </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.cptCode }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+    </ng-container>
+
+    <!-- Modality Name Column -->
+    <ng-container *ngIf="groupByExamType" matColumnDef="modalityName">
+      <mat-header-cell *matHeaderCellDef class="font-effect-3d-float"> Modality </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.modalityName }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef> </mat-footer-cell>
+    </ng-container>
+
+    <!-- RVU Each Column -->
+    <ng-container *ngIf="groupByExamType" matColumnDef="rvuEach">
+      <mat-header-cell *matHeaderCellDef class="font-effect-3d-float"> RVUs per Exam </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.rvuEach }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+    </ng-container>
+
+    <!-- Count Column -->
+    <ng-container *ngIf="groupByExamType" matColumnDef="count">
+      <mat-header-cell *matHeaderCellDef class="font-effect-3d-float"> Count </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.count }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef>
+        <span class="total-text font-effect-emboss">TOTAL RVUs</span>
+      </mat-footer-cell>
+    </ng-container>
+
+    <!-- Notes Column -->
+    <ng-container *ngIf="!groupByExamType" matColumnDef="notes">
+      <mat-header-cell *matHeaderCellDef class="font-effect-3d-float"> Notes </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.notes }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef> <span *ngIf="!groupByExamType" class="total-text font-effect-emboss">TOTAL RVUs</span></mat-footer-cell>
+    </ng-container>
+
+    <!-- RVU Total Column -->
+    <ng-container matColumnDef="rvuTotal">
+      <mat-header-cell *matHeaderCellDef class="font-effect-3d-float"> RVU Total </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.rvuTotal | number: '1.1-5' }} </mat-cell>
+      <mat-footer-cell *matFooterCellDef>
+        <span class="total-value font-effect-emboss">{{ totalRVUs }}</span>
+      </mat-footer-cell>
+    </ng-container>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    <!-- <mat-footer-row *matFooterRowDef="['modalityName', 'rvuTotal']"></mat-footer-row> -->
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></mat-footer-row>
+  </mat-table>
+</div>

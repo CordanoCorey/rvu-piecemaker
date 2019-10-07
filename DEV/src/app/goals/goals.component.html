@@ -1,0 +1,44 @@
+<div class="goals">
+  <mat-grid-list cols="2" rowHeight="140" gutterSize="20">
+    <mat-grid-tile>
+      <div class="tile">
+        <span class="title font-effect-outline">Total Earned to Date</span> <span class="value font-effect-emboss">{{ goal?.dollarAmountCompleted | currency }}</span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="tile">
+        <span class="title font-effect-outline">Total To Meet Goal</span> <span class="value font-effect-emboss">{{ goal?.dollarAmountRemaining | currency }}</span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="tile">
+        <span class="title font-effect-outline">RVU/Hour Pace</span> <span class="value font-effect-emboss">{{ goal?.rvuTotalPerHourCompleted | number }}</span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="tile">
+        <span class="title font-effect-outline">RVU/Hour Goal</span> <span class="value font-effect-emboss">{{ goal?.rvuTotalPerHourRemaining | number }}</span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="tile">
+        <span class="title font-effect-outline">Original RVU/Hour Goal</span> <span class="value font-effect-emboss">{{ goal?.rvuPerHourGoal | number }}</span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="tile">
+        <span class="title font-effect-outline">Current RVU/Hour Goal</span> <span class="value font-effect-emboss">{{ goal?.rvuTotalPerHourRemaining | number }}</span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="tile">
+        <span class="title font-effect-outline">Original RVU/Day Goal</span> <span class="value font-effect-emboss">{{ goal?.rvuPerHourGoal * 8.25 | number }}</span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="tile">
+        <span class="title font-effect-outline">Current RVU/Day Goal</span> <span class="value font-effect-emboss">{{ goal?.rvuTotalPerHourRemaining * 8.25 | number }}</span>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

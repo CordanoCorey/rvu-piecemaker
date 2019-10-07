@@ -1,0 +1,26 @@
+@import '~@angular/material/_theming';
+@import '../../common';
+
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+.auth.content {
+  .login-link {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+
+  mat-card {
+    max-height: 800px;
+    top: 50px;
+
+    h1 {
+      margin-top: 60px;
+    }
+
+    form {}
+  }
+}

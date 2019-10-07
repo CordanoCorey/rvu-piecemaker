@@ -1,0 +1,84 @@
+@import '~@angular/material/_theming';
+@import '../../../common';
+
+.completed-exams {
+
+  mat-table {
+    @include mat-elevation(6);
+    margin: 20px;
+    max-height: 600px;
+    overflow: auto;
+
+    .mat-column-actions {
+      max-width: 109px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      align-content: space-between;
+
+      .mat-mini-fab {
+        margin-left: 10px;
+
+        mat-icon {
+          color: #fff;
+        }
+      }
+    }
+
+    .mat-column-rvuTotal {
+      max-width: 80px;
+    }
+
+    .mat-column-cptCode {
+      max-width: 100px;
+    }
+
+    .mat-column-modalityName {
+      max-width: 140px;
+    }
+
+    mat-cell {
+      text-align: center;
+      display: inline-grid;
+    }
+
+    mat-header-row {
+      @include light-blue-gradient();
+
+      mat-header-cell {
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        display: inline-grid;
+      }
+
+      mat-header-cell.grid-title {
+        color: $accent-color;
+        font-size: 20px;
+        min-height: 28px;
+      }
+    }
+
+    mat-footer-row {
+      mat-footer-cell {
+        display: inline-grid;
+        font-weight: bold;
+        font-size: 18px;
+        position: relative;
+        overflow: visible;
+
+        .total-text {
+          color: $accent-color;
+          width: 102px;
+          position: absolute;
+          right: 8px;
+        }
+
+        .total-value {
+          color: $primary-color;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

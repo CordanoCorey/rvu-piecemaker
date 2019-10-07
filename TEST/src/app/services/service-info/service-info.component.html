@@ -1,0 +1,8 @@
+<div *ngIf="service.id === 0" class="info">
+  <h3>Services</h3>
+  <p></p>
+</div>
+
+<div *ngIf="!(service.id === 0)" class="info">
+  <h3>{{ service.name }}</h3>
+</div>

@@ -1,0 +1,67 @@
+<mat-toolbar class="mat-elevation-z6" color="primary">
+  <button mat-button class="toggle-menu" (click)="toggleSidenav()">
+    <mat-icon class="font-effect-emboss">menu</mat-icon>
+  </button>
+  <!-- <img class="logo" src="../../assets/full-logo.png" />
+  <h1 class="font-effect-3d-float" routerLink="/dashboard">
+    RVU Piecemaker
+  </h1> -->
+  <div class="toolbar-items" *ngIf="!isMobile">
+    <!-- <div class="toolbar-btn" routerLink="/search">
+      <mat-icon> search</mat-icon>
+    </div> -->
+    <button mat-button class="toolbar-btn font-effect-outline" routerLink="/">
+      <div class="icon-row">
+        <mat-icon>home</mat-icon>
+      </div>
+      <div>
+        Dashboard
+      </div>
+    </button>
+    <button mat-button class="toolbar-btn font-effect-outline" routerLink="/shifts">
+      <div class="icon-row">
+        <mat-icon>event_available</mat-icon>
+      </div>
+      <div>
+        Shifts
+      </div>
+    </button>
+    <button mat-button class="toolbar-btn font-effect-outline" routerLink="/exams">
+      <div class="icon-row">
+        <mat-icon>assignment</mat-icon>
+      </div>
+      <div>
+        Exams
+      </div>
+    </button>
+    <button mat-button class="toolbar-btn font-effect-outline" routerLink="/settings">
+      <div class="icon-row">
+        <mat-icon>settings</mat-icon>
+      </div>
+      <div>
+        Settings
+      </div>
+    </button>
+    <!-- <span class="toolbar-search">
+      <mat-card>
+        <mat-form-field id="searchbar">
+          <input matInput type="search" placeholder="Search for a Student" />
+          <mat-icon matSuffix class="search-icon">search</mat-icon>
+          <span matPrefix>&nbsp;</span>
+        </mat-form-field>
+      </mat-card>
+    </span> -->
+  </div>
+  <div class="toolbar-misc">
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon class="settings-icon clickable font-effect-outline">more_vert</mat-icon>
+    </button>
+    <mat-menu class="settings-menu" #menu="matMenu">
+      <button mat-menu-item class="settings-menu-item">My Account</button>
+      <button mat-menu-item class="settings-menu-item">Change Password</button>
+      <button mat-menu-item class="settings-menu-item" (click)="logout()">
+        Logout
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

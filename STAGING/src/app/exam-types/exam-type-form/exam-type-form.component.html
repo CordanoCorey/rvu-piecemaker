@@ -1,0 +1,46 @@
+<form [formGroup]="form">
+  <mat-form-field>
+    <input matInput formControlName="name" placeholder="Exam Name" type="text" #examName />
+    <mat-hint align="end">{{ examName.value.length }} / 100</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" min="0" max="10" step="0.1" formControlName="rvuTotal" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="cptCode" placeholder="CPT Code" type="text" #cptCode />
+    <mat-hint align="end">{{ cptCode.value.length }} / 100</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Modality" formControlName="modalityId">
+      <mat-option *ngFor="let lkp of modalities$ | async" [value]="lkp.id">
+        {{ lkp.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="admin-fields" *ngIf="isAdminUser$ | async">
+    <mat-form-field>
+      <mat-checkbox formControlName="isAdmin">Apply to all Users?</mat-checkbox>
+      <mat-hint>If not checked this will only apply to your account.</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Doctor Type" formControlName="doctorTypeId">
+        <mat-option *ngFor="let lkp of doctorTypes$ | async" [value]="lkp.id">
+          {{ lkp.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field>
+    <textarea matInput #description maxlength="250" formControlName="description" placeholder="Description"></textarea>
+    <mat-hint align="end">{{ description.value.length }} / 250</mat-hint>
+    <mat-error *ngIf="form.controls['description'].hasError('maxlength')">
+      Please enter a maximum of 250 characters!
+    </mat-error>
+  </mat-form-field>
+</form>

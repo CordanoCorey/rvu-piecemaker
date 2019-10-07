@@ -1,0 +1,49 @@
+@import '~@angular/material/_theming';
+@import '../../common';
+
+.content {
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    color: $primary-color;
+    margin: 10px 0;
+  }
+
+  button {
+    text-decoration: underline;
+  }
+}
+
+rvu-shift-overview {
+  width: 45%;
+  height: 400px;
+}
+
+rvu-goals {
+  margin-top: 40px;
+  width: 45%;
+  height: 360px;
+}
+
+.banner,
+rvu-calendar {
+  width: 90%;
+  position: absolute;
+}
+
+.banner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+}
+
+rvu-calendar {
+  top: 500px;
+}

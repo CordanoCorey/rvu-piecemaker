@@ -1,0 +1,81 @@
+@import '~@angular/material/_theming';
+@import '../../../common';
+
+#sidenav {
+  @include silver-hgradient();
+  left: 0;
+  z-index: 222;
+  height: calc(100% - 56px);
+  top: 56px;
+  position: fixed;
+  overflow-y: hidden;
+  box-shadow: 5px 0 5px -2px #888;
+  -webkit-box-shadow: 5px 0 5px -2px #888;
+  text-align: center;
+
+  a.link {
+    @include mat-elevation(4);
+    text-decoration: none;
+    width: 115px;
+    padding: 12px 10px;
+    margin-bottom: 10px;
+    display: block;
+
+    mat-icon {
+      color: #8e8e8e;
+      font-size: 48px;
+      height: 48px;
+      width: 48px;
+    }
+
+    .label {
+      clear: both;
+      color: #fff;
+      width: 115px;
+      font-size: 18px;
+      padding: 12px 0px;
+      display: block;
+    }
+  }
+
+  a.link:hover {
+    background: #fff;
+    @include black-hgradient();
+
+    mat-icon {
+      color: $primary-color;
+    }
+
+    .label {
+      color: #fff;
+    }
+  }
+
+  a.link:nth-child(1) {
+    top: 20px;
+    top: 2%;
+  }
+
+  a.link:nth-child(2) {
+    top: 160px;
+    top: calc(16% + 30px);
+  }
+
+  a.link:nth-child(3) {
+    top: 300px;
+    top: 44%;
+  }
+
+  a.link:nth-child(4) {
+    top: 440px;
+    top: 65%;
+  }
+
+  .logo {
+    position: absolute;
+    bottom: 5px;
+    width: 90%;
+    left: 5%;
+    cursor: pointer;
+  }
+}

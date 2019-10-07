@@ -1,0 +1,39 @@
+<div class="auth content" fxLayout="column" fxFlex>
+  <mat-card>
+    <button mat-button id="signup-link" class="link" routerLink="/signup">Create New Account</button>
+    <img class="logo" src="../../assets/full-logo.png" [style.height.px]="200" />
+    <h1>LOGIN</h1>
+
+    <form [formGroup]="form" (keyup.enter)="login()">
+      <div class="group">
+        <mat-icon>person</mat-icon>
+        <mat-form-field>
+          <input matInput placeholder="Email Address" type="email" formControlName="email" />
+        </mat-form-field>
+      </div>
+
+      <div class="group">
+        <mat-icon>lock</mat-icon>
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" formControlName="password" />
+        </mat-form-field>
+      </div>
+
+      <button type="button" class="button" (click)="login()">
+        Login
+      </button>
+    </form>
+
+    <button *ngIf="form.controls.email.valid" mat-button id="reset-password-link" class="link" (click)="resetPassword()">Forgot Password?</button>
+
+    <div class="footer">
+      <a href="http://www.caiu.org/" target="_blank">
+        <img src="../../assets/logo.png" />
+      </a>
+      <p>
+        Powered by
+        <a id="powered-by" href="https://www.benjerry.com/" target="_blank">Doug & Paul</a>
+      </p>
+    </div>
+  </mat-card>
+</div>

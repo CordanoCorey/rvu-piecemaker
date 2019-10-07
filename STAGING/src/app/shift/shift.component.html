@@ -1,0 +1,74 @@
+<div id="shift" class="scrollable">
+  <a id="home" routerLink="/"><mat-icon class="font-effect-emboss">home</mat-icon></a>
+  <div id="header-icons">
+    <div class="toolbar-items">
+      <button mat-button class="toolbar-btn font-effect-emboss" routerLink="/">
+        <div class="icon-row">
+          <mat-icon>home</mat-icon>
+        </div>
+        <div>
+          Dashboard
+        </div>
+      </button>
+      <button mat-button class="toolbar-btn font-effect-emboss" routerLink="/shifts">
+        <div class="icon-row">
+          <mat-icon>event_available</mat-icon>
+        </div>
+        <div>
+          Shifts
+        </div>
+      </button>
+      <button mat-button class="toolbar-btn font-effect-emboss" routerLink="/exams">
+        <div class="icon-row">
+          <mat-icon>assignment</mat-icon>
+        </div>
+        <div>
+          Exams
+        </div>
+      </button>
+      <button mat-button class="toolbar-btn font-effect-emboss" routerLink="/settings">
+        <div class="icon-row">
+          <mat-icon>settings</mat-icon>
+        </div>
+        <div>
+          Settings
+        </div>
+      </button>
+    </div>
+    <div class="toolbar-misc">
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon class="settings-icon clickable font-effect-3d-float">more_vert</mat-icon>
+      </button>
+      <mat-menu class="settings-menu" #menu="matMenu">
+        <button mat-menu-item class="settings-menu-item">My Account</button>
+        <button mat-menu-item class="settings-menu-item">Change Password</button>
+        <button mat-menu-item class="settings-menu-item" (click)="logout()">
+          Logout
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <div class="content">
+    <mat-form-field class="select-services" required>
+      <mat-label>Shift Assignment</mat-label>
+      <mat-select [value]="serviceId" panelClass="services-panel" (selectionChange)="changeServiceId($event.value)">
+        <mat-option *ngFor="let service of services$ | async" [value]="service.id">{{ service.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-mini-fab class="info-fab font-effect-emboss" (click)="openServiceInfo()">?</button>
+    <div class="row">
+      <rvu-shift-overview></rvu-shift-overview>
+      <rvu-exam-types></rvu-exam-types>
+    </div>
+    <div class="exams">
+      <mat-tab-group dynamicHeight>
+        <mat-tab label="Order by Completed Time">
+          <rvu-completed-exams [groupByExamType]="false"></rvu-completed-exams>
+        </mat-tab>
+        <mat-tab label="Group By Exam Type">
+          <rvu-completed-exams [groupByExamType]="true"></rvu-completed-exams>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

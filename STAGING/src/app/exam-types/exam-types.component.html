@@ -1,0 +1,35 @@
+<div class="exam-types">
+  <div class="active-group">
+    <h3 class="font-effect-3d-float">{{ groupName }}</h3>
+    <button mat-mini-fab color="primary"><mat-icon>edit</mat-icon></button>
+  </div>
+  <input class="typeahead" matInput type="text" placeholder="Find Exam Type" (keyup)="changeSearchTerm(typeahead.value)" #typeahead />
+  <div class="groups scrollable">
+    <button mat-raised-button class="list-item" [class.active]="groupId === 0" (click)="groupIdSubject.next(0)">ALL</button>
+    <button
+      mat-raised-button
+      class="list-item font-effect-3d-float"
+      [class.active]="group.id === groupId"
+      *ngFor="let group of tags$ | async"
+      (click)="groupIdSubject.next(group.id)"
+    >
+      {{ group.name }}
+    </button>
+  </div>
+  <div class="group-exam-types scrollable" *ngIf="shiftId">
+    <div mat-raised-button class="list-item" *ngFor="let type of filteredExamTypes$ | async" (click)="onAddExam($event, type)">
+      <span class="rvu font-effect-3d-float">{{ type.rvuTotal }}</span>
+      <span class="type-name font-effect-3d-float">{{ type.name }}</span>
+      <span class="cpt-code font-effect-3d-float">{{ type.modalityName }}</span>
+    </div>
+  </div>
+  <div class="group-exam-types scrollable" *ngIf="!shiftId">
+    <div mat-raised-button class="list-item" *ngFor="let type of filteredExamTypes$ | async" (click)="editExamType(type)">
+      <span class="rvu font-effect-3d-float">{{ type.rvuTotal }}</span>
+      <span class="type-name font-effect-3d-float">{{ type.name }}</span>
+      <span class="cpt-code font-effect-3d-float">{{ type.modalityName }}</span>
+    </div>
+  </div>
+</div>
+
+<p *ngIf="showErrorMessage" class="error-message">You must select a shift assignment before entering exams.</p>

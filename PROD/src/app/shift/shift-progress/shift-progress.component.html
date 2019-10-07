@@ -1,0 +1,9 @@
+<div class="progress">
+  <rvu-progress-bar
+    [startLabel]="shift?.startTime | date: 'shortTime'"
+    [endLabel]="shift?.endTime | date: 'shortTime'"
+    [progressLabel]="currentTime | date: 'shortTime'"
+    [percentFilled]="percentFilledTime"
+  ></rvu-progress-bar>
+  <rvu-progress-bar [primary]="false" [startLabel]="0" [endLabel]="rvuGoal" [progressLabel]="shift.rvuCount" [percentFilled]="percentFilledRVU"></rvu-progress-bar>
+</div>

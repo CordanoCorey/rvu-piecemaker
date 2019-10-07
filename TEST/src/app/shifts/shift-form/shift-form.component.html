@@ -1,0 +1,11 @@
+<form [formGroup]="form">
+  <iu-time-control formControlName="startTime"></iu-time-control>
+  <iu-time-control formControlName="endTime"></iu-time-control>
+  <iu-accordion>
+    <div class="additional-fields">
+      <mat-form-field>
+        <input matInput type="number" min="0" max="10" step="0.1" formControlName="rvuTotal" />
+      </mat-form-field>
+    </div>
+  </iu-accordion>
+</form>
