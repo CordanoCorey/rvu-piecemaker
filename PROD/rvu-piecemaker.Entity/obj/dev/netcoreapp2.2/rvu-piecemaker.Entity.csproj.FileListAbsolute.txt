@@ -1,0 +1,10 @@
+C:\appdev\rvu-piecemaker\PROD\rvu-piecemaker.Entity\bin\dev\netcoreapp2.2\rvu-piecemaker.Entity.deps.json
+C:\appdev\rvu-piecemaker\PROD\rvu-piecemaker.Entity\bin\dev\netcoreapp2.2\rvu-piecemaker.Entity.runtimeconfig.json
+C:\appdev\rvu-piecemaker\PROD\rvu-piecemaker.Entity\bin\dev\netcoreapp2.2\rvu-piecemaker.Entity.runtimeconfig.dev.json
+C:\appdev\rvu-piecemaker\PROD\rvu-piecemaker.Entity\bin\dev\netcoreapp2.2\rvu-piecemaker.Entity.dll
+C:\appdev\rvu-piecemaker\PROD\rvu-piecemaker.Entity\bin\dev\netcoreapp2.2\rvu-piecemaker.Entity.pdb
+C:\appdev\rvu-piecemaker\PROD\rvu-piecemaker.Entity\obj\dev\netcoreapp2.2\rvu-piecemaker.Entity.AssemblyInfoInputs.cache
+C:\appdev\rvu-piecemaker\PROD\rvu-piecemaker.Entity\obj\dev\netcoreapp2.2\rvu-piecemaker.Entity.AssemblyInfo.cs
+C:\appdev\rvu-piecemaker\PROD\rvu-piecemaker.Entity\obj\dev\netcoreapp2.2\rvu-piecemaker.Entity.dll
+C:\appdev\rvu-piecemaker\PROD\rvu-piecemaker.Entity\obj\dev\netcoreapp2.2\rvu-piecemaker.Entity.pdb
+C:\appdev\rvu-piecemaker\PROD\rvu-piecemaker.Entity\obj\dev\netcoreapp2.2\rvu-piecemaker.Entity.csprojAssemblyReference.cache

@@ -1,7 +1,7 @@
 <form [formGroup]="form">
   <mat-form-field class="select-services" required>
     <mat-label>Shift Assignment</mat-label>
-    <mat-select [value]="serviceId" panelClass="services-panel" formControlName="serviceId">
+    <mat-select panelClass="services-panel" formControlName="serviceId">
       <mat-option *ngFor="let service of services$ | async" [value]="service.id">{{ service.name }}</mat-option>
     </mat-select>
     <mat-error>You must select a shift assignment before entering exams.</mat-error>

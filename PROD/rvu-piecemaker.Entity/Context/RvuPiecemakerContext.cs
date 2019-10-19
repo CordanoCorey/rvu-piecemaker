@@ -20,7 +20,7 @@ namespace RvuPiecemaker.Entities.Context
     {
       base.OnModelCreating(modelBuilder);
       this.OnModelCreating_Identity(modelBuilder);
-      this.OnModelCreating_Admin(modelBuilder);
+      //this.OnModelCreating_Admin(modelBuilder);
       this.OnModelCreating_Lookup(modelBuilder);
       this.OnModelCreating_Calendar(modelBuilder);
       this.OnModelCreating_Common(modelBuilder);
