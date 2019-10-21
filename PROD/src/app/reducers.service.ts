@@ -18,7 +18,7 @@ import { examsReducer } from './exams/exams.reducer';
 import { examTypesReducer } from './exam-types/exam-types.reducer';
 import { goalsReducer } from './goals/goals.reducer';
 import { shiftsReducer } from './shifts/shifts.reducer';
-import { currentUserReducer, tabsReducer, tagsReducer, servicesReducer } from './shared/reducers';
+import { currentUserReducer, tabsReducer, examGroupsReducer, servicesReducer } from './shared/reducers';
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +46,7 @@ export class ReducersService {
       services: servicesReducer,
       shifts: shiftsReducer,
       tabs: tabsReducer,
-      tags: tagsReducer
+      examGroups: examGroupsReducer
     };
   }
 }

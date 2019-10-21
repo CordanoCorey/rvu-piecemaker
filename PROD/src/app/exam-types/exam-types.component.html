@@ -10,26 +10,26 @@
       mat-raised-button
       class="list-item font-effect-3d-float"
       [class.active]="group.id === groupId"
-      *ngFor="let group of tags$ | async"
+      *ngFor="let group of examGroups$ | async"
       (click)="groupIdSubject.next(group.id)"
     >
       {{ group.name }}
     </button>
   </div>
-  <div class="group-exam-types scrollable" *ngIf="shiftId">
+  <div class="group-exam-types scrollable">
     <div mat-raised-button class="list-item" *ngFor="let type of filteredExamTypes$ | async" (click)="onAddExam($event, type)">
       <span class="rvu font-effect-3d-float">{{ type.rvuTotal }}</span>
       <span class="type-name font-effect-3d-float">{{ type.name }}</span>
       <span class="cpt-code font-effect-3d-float">{{ type.modalityName }}</span>
     </div>
   </div>
-  <div class="group-exam-types scrollable" *ngIf="!shiftId">
+  <!-- <div class="group-exam-types scrollable" *ngIf="!shiftId">
     <div mat-raised-button class="list-item" *ngFor="let type of filteredExamTypes$ | async" (click)="editExamType(type)">
       <span class="rvu font-effect-3d-float">{{ type.rvuTotal }}</span>
       <span class="type-name font-effect-3d-float">{{ type.name }}</span>
       <span class="cpt-code font-effect-3d-float">{{ type.modalityName }}</span>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <p *ngIf="showErrorMessage" class="error-message">You must select a shift assignment before entering exams.</p>

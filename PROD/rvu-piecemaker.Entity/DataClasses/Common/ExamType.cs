@@ -8,7 +8,7 @@ namespace RvuPiecemaker.Entities.DataClasses
     public ExamType()
     {
       Exams = new HashSet<Exam>();
-      ExamTagXref = new HashSet<ExamTagXref>();
+      ExamGroupXref = new HashSet<ExamGroupXref>();
       ExamTypeServices = new HashSet<ServiceExamTypeXref>();
     }
     public int Id { get; set; }
@@ -27,7 +27,7 @@ namespace RvuPiecemaker.Entities.DataClasses
     public virtual ApplicationUser LastModifiedBy { get; set; }
     public virtual Modality Modality { get; set; }
     public virtual ICollection<Exam> Exams { get; set; }
-    public virtual ICollection<ExamTagXref> ExamTagXref { get; set; }
+    public virtual ICollection<ExamGroupXref> ExamGroupXref { get; set; }
     public virtual ICollection<ServiceExamTypeXref> ExamTypeServices { get; set; }
   }
 }

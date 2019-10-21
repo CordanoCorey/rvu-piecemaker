@@ -45,19 +45,19 @@ export class Tabs extends Collection<Tab> {
   }
 }
 
-export class Tag extends BaseEntity {
+export class ExamGroup extends BaseEntity {
   id = 0;
   name = 0;
   description = '';
 }
 
-export class Tags extends Collection<Tag> {
+export class ExamGroups extends Collection<ExamGroup> {
   constructor() {
-    super(Tag);
+    super(ExamGroup);
   }
 
-  update(data: Tag | Tag[]): Tags {
-    return build(Tags, super.update(data));
+  update(data: ExamGroup | ExamGroup[]): ExamGroups {
+    return build(ExamGroups, super.update(data));
   }
 }
 

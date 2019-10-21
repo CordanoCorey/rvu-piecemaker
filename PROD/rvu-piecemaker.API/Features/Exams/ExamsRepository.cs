@@ -12,6 +12,7 @@ namespace RvuPiecemaker.API.Features.Exams
 {
   public interface IExamsRepository : IBaseRepository<Exam, ExamModel>
   {
+    IEnumerable<ExamModel> FindByDate(DateTime date);
     IEnumerable<ExamModel> FindByUser(int userId);
   }
 
@@ -48,6 +49,11 @@ namespace RvuPiecemaker.API.Features.Exams
     public IEnumerable<ExamModel> FindByUser(int userId)
     {
       return FindBy(x => x.CreatedById == userId);
+    }
+
+    public IEnumerable<ExamModel> FindByDate(DateTime date)
+    {
+      return FindBy(x => x.StartTime.Date == date);
     }
   }
 }

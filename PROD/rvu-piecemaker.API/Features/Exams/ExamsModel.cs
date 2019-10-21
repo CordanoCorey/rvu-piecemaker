@@ -14,7 +14,9 @@ namespace RvuPiecemaker.API.Features.Exams
     public string Notes { get; set; }
     public decimal? RvuTotal { get; set; }
     public int ServiceId { get; set; }
-    public int ShiftId { get; set; }
+    public int? ShiftId { get; set; }
+    public DateTime StartTime { get; set; }
+    public DateTime? EndTime { get; set; }
     public ExamTypeModel ExamType { get; set; }
     public ShiftModel Shift { get; set; }
   }
@@ -29,6 +31,6 @@ namespace RvuPiecemaker.API.Features.Exams
     public int ModalityId { get; set; }
     public string ModalityName { get; set; }
     public bool IsAdmin { get; set; }
-    public IEnumerable<int> TagIds { get; set; }
+    public IEnumerable<int> ExamGroupIds { get; set; }
   }
 }

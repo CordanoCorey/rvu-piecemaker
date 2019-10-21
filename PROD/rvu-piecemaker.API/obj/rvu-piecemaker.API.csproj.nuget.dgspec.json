@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\appdev\\rvu-piecemaker\\PROD\\rvu-piecemaker.API\\rvu-piecemaker.API.csproj": {}
+    "C:\\appdev\\rvu\\PROD\\rvu-piecemaker.API\\rvu-piecemaker.API.csproj": {}
   },
   "projects": {
-    "C:\\appdev\\rvu-piecemaker\\PROD\\rvu-piecemaker.API\\rvu-piecemaker.API.csproj": {
+    "C:\\appdev\\rvu\\PROD\\rvu-piecemaker.API\\rvu-piecemaker.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\appdev\\rvu-piecemaker\\PROD\\rvu-piecemaker.API\\rvu-piecemaker.API.csproj",
+        "projectUniqueName": "C:\\appdev\\rvu\\PROD\\rvu-piecemaker.API\\rvu-piecemaker.API.csproj",
         "projectName": "rvu-piecemaker.API",
-        "projectPath": "C:\\appdev\\rvu-piecemaker\\PROD\\rvu-piecemaker.API\\rvu-piecemaker.API.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\appdev\\rvu-piecemaker\\PROD\\rvu-piecemaker.API\\obj\\",
+        "projectPath": "C:\\appdev\\rvu\\PROD\\rvu-piecemaker.API\\rvu-piecemaker.API.csproj",
+        "packagesPath": "C:\\Users\\cgelbaugh\\.nuget\\packages\\",
+        "outputPath": "C:\\appdev\\rvu\\PROD\\rvu-piecemaker.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cgelbaugh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\appdev\\rvu-piecemaker\\PROD\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj": {
-                "projectPath": "C:\\appdev\\rvu-piecemaker\\PROD\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj"
+              "C:\\appdev\\rvu\\PROD\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj": {
+                "projectPath": "C:\\appdev\\rvu\\PROD\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj"
               }
             }
           }
@@ -88,7 +88,6 @@
               "version": "[2.1.1, )"
             },
             "Microsoft.NETCore.App": {
-              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
@@ -111,33 +110,27 @@
             }
           },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
+            "net461"
           ],
           "assetTargetFallback": true,
-          "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "warn": true
         }
       }
     },
-    "C:\\appdev\\rvu-piecemaker\\PROD\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj": {
+    "C:\\appdev\\rvu\\PROD\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\appdev\\rvu-piecemaker\\PROD\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj",
+        "projectUniqueName": "C:\\appdev\\rvu\\PROD\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj",
         "projectName": "rvu-piecemaker.Entity",
-        "projectPath": "C:\\appdev\\rvu-piecemaker\\PROD\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\appdev\\rvu-piecemaker\\PROD\\rvu-piecemaker.Entity\\obj\\",
+        "projectPath": "C:\\appdev\\rvu\\PROD\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj",
+        "packagesPath": "C:\\Users\\cgelbaugh\\.nuget\\packages\\",
+        "outputPath": "C:\\appdev\\rvu\\PROD\\rvu-piecemaker.Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cgelbaugh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -198,23 +191,16 @@
               "version": "[2.1.3, )"
             },
             "Microsoft.NETCore.App": {
-              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
             }
           },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
+            "net461"
           ],
           "assetTargetFallback": true,
-          "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "warn": true
         }
       }
     }

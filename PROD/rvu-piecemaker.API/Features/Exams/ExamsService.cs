@@ -11,6 +11,7 @@ namespace RvuPiecemaker.API.Features.Exams
   {
     IEnumerable<ExamModel> GetAllExams();
     IEnumerable<ExamModel> GetUserExams(int userId);
+    IEnumerable<ExamModel> GetExamsByDate(DateTime date);
     IEnumerable<ExamTypeModel> GetUserExamTypes(int userId);
     ExamModel GetExam(int id);
     ExamTypeModel GetExamType(int id);
@@ -60,15 +61,15 @@ namespace RvuPiecemaker.API.Features.Exams
 
     public ExamModel InsertExam(ExamModel model)
     {
-      if (model.Shift != null && model.ShiftId == 0)
-      {
-        model.Shift.CreatedById = model.CreatedById;
-        model.Shift.CreatedDate = model.CreatedDate;
-        model.Shift.LastModifiedById = model.LastModifiedById;
-        model.Shift.LastModifiedDate = model.LastModifiedDate;
-        var shift = _shifts.InsertShift(model.Shift);
-        model.ShiftId = shift.Id;
-      }
+      //if (model.Shift != null && model.ShiftId == 0)
+      //{
+      //  model.Shift.CreatedById = model.CreatedById;
+      //  model.Shift.CreatedDate = model.CreatedDate;
+      //  model.Shift.LastModifiedById = model.LastModifiedById;
+      //  model.Shift.LastModifiedDate = model.LastModifiedDate;
+      //  var shift = _shifts.InsertShift(model.Shift);
+      //  model.ShiftId = shift.Id;
+      //}
 
       var inserted = _repo.Insert(model);
       return GetExam(inserted.Id);
@@ -110,6 +111,11 @@ namespace RvuPiecemaker.API.Features.Exams
     public IEnumerable<ExamTypeModel> GetAllExamTypes()
     {
       return _examTypes.All();
+    }
+
+    public IEnumerable<ExamModel> GetExamsByDate(DateTime date)
+    {
+      return _repo.FindByDate(date);
     }
   }
 }

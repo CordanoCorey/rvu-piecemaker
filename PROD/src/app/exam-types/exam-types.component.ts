@@ -11,10 +11,10 @@ import { ExamFormComponent } from '../exam/exam-form/exam-form.component';
 import { Exam } from '../exams/exams.model';
 import { ExamsActions } from '../exams/exams.reducer';
 import { Shift } from '../shifts/shifts.model';
-import { Tag } from '../shared/models';
+import { ExamGroup } from '../shared/models';
 import { shiftSelector } from '../shifts/shifts.reducer';
-import { tagsSelector } from '../shared/selectors';
-import { TagsActions } from '../shared/actions';
+import { examGroupsSelector, activeDateSelector } from '../shared/selectors';
+import { ExamGroupsActions } from '../shared/actions';
 
 @Component({
   selector: 'rvu-exam-types',
@@ -22,6 +22,8 @@ import { TagsActions } from '../shared/actions';
   styleUrls: ['./exam-types.component.scss']
 })
 export class ExamTypesComponent extends SmartComponent implements OnInit {
+  date: Date = new Date();
+  date$: Observable<Date>;
   examTypeId = 0;
   examTypes$: Observable<ExamType[]>;
   filteredExamTypes$: Observable<ExamType[]>;
@@ -29,6 +31,11 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
   groupId$: Observable<number>;
   groupIdSubject = new BehaviorSubject<number>(0);
   messages = [
+    build(MessageSubscription, {
+      action: ExamsActions.POST,
+      channel: 'TOASTS',
+      mapper: e => `Exam saved successfully!`
+    }),
     build(MessageSubscription, {
       action: ExamsActions.POST_ERROR,
       channel: 'ERRORS',
@@ -43,19 +50,20 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
   shiftId = 0;
   shiftId$: Observable<number>;
   showErrorMessage = false;
-  tags$: Observable<Tag[]>;
+  examGroups$: Observable<ExamGroup[]>;
   _examTypes: ExamType[] = [];
 
   constructor(public store: Store<any>, public dialog: MatDialog) {
     super(store);
+    this.date$ = activeDateSelector(store);
     this.examTypes$ = examTypesSelector(store);
     this.groupId$ = this.groupIdSubject.asObservable();
     this.serviceId$ = routeParamIdSelector(store, 'serviceId');
     this.shift$ = shiftSelector(store);
     this.shiftId$ = routeParamIdSelector(store, 'shiftId');
-    this.tags$ = tagsSelector(store);
+    this.examGroups$ = examGroupsSelector(store);
     this.filteredExamTypes$ = combineLatest(this.examTypes$, this.groupId$, this.searchTermSubject.asObservable(), (examTypes, groupId, searchTerm) => {
-      return examTypes.filter(x => (groupId === 0 || inArray(x.tagIds, groupId)) && (!searchTerm || x.name.toLowerCase().includes(searchTerm.toLowerCase())));
+      return examTypes.filter(x => (groupId === 0 || inArray(x.examGroupIds, groupId)) && (!searchTerm || x.name.toLowerCase().includes(searchTerm.toLowerCase())));
     });
   }
 
@@ -72,7 +80,7 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sync(['groupId', 'serviceId', 'shift', 'shiftId']);
+    this.sync(['date', 'groupId', 'serviceId', 'shift', 'shiftId']);
     this.onInit();
     this.getExamTypes();
     this.getExamGroups();
@@ -90,11 +98,13 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
         build(Exam, {
           examTypeId: type.id,
           serviceId: this.serviceId,
-          shiftId: this.shiftId,
+          shiftId: this.shiftId || null,
           shift: build(Shift, this.shift, {
             id: 0,
             shiftTypeId: 1
-          })
+          }),
+          startTime: this.date,
+          endTime: null
         })
       );
     }
@@ -124,7 +134,7 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
   }
 
   getExamGroups() {
-    this.dispatch(HttpActions.get(`tags`, TagsActions.GET));
+    this.dispatch(HttpActions.get(`examgroups`, ExamGroupsActions.GET));
   }
 
   getExamTypes() {

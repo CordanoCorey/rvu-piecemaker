@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable, interval, combineLatest } from 'rxjs';
 import { map, distinctUntilChanged, take } from 'rxjs/operators';
 
-import { CurrentUser, Tag, Tab, Service } from './models';
+import { CurrentUser, ExamGroup, Tab, Service } from './models';
 
 export function isAdminUserSelector(store: Store<any>): Observable<boolean> {
   return userSelector(store).pipe(
@@ -62,8 +62,8 @@ export function tabsSelector(store: Store<any>): Observable<Tab[]> {
   return store.select('tabs').pipe(map(x => x.asArray));
 }
 
-export function tagsSelector(store: Store<any>): Observable<Tag[]> {
-  return store.select('tags').pipe(map(x => x.asArray));
+export function examGroupsSelector(store: Store<any>): Observable<ExamGroup[]> {
+  return store.select('examGroups').pipe(map(x => x.asArray));
 }
 
 export function userSelector(store: Store<any>): Observable<CurrentUser> {
@@ -89,4 +89,8 @@ export function rvuRateSelector(store: Store<any>): Observable<number> {
     map(x => x.rvuRate),
     distinctUntilChanged()
   );
+}
+
+export function activeDateSelector(store: Store<any>): Observable<Date> {
+  return routeParamSelector(store, 'date').pipe(map(x => (x ? new Date(x) : new Date())));
 }

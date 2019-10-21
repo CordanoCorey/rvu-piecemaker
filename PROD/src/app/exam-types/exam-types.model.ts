@@ -10,7 +10,7 @@ export class ExamType extends BaseEntity {
   modalityName = '';
   name = '';
   rvuTotal = 0;
-  tagIds: number[] = [];
+  examGroupIds: number[] = [];
 
   get metadata(): Metadata {
     return build(Metadata, {

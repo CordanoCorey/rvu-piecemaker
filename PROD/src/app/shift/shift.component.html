@@ -1,5 +1,6 @@
 <div id="shift" class="scrollable">
   <a id="home" routerLink="/"><mat-icon class="font-effect-emboss">home</mat-icon></a>
+  <span id="user-name">{{ userName$ | async }}</span>
   <div id="header-icons">
     <div class="toolbar-items">
       <button mat-button class="toolbar-btn font-effect-emboss" routerLink="/">

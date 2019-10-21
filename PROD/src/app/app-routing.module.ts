@@ -1,6 +1,28 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AuthenticatedGuard } from '@caiu/library';
+import { NgModule, Injectable } from '@angular/core';
+import { Routes, RouterModule, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { authenticatedSelector, RouterService } from '@caiu/library';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+@Injectable()
+export class AuthenticatedGuard implements CanActivate {
+  authenticated = false;
+  authenticated$: Observable<boolean>;
+
+  constructor(public store: Store<any>, private router: RouterService) {
+    this.authenticated$ = authenticatedSelector(store);
+    this.authenticated$.subscribe(x => {
+      this.authenticated = x;
+    });
+  }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
+    if (!this.authenticated) {
+      this.router.navigateByUrl('/login');
+    }
+    return this.authenticated$;
+  }
+}
 
 const routes: Routes = [
   {
@@ -13,8 +35,8 @@ const routes: Routes = [
       },
       {
         path: 'dashboard',
-        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
-        // canActivate: [AuthenticatedGuard]
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+        canActivate: [AuthenticatedGuard]
       },
       {
         path: 'reset-password',

@@ -11,9 +11,11 @@ namespace RvuPiecemaker.Entities.DataClasses
     public int Id { get; set; }
     public int ExamTypeId { get; set; }
     public int ServiceId { get; set; }
-    public int ShiftId { get; set; }
+    public int? ShiftId { get; set; }
     public string Notes { get; set; }
     public decimal? RvuTotal { get; set; }
+    public DateTime StartTime { get; set; }
+    public DateTime? EndTime { get; set; }
     public int CreatedById { get; set; }
     public DateTime CreatedDate { get; set; }
     public int LastModifiedById { get; set; }

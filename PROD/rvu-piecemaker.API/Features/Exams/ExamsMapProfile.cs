@@ -21,7 +21,7 @@ namespace RvuPiecemaker.API.Features.Exams
 
       CreateMap<ExamType, ExamTypeModel>()
           .ForMember(dest => dest.ModalityName, opt => opt.MapFrom(src => src.Modality.Name))
-          .ForMember(dest => dest.TagIds, opt => opt.MapFrom(src => src.ExamTagXref.Select(x => x.TagId)))
+          .ForMember(dest => dest.ExamGroupIds, opt => opt.MapFrom(src => src.ExamGroupXref.Select(x => x.ExamGroupId)))
       ;
 
       CreateMap<ExamTypeModel, ExamType>()

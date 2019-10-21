@@ -1,9 +1,24 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatInputModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatToolbarModule
+} from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
-import { LibraryModule, FormsModule } from '@caiu/library';
+import { FormsModule, AccordionModule, DialogModule } from '@caiu/library';
 
 import { ContainerComponent } from './container/container.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,8 +28,58 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [ContainerComponent, HeaderComponent, ProgressBarComponent, SidenavComponent],
-  imports: [FormsModule, LibraryModule, MatMenuModule, MatSnackBarModule, MatTableModule, RouterModule],
-  exports: [FormsModule, LibraryModule, MatMenuModule, MatSnackBarModule, MatTableModule, ProgressBarComponent, RouterModule, ContainerComponent]
+  imports: [
+    CommonModule,
+    AccordionModule,
+    DialogModule,
+    RouterModule,
+    FlexLayoutModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatTabsModule,
+    RouterModule
+  ],
+  exports: [
+    CommonModule,
+    AccordionModule,
+    DialogModule,
+    RouterModule,
+    FlexLayoutModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatTabsModule,
+    ProgressBarComponent,
+    RouterModule,
+    ContainerComponent
+  ]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

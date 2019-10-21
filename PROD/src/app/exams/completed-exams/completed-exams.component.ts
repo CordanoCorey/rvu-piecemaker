@@ -5,9 +5,10 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { Exam } from '../exams.model';
-import { completedExamsSelector, ExamActions } from '../exams.reducer';
+import { completedExamsSelector, ExamActions, ExamsActions } from '../exams.reducer';
 import { ExamTypeRow } from '../../exam-types/exam-types.model';
 import { ExamFormComponent } from '../../exam/exam-form/exam-form.component';
+import { activeDateSelector } from 'src/app/shared/selectors';
 
 @Component({
   selector: 'rvu-completed-exams',
@@ -18,11 +19,14 @@ export class CompletedExamsComponent extends SmartComponent implements OnInit {
   @Input() groupByExamType = false;
   completedExams: Exam[] = [];
   completedExams$: Observable<Exam[]>;
+  _date: Date = new Date();
+  date$: Observable<Date>;
   deleting: Exam;
 
   constructor(public store: Store<any>, public dialog: MatDialog) {
     super(store);
     this.completedExams$ = completedExamsSelector(store);
+    this.date$ = activeDateSelector(store);
   }
 
   get data(): Exam[] | ExamTypeRow[] {
@@ -44,6 +48,18 @@ export class CompletedExamsComponent extends SmartComponent implements OnInit {
       : this.completedExams.sort((a, b) => compareDates(a.createdDate, b.createdDate));
   }
 
+  set date(value: Date) {
+    console.log(value);
+    this._date = value;
+    if (value) {
+      this.getExams(value);
+    }
+  }
+
+  get date(): Date {
+    return this._date;
+  }
+
   get displayedColumns(): string[] {
     return this.groupByExamType ? ['name', 'cptCode', 'modalityName', 'rvuEach', 'count', 'rvuTotal'] : ['actions', 'name', 'createdDate', 'notes', 'rvuTotal'];
   }
@@ -57,7 +73,7 @@ export class CompletedExamsComponent extends SmartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sync(['completedExams']);
+    this.sync(['completedExams', 'date']);
   }
 
   closeDialog(e: any) {
@@ -66,6 +82,10 @@ export class CompletedExamsComponent extends SmartComponent implements OnInit {
       this.deleting = null;
     }
     super.closeDialog(e);
+  }
+
+  getExams(date: Date) {
+    this.dispatch(HttpActions.get(`exams?date=${date.toDateString()}`, ExamsActions.GET));
   }
 
   onDeleteExam(e: Exam) {

@@ -34,6 +34,6 @@ export class TabsActions {
   }
 }
 
-export class TagsActions {
-  static GET = '[Tags] GET';
+export class ExamGroupsActions {
+  static GET = '[ExamGroups] GET';
 }

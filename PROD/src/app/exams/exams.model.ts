@@ -9,6 +9,8 @@ export class Exam extends BaseEntity {
   notes = '';
   serviceId = 0;
   shiftId = 0;
+  startTime: Date = new Date();
+  endTime: Date = new Date();
   _examType: ExamType = new ExamType();
   _rvuTotal: number;
 

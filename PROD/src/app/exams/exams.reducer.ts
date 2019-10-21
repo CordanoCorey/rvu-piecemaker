@@ -1,10 +1,11 @@
-import { Action, routeParamIdSelector } from '@caiu/library';
+import { Action, routeParamIdSelector, DateHelper } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Exams, Exam } from './exams.model';
 import { ShiftActions } from '../shifts/shifts.reducer';
+import { activeDateSelector } from '../shared/selectors';
 
 export class ExamsActions {
   static GET = '[Exams] GET';
@@ -20,11 +21,7 @@ export class ExamActions {
 export function examsReducer(state: Exams = new Exams(), action: Action): Exams {
   switch (action.type) {
     case ExamsActions.GET:
-      return state;
-
     case ExamsActions.POST:
-      return state.update(action.payload);
-
     case ExamActions.PUT:
       return state.update(action.payload);
 
@@ -44,5 +41,6 @@ export function examsSelector(store: Store<any>): Observable<Exams> {
 }
 
 export function completedExamsSelector(store: Store<any>): Observable<Exam[]> {
-  return combineLatest(examsSelector(store), routeParamIdSelector(store, 'shiftId'), (exams, shiftId) => exams.asArray.filter(x => x.shiftId === shiftId));
+  // return combineLatest(examsSelector(store), routeParamIdSelector(store, 'shiftId'), (exams, shiftId) => exams.asArray.filter(x => x.shiftId === shiftId));
+  return combineLatest(examsSelector(store), activeDateSelector(store), (exams, date) => exams.asArray.filter(x => DateHelper.IsSameDay(x.startTime, date)));
 }

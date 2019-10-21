@@ -19,7 +19,7 @@ using RvuPiecemaker.API.Features.Calendars;
 using RvuPiecemaker.API.Features.Exams;
 using RvuPiecemaker.API.Features.Goals;
 using RvuPiecemaker.API.Features.Shifts;
-using RvuPiecemaker.API.Features.Tags;
+using RvuPiecemaker.API.Features.ExamGroups;
 using RvuPiecemaker.API.Features.Users;
 
 namespace RvuPiecemaker.API
@@ -36,7 +36,7 @@ namespace RvuPiecemaker.API
         config.AddProfile(new ExamsMapProfile());
         config.AddProfile(new GoalsMapProfile());
         config.AddProfile(new ShiftsMapProfile());
-        config.AddProfile(new TagsMapProfile());
+        config.AddProfile(new ExamGroupsMapProfile());
         config.AddProfile(new UsersMapProfile());
       });
 

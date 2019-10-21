@@ -17,10 +17,17 @@ namespace RvuPiecemaker.API.Features.Exams
       _service = service;
     }
 
+    //[HttpGet]
+    //public IActionResult Get()
+    //{
+    //  return Get(_service.GetUserExams, UserId);
+    //}
+
     [HttpGet]
-    public IActionResult Get()
+    public IActionResult GetByDate([FromQuery]DateTime date)
     {
-      return Get(_service.GetUserExams, UserId);
+      var result = _service.GetExamsByDate(date);
+      return Ok(result);
     }
 
     [HttpPut("{id}")]

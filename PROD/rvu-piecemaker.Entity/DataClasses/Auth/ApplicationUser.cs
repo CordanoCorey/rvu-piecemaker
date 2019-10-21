@@ -26,8 +26,8 @@ namespace RvuPiecemaker.Entities.DataClasses
       ShiftLastModifiedBy = new HashSet<Shift>();
       UserShiftTypes = new HashSet<UserShiftTypeXref>();
       UserShifts = new HashSet<Shift>();
-      TagCreatedBy = new HashSet<Tag>();
-      TagLastModifiedBy = new HashSet<Tag>();
+      ExamGroupCreatedBy = new HashSet<ExamGroup>();
+      ExamGroupLastModifiedBy = new HashSet<ExamGroup>();
     }
     public int? DoctorTypeId { get; set; }
     public string FirstName { get; set; }
@@ -57,7 +57,7 @@ namespace RvuPiecemaker.Entities.DataClasses
     public virtual ICollection<Goal> GoalCreatedBy { get; set; }
     public virtual ICollection<Goal> GoalLastModifiedBy { get; set; }
     public virtual ICollection<Goal> UserGoals { get; set; }
-    public virtual ICollection<Tag> TagCreatedBy { get; set; }
-    public virtual ICollection<Tag> TagLastModifiedBy { get; set; }
+    public virtual ICollection<ExamGroup> ExamGroupCreatedBy { get; set; }
+    public virtual ICollection<ExamGroup> ExamGroupLastModifiedBy { get; set; }
   }
 }

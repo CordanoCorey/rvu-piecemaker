@@ -19,33 +19,6 @@ namespace RvuPiecemaker.Entity.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CAIU.Common.ErrorLog", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("CreatedTime");
-
-                    b.Property<string>("Data");
-
-                    b.Property<int?>("Hrresult");
-
-                    b.Property<string>("InnerException");
-
-                    b.Property<string>("Message");
-
-                    b.Property<string>("Source");
-
-                    b.Property<string>("StackTrace");
-
-                    b.Property<string>("User");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ErrorLog","Admin");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.Property<int>("Id")
@@ -231,9 +204,9 @@ namespace RvuPiecemaker.Entity.Migrations
                     b.ToTable("User","Auth");
 
                     b.HasData(
-                        new { Id = 1, AccessFailedCount = 0, ConcurrencyStamp = "f605120f-716d-40c3-9dbd-8ff473410823", Email = "gelbaughcm@gmail.com", EmailConfirmed = false, FirstName = "System", LastName = "Administrator", LockoutEnabled = false, NormalizedEmail = "GELBAUGHCM@GMAIL.COM", NormalizedUserName = "GELBAUGHCM@GMAIL.COM", PasswordHash = "AQAAAAEAACcQAAAAEOArtYDjNhZZ70ALB8gN48bBCYBvnHqlujqi9YvoQLZheFnvqYIS0X9xI3BHGchHdg==", PhoneNumberConfirmed = false, RvuRate = 33.3m, SecurityStamp = "dfafd561-8cef-40ad-8c7a-339dc67529d0", ShiftTypeId = 1, TwoFactorEnabled = false, UserName = "gelbaughcm@gmail.com", YearTypeId = 1 },
-                        new { Id = 2, AccessFailedCount = 0, ConcurrencyStamp = "b39b7fd6-391c-4d74-ae0c-14a75b78866d", DoctorTypeId = 1, Email = "dmartingrad@gmail.com", EmailConfirmed = false, FirstName = "Doug", LastName = "Martin", LockoutEnabled = false, NormalizedEmail = "DMARTINGRAD@GMAIL.COM", NormalizedUserName = "DMARTINGRAD@GMAIL.COM", PasswordHash = "AQAAAAEAACcQAAAAEOArtYDjNhZZ70ALB8gN48bBCYBvnHqlujqi9YvoQLZheFnvqYIS0X9xI3BHGchHdg==", PhoneNumberConfirmed = false, SecurityStamp = "YSMHWI6B5ZHJFY4JDYXCHTUO52NXZWXB", ShiftTypeId = 1, TwoFactorEnabled = false, UserName = "dmartingrad@gmail.com", YearTypeId = 1 },
-                        new { Id = 3, AccessFailedCount = 0, ConcurrencyStamp = "8162aab4-994a-4a36-b184-867c083484c3", DoctorTypeId = 1, Email = "pspotok@verizon.net", EmailConfirmed = false, FirstName = "Paul", LastName = "Potok", LockoutEnabled = false, NormalizedEmail = "PSPOTOK@VERIZON.NET", NormalizedUserName = "PSPOTOK@VERIZON.NET", PasswordHash = "AQAAAAEAACcQAAAAEOArtYDjNhZZ70ALB8gN48bBCYBvnHqlujqi9YvoQLZheFnvqYIS0X9xI3BHGchHdg==", PhoneNumberConfirmed = false, SecurityStamp = "MKZ5DGRD44RCRJFUGZTIYTWZJ2IXSHUE", ShiftTypeId = 1, TwoFactorEnabled = false, UserName = "pspotok@verizon.net", YearTypeId = 1 }
+                        new { Id = 1, AccessFailedCount = 0, ConcurrencyStamp = "f605120f-716d-40c3-9dbd-8ff473410823", Email = "gelbaughcm@gmail.com", EmailConfirmed = false, FirstName = "System", LastName = "Administrator", LockoutEnabled = false, NormalizedEmail = "GELBAUGHCM@GMAIL.COM", NormalizedUserName = "GELBAUGHCM@GMAIL.COM", PasswordHash = "AQAAAAEAACcQAAAAELOBJuVxexUotv2KcwjrXvL1y7w0fqQDt0OZqrA9SBRw2KUWbDCzhlJPFU7Y7P+u7Q==", PhoneNumberConfirmed = false, RvuRate = 33.3m, SecurityStamp = "dfafd561-8cef-40ad-8c7a-339dc67529d0", ShiftTypeId = 1, TwoFactorEnabled = false, UserName = "gelbaughcm@gmail.com", YearTypeId = 1 },
+                        new { Id = 2, AccessFailedCount = 0, ConcurrencyStamp = "b39b7fd6-391c-4d74-ae0c-14a75b78866d", DoctorTypeId = 1, Email = "dmartingrad@gmail.com", EmailConfirmed = false, FirstName = "Doug", LastName = "Martin", LockoutEnabled = false, NormalizedEmail = "DMARTINGRAD@GMAIL.COM", NormalizedUserName = "DMARTINGRAD@GMAIL.COM", PasswordHash = "AQAAAAEAACcQAAAAELOBJuVxexUotv2KcwjrXvL1y7w0fqQDt0OZqrA9SBRw2KUWbDCzhlJPFU7Y7P+u7Q==", PhoneNumberConfirmed = false, SecurityStamp = "YSMHWI6B5ZHJFY4JDYXCHTUO52NXZWXB", ShiftTypeId = 1, TwoFactorEnabled = false, UserName = "dmartingrad@gmail.com", YearTypeId = 1 },
+                        new { Id = 3, AccessFailedCount = 0, ConcurrencyStamp = "8162aab4-994a-4a36-b184-867c083484c3", DoctorTypeId = 1, Email = "pspotok@verizon.net", EmailConfirmed = false, FirstName = "Paul", LastName = "Potok", LockoutEnabled = false, NormalizedEmail = "PSPOTOK@VERIZON.NET", NormalizedUserName = "PSPOTOK@VERIZON.NET", PasswordHash = "AAQAAAAEAACcQAAAAELOBJuVxexUotv2KcwjrXvL1y7w0fqQDt0OZqrA9SBRw2KUWbDCzhlJPFU7Y7P+u7Q==", PhoneNumberConfirmed = false, SecurityStamp = "MKZ5DGRD44RCRJFUGZTIYTWZJ2IXSHUE", ShiftTypeId = 1, TwoFactorEnabled = false, UserName = "pspotok@verizon.net", YearTypeId = 1 }
                     );
                 });
 
@@ -377,6 +350,8 @@ namespace RvuPiecemaker.Entity.Migrations
 
                     b.Property<DateTime>("CreatedDate");
 
+                    b.Property<DateTime?>("EndTime");
+
                     b.Property<int>("ExamTypeId");
 
                     b.Property<int>("LastModifiedById");
@@ -390,7 +365,9 @@ namespace RvuPiecemaker.Entity.Migrations
 
                     b.Property<int>("ServiceId");
 
-                    b.Property<int>("ShiftId");
+                    b.Property<int?>("ShiftId");
+
+                    b.Property<DateTime>("StartTime");
 
                     b.HasKey("Id");
 
@@ -407,25 +384,54 @@ namespace RvuPiecemaker.Entity.Migrations
                     b.ToTable("Exam","Common");
                 });
 
-            modelBuilder.Entity("RvuPiecemaker.Entities.DataClasses.ExamTagXref", b =>
+            modelBuilder.Entity("RvuPiecemaker.Entities.DataClasses.ExamGroup", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CreatedById");
+
+                    b.Property<DateTime>("CreatedDate");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(200);
+
+                    b.Property<int>("LastModifiedById");
+
+                    b.Property<DateTime>("LastModifiedDate");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedById");
+
+                    b.HasIndex("LastModifiedById");
+
+                    b.ToTable("ExamGroup","Common");
+                });
+
+            modelBuilder.Entity("RvuPiecemaker.Entities.DataClasses.ExamGroupXref", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ExamGroupId");
+
                     b.Property<int>("ExamTypeId");
 
                     b.Property<int>("Order");
 
-                    b.Property<int>("TagId");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("ExamGroupId");
 
                     b.HasIndex("ExamTypeId");
 
-                    b.HasIndex("TagId");
-
-                    b.ToTable("ExamTag_xref","Common");
+                    b.ToTable("ExamGroup_xref","Common");
                 });
 
             modelBuilder.Entity("RvuPiecemaker.Entities.DataClasses.ExamType", b =>
@@ -573,7 +579,9 @@ namespace RvuPiecemaker.Entity.Migrations
                     b.ToTable("Goal","Common");
 
                     b.HasData(
-                        new { Id = 1, CreatedById = 1, CreatedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), DollarAmount = 100000m, LastModifiedById = 1, LastModifiedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), UserId = 1, YearId = 1 }
+                        new { Id = 1, CreatedById = 1, CreatedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), DollarAmount = 100000m, LastModifiedById = 1, LastModifiedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), UserId = 1, YearId = 1 },
+                        new { Id = 2, CreatedById = 1, CreatedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), DollarAmount = 100000m, LastModifiedById = 1, LastModifiedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), UserId = 2, YearId = 1 },
+                        new { Id = 3, CreatedById = 1, CreatedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), DollarAmount = 100000m, LastModifiedById = 1, LastModifiedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), UserId = 3, YearId = 1 }
                     );
                 });
 
@@ -783,35 +791,6 @@ namespace RvuPiecemaker.Entity.Migrations
                         new { Id = 2, Description = "", EndHour = 21, EndMinute = 0, IsAdmin = true, Name = "1-9PM", StartHour = 13, StartMinute = 0 },
                         new { Id = 3, Description = "", EndHour = 23, EndMinute = 0, IsAdmin = true, Name = "3-11PM", StartHour = 15, StartMinute = 0 }
                     );
-                });
-
-            modelBuilder.Entity("RvuPiecemaker.Entities.DataClasses.Tag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CreatedById");
-
-                    b.Property<DateTime>("CreatedDate");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(200);
-
-                    b.Property<int>("LastModifiedById");
-
-                    b.Property<DateTime>("LastModifiedDate");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(100);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CreatedById");
-
-                    b.HasIndex("LastModifiedById");
-
-                    b.ToTable("Tag","Common");
                 });
 
             modelBuilder.Entity("RvuPiecemaker.Entities.DataClasses.UserShiftTypeXref", b =>
@@ -1044,22 +1023,36 @@ namespace RvuPiecemaker.Entity.Migrations
                     b.HasOne("RvuPiecemaker.Entities.DataClasses.Shift", "Shift")
                         .WithMany("Exams")
                         .HasForeignKey("ShiftId")
-                        .HasConstraintName("FK_Exam_Shift")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasConstraintName("FK_Exam_Shift");
                 });
 
-            modelBuilder.Entity("RvuPiecemaker.Entities.DataClasses.ExamTagXref", b =>
+            modelBuilder.Entity("RvuPiecemaker.Entities.DataClasses.ExamGroup", b =>
                 {
-                    b.HasOne("RvuPiecemaker.Entities.DataClasses.ExamType", "ExamType")
-                        .WithMany("ExamTagXref")
-                        .HasForeignKey("ExamTypeId")
-                        .HasConstraintName("FK_ExamTag_xref_ExamType")
+                    b.HasOne("RvuPiecemaker.Entities.DataClasses.ApplicationUser", "CreatedBy")
+                        .WithMany("ExamGroupCreatedBy")
+                        .HasForeignKey("CreatedById")
+                        .HasConstraintName("FK_ExamGroup_CreatedByUser")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("RvuPiecemaker.Entities.DataClasses.ApplicationUser", "LastModifiedBy")
+                        .WithMany("ExamGroupLastModifiedBy")
+                        .HasForeignKey("LastModifiedById")
+                        .HasConstraintName("FK_ExamGroup_LastModifiedByUser")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("RvuPiecemaker.Entities.DataClasses.ExamGroupXref", b =>
+                {
+                    b.HasOne("RvuPiecemaker.Entities.DataClasses.ExamGroup", "ExamGroup")
+                        .WithMany("ExamGroupXref")
+                        .HasForeignKey("ExamGroupId")
+                        .HasConstraintName("FK_ExamGroup_xref_ExamGroup")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("RvuPiecemaker.Entities.DataClasses.Tag", "Tag")
-                        .WithMany("ExamTagXref")
-                        .HasForeignKey("TagId")
-                        .HasConstraintName("FK_ExamTag_xref_Tag")
+                    b.HasOne("RvuPiecemaker.Entities.DataClasses.ExamType", "ExamType")
+                        .WithMany("ExamGroupXref")
+                        .HasForeignKey("ExamTypeId")
+                        .HasConstraintName("FK_ExamGroup_xref_ExamType")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -1190,21 +1183,6 @@ namespace RvuPiecemaker.Entity.Migrations
                         .HasForeignKey("ShiftId")
                         .HasConstraintName("FK_ShiftService_xref_Shift")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("RvuPiecemaker.Entities.DataClasses.Tag", b =>
-                {
-                    b.HasOne("RvuPiecemaker.Entities.DataClasses.ApplicationUser", "CreatedBy")
-                        .WithMany("TagCreatedBy")
-                        .HasForeignKey("CreatedById")
-                        .HasConstraintName("FK_Tag_CreatedByUser")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("RvuPiecemaker.Entities.DataClasses.ApplicationUser", "LastModifiedBy")
-                        .WithMany("TagLastModifiedBy")
-                        .HasForeignKey("LastModifiedById")
-                        .HasConstraintName("FK_Tag_LastModifiedByUser")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("RvuPiecemaker.Entities.DataClasses.UserShiftTypeXref", b =>

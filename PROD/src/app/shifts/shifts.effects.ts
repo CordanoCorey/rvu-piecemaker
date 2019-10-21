@@ -50,7 +50,8 @@ export class ShiftsEffects {
   }
 
   redirectAfterLogin(): Action {
-    const url = this.activeShiftId ? `/shifts/${this.activeShiftId}` : this.activeShiftTimestamp ? `/shifts/0?timestamp=${this.activeShiftTimestamp}` : this.redirectTo;
+    // const url = this.activeShiftId ? `/shifts/${this.activeShiftId}` : this.activeShiftTimestamp ? `/shifts/0?timestamp=${this.activeShiftTimestamp}` : this.redirectTo;
+    const url = '/dashboard';
     return RouterActions.navigate(url);
   }
 }

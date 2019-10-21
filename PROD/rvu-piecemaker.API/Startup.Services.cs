@@ -6,7 +6,7 @@ using RvuPiecemaker.API.Features.Exams;
 using RvuPiecemaker.API.Features.Goals;
 using RvuPiecemaker.API.Features.Services;
 using RvuPiecemaker.API.Features.Shifts;
-using RvuPiecemaker.API.Features.Tags;
+using RvuPiecemaker.API.Features.ExamGroups;
 using RvuPiecemaker.API.Features.Users;
 using RvuPiecemaker.API.Infrastructure.Lookup;
 
@@ -45,9 +45,9 @@ namespace RvuPiecemaker.API
       services.AddScoped<IShiftsService, ShiftsService>();
       services.AddScoped<IShiftsRepository, ShiftsRepository>();
 
-      //Tags
-      services.AddScoped<ITagsService, TagsService>();
-      services.AddScoped<ITagsRepository, TagsRepository>();
+      //ExamGroups
+      services.AddScoped<IExamGroupsService, ExamGroupsService>();
+      services.AddScoped<IExamGroupsRepository, ExamGroupsRepository>();
 
       //Users
       services.AddScoped<IUsersService, UsersService>();

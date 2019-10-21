@@ -25,7 +25,7 @@ namespace RvuPiecemaker.API.Features.Exams
     {
       return queryable
         .Include(x => x.Modality)
-        .Include(x => x.ExamTagXref)
+        .Include(x => x.ExamGroupXref)
       ;
     }
 
@@ -33,7 +33,7 @@ namespace RvuPiecemaker.API.Features.Exams
     {
       return queryable
         .Include(x => x.Modality)
-        .Include(x => x.ExamTagXref)
+        .Include(x => x.ExamGroupXref)
       ;
     }
 
@@ -41,7 +41,7 @@ namespace RvuPiecemaker.API.Features.Exams
     {
       return queryable
         .Include(x => x.Modality)
-        .Include(x => x.ExamTagXref)
+        .Include(x => x.ExamGroupXref)
       ;
     }
 

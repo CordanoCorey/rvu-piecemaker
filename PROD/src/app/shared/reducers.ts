@@ -1,7 +1,7 @@
 import { build, Token, StorageActions, Action } from '@caiu/library';
 
-import { CurrentUserActions, TabsActions, ServicesActions, TagsActions } from './actions';
-import { CurrentUser, Tabs, Tags, Services } from './models';
+import { CurrentUserActions, TabsActions, ServicesActions, ExamGroupsActions } from './actions';
+import { CurrentUser, Tabs, ExamGroups, Services } from './models';
 
 export function currentUserReducer(state: CurrentUser = new CurrentUser(), action: Action): CurrentUser {
   switch (action.type) {
@@ -45,9 +45,9 @@ export function tabsReducer(state: Tabs = new Tabs(), action: Action): Tabs {
   }
 }
 
-export function tagsReducer(state: Tags = new Tags(), action: Action): Tags {
+export function examGroupsReducer(state: ExamGroups = new ExamGroups(), action: Action): ExamGroups {
   switch (action.type) {
-    case TagsActions.GET:
+    case ExamGroupsActions.GET:
       return state.update(action.payload);
     default:
       return state;

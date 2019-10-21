@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { SmartComponent, routeParamIdSelector, RouterActions, HttpActions, build, MessageSubscription } from '@caiu/library';
+import { SmartComponent, routeParamIdSelector, RouterActions, HttpActions, build, MessageSubscription, routeParamSelector, DateHelper } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Shift } from '../shifts/shifts.model';
 import { shiftSelector, ShiftActions } from '../shifts/shifts.reducer';
 import { CurrentUserActions, ServicesActions } from '../shared/actions';
 import { Service } from '../shared/models';
-import { servicesSelector } from '../shared/selectors';
+import { servicesSelector, activeDateSelector, userNameSelector } from '../shared/selectors';
 import { ServiceInfoComponent } from '../services/service-info/service-info.component';
 
 @Component({
@@ -17,6 +17,8 @@ import { ServiceInfoComponent } from '../services/service-info/service-info.comp
   styleUrls: ['./shift.component.scss']
 })
 export class ShiftComponent extends SmartComponent implements OnInit {
+  date: Date = new Date();
+  date$: Observable<Date>;
   _shiftId = 0;
   serviceId = 0;
   serviceId$: Observable<number>;
@@ -24,13 +26,20 @@ export class ShiftComponent extends SmartComponent implements OnInit {
   shift: Shift = new Shift();
   shift$: Observable<Shift>;
   shiftId$: Observable<number>;
+  userName$: Observable<string>;
 
   constructor(public store: Store<any>, public dialog: MatDialog) {
     super(store);
+    this.date$ = activeDateSelector(store);
     this.serviceId$ = routeParamIdSelector(store, 'serviceId');
     this.services$ = servicesSelector(store);
     this.shift$ = shiftSelector(store);
     this.shiftId$ = routeParamIdSelector(store, 'shiftId');
+    this.userName$ = userNameSelector(store);
+  }
+
+  get dateQuery(): string {
+    return this.date ? `&date=${DateHelper.FormatDateSlashes(this.date)}` : '';
   }
 
   set shiftId(value: number) {
@@ -49,13 +58,13 @@ export class ShiftComponent extends SmartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sync(['serviceId', 'shiftId']);
+    this.sync(['date', 'serviceId', 'shiftId']);
     this.onInit();
     this.getServices();
   }
 
   changeServiceId(e: number) {
-    this.dispatch(RouterActions.navigate(`${this.shiftUrl}?serviceId=${e}`));
+    this.dispatch(RouterActions.navigate(`${this.shiftUrl}?serviceId=${e}${this.dateQuery}`));
   }
 
   getServices() {

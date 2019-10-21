@@ -8,7 +8,7 @@ namespace RvuPiecemaker.Entities.Context
   public partial class RvuPiecemakerContext
   {
     public virtual DbSet<Exam> Exam { get; set; }
-    public virtual DbSet<ExamTagXref> ExamTag { get; set; }
+    public virtual DbSet<ExamGroupXref> ExamGroupXref { get; set; }
     public virtual DbSet<ExamType> ExamType { get; set; }
     public virtual DbSet<Goal> Goal { get; set; }
     public virtual DbSet<Service> Service { get; set; }
@@ -16,7 +16,7 @@ namespace RvuPiecemaker.Entities.Context
     public virtual DbSet<Shift> Shift { get; set; }
     public virtual DbSet<ShiftServiceXref> ShiftService { get; set; }
     public virtual DbSet<ShiftType> ShiftType { get; set; }
-    public virtual DbSet<Tag> Tag { get; set; }
+    public virtual DbSet<ExamGroup> ExamGroup { get; set; }
     public virtual DbSet<UserShiftTypeXref> UserShiftType { get; set; }
     public void OnModelCreating_Common(ModelBuilder modelBuilder)
     {
@@ -55,26 +55,26 @@ namespace RvuPiecemaker.Entities.Context
 
       });
 
-      modelBuilder.Entity<ExamTagXref>(entity =>
+      modelBuilder.Entity<ExamGroupXref>(entity =>
       {
-        entity.ToTable("ExamTag_xref", "Common");
+        entity.ToTable("ExamGroup_xref", "Common");
 
         entity.HasOne(d => d.ExamType)
-            .WithMany(p => p.ExamTagXref)
+            .WithMany(p => p.ExamGroupXref)
             .HasForeignKey(d => d.ExamTypeId)
-            .HasConstraintName("FK_ExamTag_xref_ExamType");
+            .HasConstraintName("FK_ExamGroup_xref_ExamType");
 
-        entity.HasOne(d => d.Tag)
-            .WithMany(p => p.ExamTagXref)
-            .HasForeignKey(d => d.TagId)
-            .HasConstraintName("FK_ExamTag_xref_Tag");
+        entity.HasOne(d => d.ExamGroup)
+            .WithMany(p => p.ExamGroupXref)
+            .HasForeignKey(d => d.ExamGroupId)
+            .HasConstraintName("FK_ExamGroup_xref_ExamGroup");
 
         //entity.HasData(
-        //  new ExamTagXref
+        //  new ExamGroupXref
         //  {
         //    Id = 1,
         //    ExamTypeId = 1,
-        //    TagId = 1
+        //    ExamGroupId = 1
         //  }
         //);
       });
@@ -1108,6 +1108,28 @@ namespace RvuPiecemaker.Entities.Context
             CreatedDate = new DateTime(2019, 9, 22),
             LastModifiedById = 1,
             LastModifiedDate = new DateTime(2019, 9, 22)
+          },
+          new Goal
+          {
+            Id = 2,
+            UserId = 2,
+            YearId = 1,
+            DollarAmount = 100000,
+            CreatedById = 1,
+            CreatedDate = new DateTime(2019, 9, 22),
+            LastModifiedById = 1,
+            LastModifiedDate = new DateTime(2019, 9, 22)
+          },
+          new Goal
+          {
+            Id = 3,
+            UserId = 3,
+            YearId = 1,
+            DollarAmount = 100000,
+            CreatedById = 1,
+            CreatedDate = new DateTime(2019, 9, 22),
+            LastModifiedById = 1,
+            LastModifiedDate = new DateTime(2019, 9, 22)
           }
         );
 
@@ -1493,28 +1515,28 @@ namespace RvuPiecemaker.Entities.Context
         );
       });
 
-      modelBuilder.Entity<Tag>(entity =>
+      modelBuilder.Entity<ExamGroup>(entity =>
       {
-        entity.ToTable("Tag", "Common");
+        entity.ToTable("ExamGroup", "Common");
 
         entity.Property(e => e.Name).HasMaxLength(100);
 
         entity.Property(e => e.Description).HasMaxLength(200);
 
         entity.HasOne(d => d.CreatedBy)
-            .WithMany(p => p.TagCreatedBy)
+            .WithMany(p => p.ExamGroupCreatedBy)
             .HasForeignKey(d => d.CreatedById)
             .OnDelete(DeleteBehavior.Restrict)
-            .HasConstraintName("FK_Tag_CreatedByUser");
+            .HasConstraintName("FK_ExamGroup_CreatedByUser");
 
         entity.HasOne(d => d.LastModifiedBy)
-            .WithMany(p => p.TagLastModifiedBy)
+            .WithMany(p => p.ExamGroupLastModifiedBy)
             .HasForeignKey(d => d.LastModifiedById)
             .OnDelete(DeleteBehavior.Restrict)
-            .HasConstraintName("FK_Tag_LastModifiedByUser");
+            .HasConstraintName("FK_ExamGroup_LastModifiedByUser");
 
         //entity.HasData(
-        //  new Tag
+        //  new ExamGroup
         //  {
         //    Id = 1,
         //    Name = "Exam Group 1",

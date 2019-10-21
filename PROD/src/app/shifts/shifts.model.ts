@@ -77,6 +77,7 @@ export class Shifts extends Collection<Shift> {
   }
 
   get activeShiftId(): number {
+    console.dir(this.asArray);
     return this.getActiveShiftIdAtTime(new Date());
   }
 
