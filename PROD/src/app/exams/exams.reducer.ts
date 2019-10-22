@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { Exams, Exam } from './exams.model';
 import { ShiftActions } from '../shifts/shifts.reducer';
-import { activeDateSelector } from '../shared/selectors';
+import { activeDateSelector, userIdSelector } from '../shared/selectors';
 
 export class ExamsActions {
   static GET = '[Exams] GET';
@@ -42,5 +42,6 @@ export function examsSelector(store: Store<any>): Observable<Exams> {
 
 export function completedExamsSelector(store: Store<any>): Observable<Exam[]> {
   // return combineLatest(examsSelector(store), routeParamIdSelector(store, 'shiftId'), (exams, shiftId) => exams.asArray.filter(x => x.shiftId === shiftId));
-  return combineLatest(examsSelector(store), activeDateSelector(store), (exams, date) => exams.asArray.filter(x => DateHelper.IsSameDay(x.startTime, date)));
+  return combineLatest(examsSelector(store), activeDateSelector(store), userIdSelector(store),
+    (exams, date, userId) => exams.asArray.filter(x => x.userId === userId && DateHelper.IsSameDay(x.startTime, date)));
 }

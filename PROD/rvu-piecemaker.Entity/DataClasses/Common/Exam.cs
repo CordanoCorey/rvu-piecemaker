@@ -12,6 +12,7 @@ namespace RvuPiecemaker.Entities.DataClasses
     public int ExamTypeId { get; set; }
     public int ServiceId { get; set; }
     public int? ShiftId { get; set; }
+    public int? UserId { get; set; }
     public string Notes { get; set; }
     public decimal? RvuTotal { get; set; }
     public DateTime StartTime { get; set; }
@@ -26,5 +27,6 @@ namespace RvuPiecemaker.Entities.DataClasses
     public virtual ExamType ExamType { get; set; }
     public virtual Service Service { get; set; }
     public virtual Shift Shift { get; set; }
+    public virtual ApplicationUser User { get; set; }
   }
 }

@@ -60,3 +60,4 @@ C:\appdev\rvu\PROD\rvu-piecemaker.API\obj\dev\netcoreapp2.1\rvu-piecemaker.API.R
 C:\appdev\rvu\PROD\rvu-piecemaker.API\obj\dev\netcoreapp2.1\rvu-piecemaker.API.csproj.CopyComplete
 C:\appdev\rvu\PROD\rvu-piecemaker.API\obj\dev\netcoreapp2.1\rvu-piecemaker.API.dll
 C:\appdev\rvu\PROD\rvu-piecemaker.API\obj\dev\netcoreapp2.1\rvu-piecemaker.API.pdb
+C:\appdev\rvu-piecemaker\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\appsettings.local.json

@@ -11,6 +11,7 @@ export class Exam extends BaseEntity {
   shiftId = 0;
   startTime: Date = new Date();
   endTime: Date = new Date();
+  userId = 0;
   _examType: ExamType = new ExamType();
   _rvuTotal: number;
 
@@ -30,7 +31,7 @@ export class Exam extends BaseEntity {
     });
   }
 
-  set cptCode(value: string) {}
+  set cptCode(value: string) { }
 
   get cptCode(): string {
     return this.examType.cptCode;

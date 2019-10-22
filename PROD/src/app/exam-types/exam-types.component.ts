@@ -13,7 +13,7 @@ import { ExamsActions } from '../exams/exams.reducer';
 import { Shift } from '../shifts/shifts.model';
 import { ExamGroup } from '../shared/models';
 import { shiftSelector } from '../shifts/shifts.reducer';
-import { examGroupsSelector, activeDateSelector } from '../shared/selectors';
+import { examGroupsSelector, activeDateSelector, userIdSelector } from '../shared/selectors';
 import { ExamGroupsActions } from '../shared/actions';
 
 @Component({
@@ -52,9 +52,12 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
   showErrorMessage = false;
   examGroups$: Observable<ExamGroup[]>;
   _examTypes: ExamType[] = [];
+  userId = 0;
+  userId$: Observable<number>;
 
   constructor(public store: Store<any>, public dialog: MatDialog) {
     super(store);
+    this.userId$ = userIdSelector(store);
     this.date$ = activeDateSelector(store);
     this.examTypes$ = examTypesSelector(store);
     this.groupId$ = this.groupIdSubject.asObservable();
@@ -80,7 +83,7 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sync(['date', 'groupId', 'serviceId', 'shift', 'shiftId']);
+    this.sync(['date', 'groupId', 'serviceId', 'shift', 'shiftId', 'userId']);
     this.onInit();
     this.getExamTypes();
     this.getExamGroups();
@@ -104,7 +107,8 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
             shiftTypeId: 1
           }),
           startTime: this.date,
-          endTime: null
+          endTime: null,
+          userId: this.userId
         })
       );
     }
@@ -122,9 +126,9 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
     this.searchTermSubject.next(e);
   }
 
-  closeDialog(e: any) {}
+  closeDialog(e: any) { }
 
-  changeService(e: number) {}
+  changeService(e: number) { }
 
   editExamType(data: ExamType) {
     this.examTypeId = data.id;
