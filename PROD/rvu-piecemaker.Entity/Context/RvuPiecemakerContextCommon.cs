@@ -887,9 +887,9 @@ namespace RvuPiecemaker.Entities.Context
              Id = 56,
              Name = "US Breast UNI Limited",
              Description = "",
-             RvuTotal = 0.68m,
+             RvuTotal = 0.74m,
              ModalityId = 6,
-             CptCode = "6642",
+             CptCode = "76642",
              IsAdmin = true,
              CreatedById = 1,
              CreatedDate = new DateTime(2019, 9, 22),
@@ -1077,8 +1077,204 @@ namespace RvuPiecemaker.Entities.Context
              CreatedDate = new DateTime(2019, 9, 22),
              LastModifiedById = 1,
              LastModifiedDate = new DateTime(2019, 9, 22)
+           },
+           new ExamType
+           {
+             Id = 70,
+             Name = "MRI Face W/WO",
+             Description = "",
+             RvuTotal = 2.15m,
+             ModalityId = 4,
+             CptCode = "70543",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 71,
+             Name = "CT Lumbar spine W/WO",
+             Description = "",
+             RvuTotal = 1.27m,
+             ModalityId = 2,
+             CptCode = "72133",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 72,
+             Name = "3D Rendering add-on",
+             Description = "",
+             RvuTotal = 0.76m,
+             ModalityId = 2,
+             CptCode = "76377",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 73,
+             Name = "Screening Breast Tomo",
+             Description = "",
+             RvuTotal = 1.36m,
+             ModalityId = 3,
+             CptCode = "77063+77067",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 74,
+             Name = "Screening Mammogram 2D",
+             Description = "",
+             RvuTotal = 0.76m,
+             ModalityId = 3,
+             CptCode = "77067",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 75,
+             Name = "Dx Breast Tomo UNI",
+             Description = "",
+             RvuTotal = 1.41m,
+             ModalityId = 3,
+             CptCode = "G0279+77065",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 76,
+             Name = "Dx Breast Tomo BIL",
+             Description = "",
+             RvuTotal = 1.6m,
+             ModalityId = 3,
+             CptCode = "G0279+77066",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 77,
+             Name = "Dx 2D Mammogram BIL",
+             Description = "",
+             RvuTotal = 1.0m,
+             ModalityId = 3,
+             CptCode = "77066",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 78,
+             Name = "Dx 2D Mammogram UNI",
+             Description = "",
+             RvuTotal = 0.81m,
+             ModalityId = 3,
+             CptCode = "77065",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 79,
+             Name = "CTA AortoBifem W/WO",
+             Description = "",
+             RvuTotal = 2.4m,
+             ModalityId = 2,
+             CptCode = "75635",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 80,
+             Name = "CT Face W/WO",
+             Description = "",
+             RvuTotal = 1.27m,
+             ModalityId = 2,
+             CptCode = "70488",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 81,
+             Name = "US Pelvis TV",
+             Description = "",
+             RvuTotal = 0.69m,
+             ModalityId = 6,
+             CptCode = "76830",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 82,
+             Name = "US Abdomen Complete",
+             Description = "",
+             RvuTotal = 0.81m,
+             ModalityId = 6,
+             CptCode = "76700",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 83,
+             Name = "US Pelvis TA",
+             Description = "",
+             RvuTotal = 0.69m,
+             ModalityId = 6,
+             CptCode = "76856",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
            }
-         );
+         ); 
       });
 
       modelBuilder.Entity<Goal>(entity =>
