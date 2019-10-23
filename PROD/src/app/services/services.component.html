@@ -1,1 +1,8 @@
-<p>services works!</p>
+<rvu-container>
+  <div id="services">
+    <div class="services-list">
+      <button mat-button *ngFor="let service of services$ | async" (click)="goToService(service.id)">{{ service.name }}</button>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</rvu-container>

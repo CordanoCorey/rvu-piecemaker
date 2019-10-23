@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable, interval, combineLatest } from 'rxjs';
 import { map, distinctUntilChanged, take } from 'rxjs/operators';
 
-import { CurrentUser, ExamGroup, Tab, Service } from './models';
+import { CurrentUser, ExamGroup, Tab } from './models';
 
 export function isAdminUserSelector(store: Store<any>): Observable<boolean> {
   return userSelector(store).pipe(
@@ -48,14 +48,6 @@ export function lookupModalities(store: Store<any>): Observable<LookupValue[]> {
 
 export function redirectToSelector(store: Store<any>): Observable<string> {
   return routeParamSelector(store, 'redirectTo', 'dashboard').pipe(distinctUntilChanged());
-}
-
-export function servicesSelector(store: Store<any>): Observable<Service[]> {
-  return store.select('services').pipe(map(x => x.asArray));
-}
-
-export function serviceSelector(store: Store<any>): Observable<Service> {
-  return combineLatest(store.select('services'), routeParamIdSelector(store, 'serviceId'), (services, id) => services.get(id));
 }
 
 export function tabsSelector(store: Store<any>): Observable<Tab[]> {

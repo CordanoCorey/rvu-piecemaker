@@ -22,10 +22,10 @@ export class ShiftsEffects {
   /**
    * Navigate to root url upon successful login.
    */
-  @Effect() onShiftsInit: Observable<Action> = this.actions$.pipe(
-    ofType(ShiftsActions.INIT),
-    map(action => this.redirectAfterLogin())
-  );
+  // @Effect() onShiftsInit: Observable<Action> = this.actions$.pipe(
+  //   ofType(ShiftsActions.INIT),
+  //   map(action => this.redirectAfterLogin())
+  // );
 
   activeShiftId = 0;
   activeShiftId$: Observable<number>;

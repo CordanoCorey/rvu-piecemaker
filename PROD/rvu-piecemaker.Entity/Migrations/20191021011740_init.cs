@@ -989,7 +989,7 @@ namespace RvuPiecemaker.Entity.Migrations
                     { 1, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "", 1, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "1-9PM", null },
                     { 22, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "", 1, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "DOB (PM)", null },
                     { 21, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "", 1, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "NEURO NON ACUTE (PM)", null },
-                    { 20, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "", 1, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "NEURO NH/INPT (PM)", null },
+                    { 20, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "", 1, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "NEURO NH/INPT (AM)", null },
                     { 3, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "", 1, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "BI (AM)", null },
                     { 18, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "", 1, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "NEURO ACUTE (AM)", null },
                     { 17, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "", 1, 1, new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "NEURO 4 (AM)", null },

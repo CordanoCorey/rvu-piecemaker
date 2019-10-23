@@ -5,4 +5,5 @@
 
 <div *ngIf="!(service.id === 0)" class="info">
   <h3>{{ service.name }}</h3>
+  <div class="editor-style" [innerHTML]="service.description | safeHtml"></div>
 </div>

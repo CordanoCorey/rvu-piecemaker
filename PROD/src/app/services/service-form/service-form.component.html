@@ -1,0 +1,10 @@
+<form [formGroup]="form">
+  <mat-form-field>
+    <input matInput placeholder="Service Name" formControlName="name" />
+  </mat-form-field>
+  <iu-editor id="editor" formControlName="description" [height]="300" type="FULL"></iu-editor>
+  <div class="actions">
+    <button [style.background]="'red'" mat-raised-button>DELETE</button>
+    <button [style.background]="'green'" mat-raised-button (click)="onSave()">SUBMIT</button>
+  </div>
+</form>

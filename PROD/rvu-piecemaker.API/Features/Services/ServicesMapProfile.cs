@@ -14,7 +14,8 @@ namespace RvuPiecemaker.API.Features.Services
       CreateMap<Service, ServiceModel>()
           ;
 
-      CreateMap<ServiceModel, Service>();
+      CreateMap<ServiceModel, Service>()
+        ;
     }
   }
 }

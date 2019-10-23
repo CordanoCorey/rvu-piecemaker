@@ -18,7 +18,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
-import { FormsModule, AccordionModule, DialogModule } from '@caiu/library';
+import { FormsModule, AccordionModule, DialogModule, PipesModule } from '@caiu/library';
 
 import { ContainerComponent } from './container/container.component';
 import { HeaderComponent } from './header/header.component';
@@ -49,6 +49,7 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     MatSnackBarModule,
     MatTableModule,
     MatTabsModule,
+    PipesModule,
     RouterModule
   ],
   exports: [
@@ -76,6 +77,7 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     MatSnackBarModule,
     MatTableModule,
     MatTabsModule,
+    PipesModule,
     ProgressBarComponent,
     RouterModule,
     ContainerComponent

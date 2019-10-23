@@ -1379,7 +1379,7 @@ namespace RvuPiecemaker.Entities.Context
           new Service
           {
             Id = 20,
-            Name = "NEURO NH/INPT (PM)",
+            Name = "NEURO NH/INPT (AM)",
             DoctorTypeId = 1,
             Description = "",
             CreatedById = 1,

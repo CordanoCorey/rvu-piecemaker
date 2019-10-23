@@ -43,6 +43,10 @@ const routes: Routes = [
         loadChildren: () => import('./reset-password/reset-password.module').then(m => m.ResetPasswordModule)
       },
       {
+        path: 'services',
+        loadChildren: () => import('./services/services.module').then(m => m.ServicesModule)
+      },
+      {
         path: 'signup',
         loadChildren: () => import('./signup/signup.module').then(m => m.SignupModule)
       },

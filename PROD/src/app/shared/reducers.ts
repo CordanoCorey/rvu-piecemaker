@@ -1,7 +1,7 @@
 import { build, Token, StorageActions, Action } from '@caiu/library';
 
-import { CurrentUserActions, TabsActions, ServicesActions, ExamGroupsActions } from './actions';
-import { CurrentUser, Tabs, ExamGroups, Services } from './models';
+import { CurrentUserActions, TabsActions, ExamGroupsActions } from './actions';
+import { CurrentUser, Tabs, ExamGroups } from './models';
 
 export function currentUserReducer(state: CurrentUser = new CurrentUser(), action: Action): CurrentUser {
   switch (action.type) {
@@ -22,15 +22,6 @@ export function currentUserReducer(state: CurrentUser = new CurrentUser(), actio
     case CurrentUserActions.LOGOUT:
       return build(CurrentUser, { token: new Token() });
 
-    default:
-      return state;
-  }
-}
-
-export function servicesReducer(state: Services = new Services(), action: Action): Services {
-  switch (action.type) {
-    case ServicesActions.GET:
-      return state.update(action.payload);
     default:
       return state;
   }

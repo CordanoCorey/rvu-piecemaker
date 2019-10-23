@@ -1,0 +1,32 @@
+@import '~@angular/material/_theming';
+@import '../../../common';
+
+form {
+  padding: 50px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+
+  mat-form-field {
+    margin-bottom: 30px;
+    width: 60%;
+  }
+
+  iu-editor {
+    @include mat-elevation(6);
+  }
+
+  .actions {
+    display: flex;
+    margin: 30px;
+    width: 98%;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    .mat-raised-button {
+      color: #fff;
+      width: 100px;
+      margin: 10px;
+    }
+  }
+}

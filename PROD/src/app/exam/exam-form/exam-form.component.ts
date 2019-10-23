@@ -9,8 +9,8 @@ import { Exam } from '../../exams/exams.model';
 import { ExamType } from '../../exam-types/exam-types.model';
 import { examTypesSelector } from '../../exam-types/exam-types.reducer';
 import { ExamActions, ExamsActions } from '../../exams/exams.reducer';
-import { Service } from '../../shared/models';
-import { servicesSelector } from '../../shared/selectors';
+import { Service } from 'src/app/services/services.model';
+import { servicesSelector } from 'src/app/services/services.reducer';
 
 @Component({
   selector: 'rvu-exam-form',

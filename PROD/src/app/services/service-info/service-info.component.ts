@@ -3,8 +3,8 @@ import { SmartComponent } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { Service } from '../../shared/models';
-import { serviceSelector } from '../../shared/selectors';
+import { Service } from '../services.model';
+import { serviceSelector } from '../services.reducer';
 
 @Component({
   selector: 'rvu-service-info',

@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { SmartComponent, routeParamIdSelector, RouterActions, HttpActions, build, MessageSubscription, routeParamSelector, DateHelper } from '@caiu/library';
+import { SmartComponent, routeParamIdSelector, RouterActions, HttpActions, DateHelper } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { Shift } from '../shifts/shifts.model';
 import { shiftSelector, ShiftActions } from '../shifts/shifts.reducer';
-import { CurrentUserActions, ServicesActions } from '../shared/actions';
-import { Service } from '../shared/models';
-import { servicesSelector, activeDateSelector, userNameSelector } from '../shared/selectors';
+import { Service } from '../services/services.model';
+import { servicesSelector, ServicesActions } from '../services/services.reducer';
+import { CurrentUserActions } from '../shared/actions';
+import { activeDateSelector, userNameSelector } from '../shared/selectors';
 import { ServiceInfoComponent } from '../services/service-info/service-info.component';
 
 @Component({
@@ -81,7 +82,7 @@ export class ShiftComponent extends SmartComponent implements OnInit {
 
   openServiceInfo() {
     this.openDialog(ServiceInfoComponent, {
-      width: '600px'
+      width: '800px'
     });
   }
 }

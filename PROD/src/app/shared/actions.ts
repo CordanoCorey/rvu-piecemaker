@@ -19,10 +19,6 @@ export class CurrentUserActions {
   }
 }
 
-export class ServicesActions {
-  static GET = '[Services] GET';
-}
-
 export class TabsActions {
   static SET_ACTIVE = '[Tabs] SET ACTIVE';
 
