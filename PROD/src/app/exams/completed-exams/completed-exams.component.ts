@@ -49,7 +49,6 @@ export class CompletedExamsComponent extends SmartComponent implements OnInit {
   }
 
   set date(value: Date) {
-    console.log(value);
     this._date = value;
     if (value) {
       this.getExams(value);

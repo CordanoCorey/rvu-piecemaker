@@ -89,9 +89,6 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
     this.onInit();
     this.getExamTypes();
     this.getExamGroups();
-    this.filteredExamTypes$.subscribe(x => {
-      console.dir(x);
-    });
   }
 
   onAddExam(e, type: ExamType) {
@@ -131,9 +128,9 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
     this.searchTermSubject.next(e);
   }
 
-  closeDialog(e: any) { }
+  closeDialog(e: any) {}
 
-  changeService(e: number) { }
+  changeService(e: number) {}
 
   editExamType(data: ExamType) {
     this.examTypeId = data.id;

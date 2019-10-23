@@ -6,13 +6,13 @@ import { map } from 'rxjs/operators';
 import { ExamTypes, ExamType } from './exam-types.model';
 
 export class ExamTypesActions {
-  static GET = '[Exams] GET';
-  static POST = '[Exams] POST';
+  static GET = '[Exam Types] GET';
+  static POST = '[Exam Types] POST';
 }
 
 export class ExamTypeActions {
-  static DELETE = '[Exams] DELETE';
-  static PUT = '[Exams] PUT';
+  static DELETE = '[Exam Type] DELETE';
+  static PUT = '[Exam Type] PUT';
 }
 
 export function examTypesReducer(state: ExamTypes = new ExamTypes(), action: Action): ExamTypes {

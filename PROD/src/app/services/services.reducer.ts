@@ -28,13 +28,10 @@ export function servicesSelector(store: Store<any>): Observable<Service[]> {
   return store.select('services').pipe(
     map(x => {
       const services = x.asArray;
-      console.dir(services);
       const am = services.filter(y => y.name.includes('(AM)')).sort((a, b) => compareStrings(a.name, b.name));
       const pm = services.filter(y => y.name.includes('(PM)')).sort((a, b) => compareStrings(a.name, b.name));
       const other = services.filter(y => !(y.name.includes('(AM)') || y.name.includes('(PM)'))).sort((a, b) => compareStrings(a.name, b.name));
-      const r = [...am, ...pm, ...other];
-      console.dir(r);
-      return r;
+      return [...am, ...pm, ...other];
     })
   );
 }

@@ -30,7 +30,6 @@ export class ScheduleComponent extends SmartComponent implements OnInit {
   ngOnInit() {}
 
   onGoToDay(e: CalendarDay) {
-    console.dir(e);
     this.dispatch(RouterActions.navigate(`/shifts/0?date=${DateHelper.FormatDateSlashes(e.date)}`));
   }
 }

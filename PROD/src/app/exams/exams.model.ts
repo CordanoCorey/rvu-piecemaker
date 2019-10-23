@@ -31,7 +31,7 @@ export class Exam extends BaseEntity {
     });
   }
 
-  set cptCode(value: string) { }
+  set cptCode(value: string) {}
 
   get cptCode(): string {
     return this.examType.cptCode;
@@ -47,9 +47,13 @@ export class Exam extends BaseEntity {
     });
   }
 
+  set modalityName(value: string) {}
+
   get modalityName(): string {
     return this.examType.modalityName;
   }
+
+  set name(value: string) {}
 
   get name(): string {
     return this.examType.name;
