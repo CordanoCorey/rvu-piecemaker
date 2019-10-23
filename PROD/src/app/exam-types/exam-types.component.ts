@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { SmartComponent, HttpActions, inArray, build, routeParamIdSelector, MessageSubscription } from '@caiu/library';
+import { SmartComponent, HttpActions, inArray, build, routeParamIdSelector, MessageSubscription, compareStrings } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
 
@@ -13,7 +13,7 @@ import { ExamsActions } from '../exams/exams.reducer';
 import { Shift } from '../shifts/shifts.model';
 import { ExamGroup } from '../shared/models';
 import { shiftSelector } from '../shifts/shifts.reducer';
-import { examGroupsSelector, activeDateSelector } from '../shared/selectors';
+import { examGroupsSelector, activeDateSelector, userIdSelector } from '../shared/selectors';
 import { ExamGroupsActions } from '../shared/actions';
 
 @Component({
@@ -52,9 +52,12 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
   showErrorMessage = false;
   examGroups$: Observable<ExamGroup[]>;
   _examTypes: ExamType[] = [];
+  userId = 0;
+  userId$: Observable<number>;
 
   constructor(public store: Store<any>, public dialog: MatDialog) {
     super(store);
+    this.userId$ = userIdSelector(store);
     this.date$ = activeDateSelector(store);
     this.examTypes$ = examTypesSelector(store);
     this.groupId$ = this.groupIdSubject.asObservable();
@@ -63,7 +66,9 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
     this.shiftId$ = routeParamIdSelector(store, 'shiftId');
     this.examGroups$ = examGroupsSelector(store);
     this.filteredExamTypes$ = combineLatest(this.examTypes$, this.groupId$, this.searchTermSubject.asObservable(), (examTypes, groupId, searchTerm) => {
-      return examTypes.filter(x => (groupId === 0 || inArray(x.examGroupIds, groupId)) && (!searchTerm || x.name.toLowerCase().includes(searchTerm.toLowerCase())));
+      return examTypes
+        .filter(x => (groupId === 0 || inArray(x.examGroupIds, groupId)) && (!searchTerm || x.name.toLowerCase().includes(searchTerm.toLowerCase())))
+        .sort((a, b) => compareStrings(a.name, b.name));
     });
   }
 
@@ -80,10 +85,13 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sync(['date', 'groupId', 'serviceId', 'shift', 'shiftId']);
+    this.sync(['date', 'groupId', 'serviceId', 'shift', 'shiftId', 'userId']);
     this.onInit();
     this.getExamTypes();
     this.getExamGroups();
+    this.filteredExamTypes$.subscribe(x => {
+      console.dir(x);
+    });
   }
 
   onAddExam(e, type: ExamType) {
@@ -104,7 +112,8 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
             shiftTypeId: 1
           }),
           startTime: this.date,
-          endTime: null
+          endTime: null,
+          userId: this.userId
         })
       );
     }

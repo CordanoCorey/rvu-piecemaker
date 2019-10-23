@@ -41,6 +41,11 @@ namespace RvuPiecemaker.Entities.Context
             .HasForeignKey(d => d.ShiftId)
             .HasConstraintName("FK_Exam_Shift");
 
+        entity.HasOne(d => d.User)
+          .WithMany(p => p.ExamUser)
+          .HasForeignKey(d => d.UserId)
+          .HasConstraintName("FK_Exam_User");
+
         entity.HasOne(d => d.CreatedBy)
             .WithMany(p => p.ExamCreatedBy)
             .HasForeignKey(d => d.CreatedById)

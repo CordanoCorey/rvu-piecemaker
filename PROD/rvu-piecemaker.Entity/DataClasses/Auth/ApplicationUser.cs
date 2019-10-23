@@ -13,6 +13,7 @@ namespace RvuPiecemaker.Entities.DataClasses
       CalendarLastModifiedBy = new HashSet<Calendar>();
       CalendarEventCreatedBy = new HashSet<CalendarEvent>();
       CalendarEventLastModifiedBy = new HashSet<CalendarEvent>();
+      ExamUser = new HashSet<Exam>();
       ExamCreatedBy = new HashSet<Exam>();
       ExamLastModifiedBy = new HashSet<Exam>();
       ExamTypeCreatedBy = new HashSet<ExamType>();
@@ -46,6 +47,7 @@ namespace RvuPiecemaker.Entities.DataClasses
     public virtual ICollection<CalendarEvent> CalendarEventLastModifiedBy { get; set; }
     public virtual ICollection<Exam> ExamCreatedBy { get; set; }
     public virtual ICollection<Exam> ExamLastModifiedBy { get; set; }
+    public virtual ICollection<Exam> ExamUser { get; set; }
     public virtual ICollection<ExamType> ExamTypeCreatedBy { get; set; }
     public virtual ICollection<ExamType> ExamTypeLastModifiedBy { get; set; }
     public virtual ICollection<Service> ServiceCreatedBy { get; set; }

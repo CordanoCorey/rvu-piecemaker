@@ -17,6 +17,7 @@ namespace RvuPiecemaker.API.Features.Exams
     public int? ShiftId { get; set; }
     public DateTime StartTime { get; set; }
     public DateTime? EndTime { get; set; }
+    public int? UserId { get; set; }
     public ExamTypeModel ExamType { get; set; }
     public ShiftModel Shift { get; set; }
   }

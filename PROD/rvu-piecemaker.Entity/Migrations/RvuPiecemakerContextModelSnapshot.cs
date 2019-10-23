@@ -369,6 +369,8 @@ namespace RvuPiecemaker.Entity.Migrations
 
                     b.Property<DateTime>("StartTime");
 
+                    b.Property<int?>("UserId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CreatedById");
@@ -380,6 +382,8 @@ namespace RvuPiecemaker.Entity.Migrations
                     b.HasIndex("ServiceId");
 
                     b.HasIndex("ShiftId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Exam","Common");
                 });
@@ -1024,6 +1028,11 @@ namespace RvuPiecemaker.Entity.Migrations
                         .WithMany("Exams")
                         .HasForeignKey("ShiftId")
                         .HasConstraintName("FK_Exam_Shift");
+
+                    b.HasOne("RvuPiecemaker.Entities.DataClasses.ApplicationUser", "User")
+                        .WithMany("ExamUser")
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("FK_Exam_User");
                 });
 
             modelBuilder.Entity("RvuPiecemaker.Entities.DataClasses.ExamGroup", b =>

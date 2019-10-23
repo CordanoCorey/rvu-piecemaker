@@ -10,7 +10,7 @@ using RvuPiecemaker.Entities.Context;
 namespace RvuPiecemaker.Entity.Migrations
 {
     [DbContext(typeof(RvuPiecemakerContext))]
-    [Migration("20191021011740_init")]
+    [Migration("20191021043208_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -371,6 +371,8 @@ namespace RvuPiecemaker.Entity.Migrations
 
                     b.Property<DateTime>("StartTime");
 
+                    b.Property<int?>("UserId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CreatedById");
@@ -382,6 +384,8 @@ namespace RvuPiecemaker.Entity.Migrations
                     b.HasIndex("ServiceId");
 
                     b.HasIndex("ShiftId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Exam","Common");
                 });
@@ -1026,6 +1030,11 @@ namespace RvuPiecemaker.Entity.Migrations
                         .WithMany("Exams")
                         .HasForeignKey("ShiftId")
                         .HasConstraintName("FK_Exam_Shift");
+
+                    b.HasOne("RvuPiecemaker.Entities.DataClasses.ApplicationUser", "User")
+                        .WithMany("ExamUser")
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("FK_Exam_User");
                 });
 
             modelBuilder.Entity("RvuPiecemaker.Entities.DataClasses.ExamGroup", b =>

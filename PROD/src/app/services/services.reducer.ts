@@ -1,4 +1,4 @@
-import { Action, routeParamIdSelector } from '@caiu/library';
+import { Action, routeParamIdSelector, compareStrings } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -24,7 +24,18 @@ export function servicesReducer(state: Services = new Services(), action: Action
 }
 
 export function servicesSelector(store: Store<any>): Observable<Service[]> {
-  return store.select('services').pipe(map(x => x.asArray));
+  return store.select('services').pipe(
+    map(x => {
+      const services = x.asArray;
+      console.dir(services);
+      const am = services.filter(y => y.name.includes('(AM)')).sort((a, b) => compareStrings(a.name, b.name));
+      const pm = services.filter(y => y.name.includes('(PM)')).sort((a, b) => compareStrings(a.name, b.name));
+      const other = services.filter(y => !(y.name.includes('(AM)') || y.name.includes('(PM)'))).sort((a, b) => compareStrings(a.name, b.name));
+      const r = [...am, ...pm, ...other];
+      console.dir(r);
+      return r;
+    })
+  );
 }
 
 export function serviceSelector(store: Store<any>): Observable<Service> {

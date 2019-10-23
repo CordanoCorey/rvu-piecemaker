@@ -18,7 +18,7 @@
   </div>
   <div class="group-exam-types scrollable">
     <div mat-raised-button class="list-item" *ngFor="let type of filteredExamTypes$ | async" (click)="onAddExam($event, type)">
-      <span class="rvu font-effect-3d-float">{{ type.rvuTotal }}</span>
+      <span class="rvu font-effect-3d-float">{{ type.rvuTotal | number: '1.2-2' }}</span>
       <span class="type-name font-effect-3d-float">{{ type.name }}</span>
       <span class="cpt-code font-effect-3d-float">{{ type.modalityName }}</span>
     </div>
