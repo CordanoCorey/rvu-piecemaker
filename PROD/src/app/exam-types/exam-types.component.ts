@@ -131,9 +131,9 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
     this.searchTermSubject.next(e);
   }
 
-  closeDialog(e: any) {}
+  closeDialog(e: any) { }
 
-  changeService(e: number) {}
+  changeService(e: number) { }
 
   editExamType(data: ExamType) {
     this.examTypeId = data.id;

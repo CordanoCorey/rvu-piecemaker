@@ -28,9 +28,17 @@ export class UserEffects {
   /**
    * Navigate to login after resetting password
    */
-  @Effect() on: Observable<Action> = this.actions$.pipe(
+  @Effect() onResetPassword: Observable<Action> = this.actions$.pipe(
     ofType(CurrentUserActions.RESET_PASSWORD),
     map(action => RouterActions.navigate('/login'))
+  );
+
+  /**
+   * Navigate to dashboard after login
+   */
+  @Effect() onLogin: Observable<Action> = this.actions$.pipe(
+    ofType(CurrentUserActions.LOGIN),
+    map(action => RouterActions.navigate('/dashboard'))
   );
 
   constructor(private actions$: Actions, public store: Store<any>) {}

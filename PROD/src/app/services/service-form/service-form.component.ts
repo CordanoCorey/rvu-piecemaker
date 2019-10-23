@@ -46,6 +46,6 @@ export class ServiceFormComponent extends SmartComponent implements OnInit {
   }
 
   updateService(e: Service) {
-    this.dispatch(HttpActions.put(`services/${e.id}`, e, ServiceActions.PUT));
+    this.dispatch(HttpActions.put(`services/${e.id}`, e, ServiceActions.PUT, ServiceActions.PUT_ERROR));
   }
 }

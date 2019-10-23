@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RvuPiecemaker.Entities.Context;
 
 namespace RvuPiecemaker.Entity.Migrations
 {
     [DbContext(typeof(RvuPiecemakerContext))]
-    partial class RvuPiecemakerContextModelSnapshot : ModelSnapshot
+    [Migration("20191023023158_add_exam_types")]
+    partial class add_exam_types
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -689,7 +691,7 @@ namespace RvuPiecemaker.Entity.Migrations
                         new { Id = 17, CreatedById = 1, CreatedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "", DoctorTypeId = 1, LastModifiedById = 1, LastModifiedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Name = "NEURO 4 (AM)" },
                         new { Id = 18, CreatedById = 1, CreatedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "", DoctorTypeId = 1, LastModifiedById = 1, LastModifiedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Name = "NEURO ACUTE (AM)" },
                         new { Id = 19, CreatedById = 1, CreatedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "", DoctorTypeId = 1, LastModifiedById = 1, LastModifiedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Name = "NEURO ACUTE (PM)" },
-                        new { Id = 20, CreatedById = 1, CreatedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "", DoctorTypeId = 1, LastModifiedById = 1, LastModifiedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Name = "NEURO NH/INPT (AM)" },
+                        new { Id = 20, CreatedById = 1, CreatedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "", DoctorTypeId = 1, LastModifiedById = 1, LastModifiedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Name = "NEURO NH/INPT (PM)" },
                         new { Id = 21, CreatedById = 1, CreatedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "", DoctorTypeId = 1, LastModifiedById = 1, LastModifiedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Name = "NEURO NON ACUTE (PM)" },
                         new { Id = 22, CreatedById = 1, CreatedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Description = "", DoctorTypeId = 1, LastModifiedById = 1, LastModifiedDate = new DateTime(2019, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), Name = "DOB (PM)" }
                     );

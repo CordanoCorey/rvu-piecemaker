@@ -11,6 +11,7 @@ export class ServicesActions {
 
 export class ServiceActions {
   static PUT = '[Services] PUT';
+  static PUT_ERROR = '[Services] PUT ERROR';
 }
 
 export function servicesReducer(state: Services = new Services(), action: Action): Services {
