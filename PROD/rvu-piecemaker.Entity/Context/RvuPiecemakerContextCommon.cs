@@ -1342,7 +1342,7 @@ namespace RvuPiecemaker.Entities.Context
 
         entity.Property(e => e.Name).HasMaxLength(100);
 
-        entity.Property(e => e.Description).HasMaxLength(200);
+        entity.Property(e => e.Description).HasMaxLength(8000);
 
         entity.HasOne(d => d.CreatedBy)
             .WithMany(p => p.ServiceCreatedBy)

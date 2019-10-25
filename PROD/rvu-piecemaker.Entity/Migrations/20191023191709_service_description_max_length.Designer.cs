@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RvuPiecemaker.Entities.Context;
 
 namespace RvuPiecemaker.Entity.Migrations
 {
     [DbContext(typeof(RvuPiecemakerContext))]
-    partial class RvuPiecemakerContextModelSnapshot : ModelSnapshot
+    [Migration("20191023191709_service_description_max_length")]
+    partial class service_description_max_length
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -643,8 +645,7 @@ namespace RvuPiecemaker.Entity.Migrations
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(8000);
+                    b.Property<string>("Description");
 
                     b.Property<int>("DoctorTypeId");
 
