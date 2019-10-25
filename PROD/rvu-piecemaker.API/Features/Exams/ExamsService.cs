@@ -10,6 +10,7 @@ namespace RvuPiecemaker.API.Features.Exams
   public interface IExamsService
   {
     IEnumerable<ExamModel> GetAllExams();
+    IEnumerable<ExamModel> GetExams(int userId, DateTime date);
     IEnumerable<ExamModel> GetUserExams(int userId);
     IEnumerable<ExamModel> GetExamsByDate(DateTime date);
     IEnumerable<ExamTypeModel> GetUserExamTypes(int userId);
@@ -56,7 +57,7 @@ namespace RvuPiecemaker.API.Features.Exams
 
     public IEnumerable<ExamModel> GetUserExams(int userId)
     {
-      return _repo.FindByUser(userId);
+      return _repo.FindBy(userId);
     }
 
     public ExamModel InsertExam(ExamModel model)
@@ -115,7 +116,12 @@ namespace RvuPiecemaker.API.Features.Exams
 
     public IEnumerable<ExamModel> GetExamsByDate(DateTime date)
     {
-      return _repo.FindByDate(date);
+      return _repo.FindBy(date);
+    }
+
+    public IEnumerable<ExamModel> GetExams(int userId, DateTime date)
+    {
+      return _repo.FindBy(userId, date);
     }
   }
 }

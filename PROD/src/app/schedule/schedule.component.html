@@ -1,2 +1,11 @@
 <iu-calendar [calendarEventTypes]="calendarDayTypes" [defaultWeekdayTypeId]="3" [defaultWeekendTypeId]="2" [startDate]="today" [endDate]="endDate" (goToDay)="onGoToDay($event)">
+  <ng-template let-day="day" #calendarDayTemplate>
+    <div class="inline-day" [style.text-align]="'center'">
+      <div class="day-data-wrapper">
+        <span class="top">Total</span>
+        <span class="day-data font-effect-emboss">{{ getRvuTotal(day) | number: '1.2-2' }}</span>
+        <span class="bottom">RVUs</span>
+      </div>
+    </div>
+  </ng-template>
 </iu-calendar>

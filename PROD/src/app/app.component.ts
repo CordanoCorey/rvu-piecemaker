@@ -167,7 +167,7 @@ export class AppComponent extends SmartComponent implements OnInit {
   }
 
   loadUserData() {
-    this.dispatch(HttpActions.get(`shifts/user`, ShiftsActions.INIT));
+    // this.dispatch(HttpActions.get(`shifts/user`, ShiftsActions.INIT));
     this.dispatch(HttpActions.get(`goals/current`, GoalsActions.INIT));
   }
 
