@@ -1,4 +1,5 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
@@ -32,6 +33,7 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     CommonModule,
     AccordionModule,
     DialogModule,
+    DragDropModule,
     RouterModule,
     FlexLayoutModule,
     FormsModule,
@@ -56,6 +58,7 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     CommonModule,
     AccordionModule,
     DialogModule,
+    DragDropModule,
     RouterModule,
     FlexLayoutModule,
     FormsModule,

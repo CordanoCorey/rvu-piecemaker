@@ -40,6 +40,10 @@ export function examsSelector(store: Store<any>): Observable<Exams> {
   return store.select('exams');
 }
 
+export function userExamsSelector(store: Store<any>): Observable<Exam[]> {
+  return combineLatest(examsSelector(store), userIdSelector(store), (exams, userId) => exams.asArray.filter(x => x.userId === userId));
+}
+
 export function completedExamsSelector(store: Store<any>): Observable<Exam[]> {
   // return combineLatest(examsSelector(store), routeParamIdSelector(store, 'shiftId'), (exams, shiftId) => exams.asArray.filter(x => x.shiftId === shiftId));
   return combineLatest(examsSelector(store), activeDateSelector(store), userIdSelector(store), (exams, date, userId) =>
@@ -48,9 +52,9 @@ export function completedExamsSelector(store: Store<any>): Observable<Exam[]> {
 }
 
 export function examsByDateSelector(store: Store<any>): Observable<{ [key: string]: Exam[] }> {
-  return examsSelector(store).pipe(
+  return userExamsSelector(store).pipe(
     map(x =>
-      x.asArray.reduce((acc, y) => {
+      x.reduce((acc, y) => {
         const key = DateHelper.FormatDateSlashes(y.startTime);
         const value = acc[key] && Array.isArray(acc[key]) ? [...acc[key], y] : [y];
         return Object.assign({}, acc, { [key]: value });

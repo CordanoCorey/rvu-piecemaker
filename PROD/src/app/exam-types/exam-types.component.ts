@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { SmartComponent, HttpActions, inArray, build, routeParamIdSelector, MessageSubscription, compareStrings } from '@caiu/library';
+import { SmartComponent, HttpActions, inArray, build, routeParamIdSelector, MessageSubscription, compareStrings, routeNameSelector } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
 
@@ -42,6 +42,7 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
       mapper: e => `Failed to save exam.`
     })
   ];
+  routeName$: Observable<string>;
   searchTermSubject = new BehaviorSubject<string>('');
   serviceId = 0;
   serviceId$: Observable<number>;
@@ -65,10 +66,11 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
     this.shift$ = shiftSelector(store);
     this.shiftId$ = routeParamIdSelector(store, 'shiftId');
     this.examGroups$ = examGroupsSelector(store);
+    this.routeName$ = routeNameSelector(store);
     this.filteredExamTypes$ = combineLatest(this.examTypes$, this.groupId$, this.searchTermSubject.asObservable(), (examTypes, groupId, searchTerm) => {
       return examTypes
         .filter(x => (groupId === 0 || inArray(x.examGroupIds, groupId)) && (!searchTerm || x.name.toLowerCase().includes(searchTerm.toLowerCase())))
-        .sort((a, b) => compareStrings(a.name, b.name));
+        .sort((a, b) => compareStrings(`${a.modalityName}-${a.name}`, `${b.modalityName}-${b.name}`));
     });
   }
 

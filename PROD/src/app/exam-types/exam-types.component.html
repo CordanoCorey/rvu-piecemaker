@@ -3,6 +3,10 @@
     <h3 class="font-effect-3d-float">{{ groupName }}</h3>
     <button mat-mini-fab color="primary"><mat-icon>edit</mat-icon></button>
   </div>
+  <div class="group-input" *ngIf="(routeName$ | async) === 'exams'">
+    <input class="typeahead" matInput type="text" placeholder="Find Exam Type" />
+    <button mat-mini-fab color="accent"><mat-icon>add</mat-icon></button>
+  </div>
   <input class="typeahead" matInput type="text" placeholder="Find Exam Type" (keyup)="changeSearchTerm(typeahead.value)" #typeahead />
   <div class="groups scrollable">
     <button mat-raised-button class="list-item" [class.active]="groupId === 0" (click)="groupIdSubject.next(0)">ALL</button>

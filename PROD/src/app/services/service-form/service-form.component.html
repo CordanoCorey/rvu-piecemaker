@@ -2,6 +2,7 @@
   <mat-form-field>
     <input matInput placeholder="Service Name" formControlName="name" />
   </mat-form-field>
+  <rvu-exam-types-control formControlName="examTypes"></rvu-exam-types-control>
   <iu-editor id="editor" formControlName="description" [height]="300" type="FULL"></iu-editor>
   <div class="actions">
     <button [style.background]="'red'" mat-raised-button>DELETE</button>

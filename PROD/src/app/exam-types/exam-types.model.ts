@@ -9,6 +9,7 @@ export class ExamType extends BaseEntity {
   modalityId = 0;
   modalityName = '';
   name = '';
+  order = 0;
   rvuTotal = 0;
   examGroupIds: number[] = [];
 
@@ -39,5 +40,21 @@ export class ExamTypeRow {
 
   get rvuTotal(): number {
     return this.rvuEach * this.count;
+  }
+}
+
+export class ExamTypeXref {
+  id = 0;
+  examGroupId = 0;
+  examTypeId = 0;
+  examTypeModality = '';
+  examTypeName = '';
+  order = 0;
+  serviceId = 0;
+
+  get metadata(): Metadata {
+    return build(Metadata, {
+      ignore: ['id', 'examGroupId', 'serviceId']
+    });
   }
 }

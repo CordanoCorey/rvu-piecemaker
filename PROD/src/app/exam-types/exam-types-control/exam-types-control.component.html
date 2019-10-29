@@ -1,0 +1,48 @@
+<div class="exam-types-control">
+  <div class="heading"></div>
+  <div class="apply-to-all">
+    <mat-checkbox [checked]="(countSelected$ | async) === (examTypes$ | async).length" (change)="onApplyToAll($event.checked)" #selectAllExamTypes>Select All</mat-checkbox>
+    <mat-checkbox [checked]="(countSelected$ | async) === 0" (change)="onApplyToAll(!$event.checked)" #unselectAllExamTypes>Unselect All</mat-checkbox>
+  </div>
+  <mat-form-field>
+    <input matInput placeholder="Find Exam Types" [value]="searchTerm$ | async" (keyup)="searchTermSubject.next(search.value)" #search />
+    <button mat-button *ngIf="search.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchTerm()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <!-- <mat-chip-list class="scrollable" multiple cdkDropList (cdkDropListDropped)="reorderList($event)" #scrollable>
+    <mat-chip
+      *ngFor="let type of filtered$ | async"
+      [selected]="isSelected(type.examTypeId)"
+      (click)="toggleExamType(type)"
+      cdkDrag
+      [cdkDragData]="type"
+      [cdkDragDisabled]="filtered"
+      >{{ type.examTypeName }}</mat-chip
+    >
+    <p *ngIf="(filtered$ | async).length === 0">No matching exam types.</p>
+  </mat-chip-list> -->
+  <div class="scrollable blocks" multiple cdkDropList (cdkDropListDropped)="reorderList($event)" #scrollable>
+    <div
+      mat-raised-button
+      class="list-item"
+      *ngFor="let type of filtered$ | async"
+      (click)="toggleExamType(type)"
+      [class.selected]="isSelected(type.examTypeId)"
+      cdkDrag
+      [cdkDragData]="type"
+      [cdkDragDisabled]="filtered"
+    >
+      <mat-icon class="tree-item-handle" cdkDragHandle>drag_indicator</mat-icon>
+      <span class="type-name">{{ type.examTypeName }}</span>
+      <span class="cpt-code font-effect-3d-float">{{ type.examTypeModality }}</span>
+      <div class="custom-placeholder" *cdkDragPlaceholder></div>
+      <div class="list-item dragging" *cdkDragPreview>
+        <span class="cpt-code font-effect-3d-float">{{ type.examTypeModality }}</span>
+        <span class="type-name">{{ type.examTypeName }}</span>
+      </div>
+    </div>
+
+    <p *ngIf="(filtered$ | async).length === 0">No matching exam types.</p>
+  </div>
+</div>

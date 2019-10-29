@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Exam } from '../exams/exams.model';
 import { ExamsActions, examsByDateSelector, rvuTotalByDateSelector } from '../exams/exams.reducer';
 import { CalendarEventType, CalendarDay } from '../shared/calendar/calendar.model';
+import { userIdSelector } from '../shared/selectors';
 
 @Component({
   selector: 'rvu-schedule',
@@ -22,10 +23,13 @@ export class ScheduleComponent extends SmartComponent implements OnInit {
   rvuTotals: { [key: string]: number } = {};
   rvuTotals$: Observable<{ [key: string]: number }>;
   today = new Date();
+  userId = 0;
+  userId$: Observable<number>;
 
   constructor(public store: Store<any>) {
     super(store);
     this.rvuTotals$ = rvuTotalByDateSelector(store);
+    this.userId$ = userIdSelector(store);
   }
 
   get endDate(): Date {
@@ -33,7 +37,7 @@ export class ScheduleComponent extends SmartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sync(['rvuTotals']);
+    this.sync(['rvuTotals', 'userId']);
     this.getExams();
   }
 

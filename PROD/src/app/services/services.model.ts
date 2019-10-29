@@ -1,10 +1,13 @@
 import { build, Collection, Metadata } from '@caiu/library';
 
+import { ExamType } from '../exam-types/exam-types.model';
+
 export class Service {
   id = 0;
   name = '';
   description = '';
   doctorTypeId = 0;
+  examTypes: ExamType[] = [];
   parentId = 0;
 
   get metadata(): Metadata {

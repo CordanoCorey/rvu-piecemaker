@@ -6,6 +6,7 @@ form {
   width: 90%;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   mat-form-field {
     margin-bottom: 30px;
@@ -14,12 +15,13 @@ form {
 
   iu-editor {
     @include mat-elevation(6);
+    width: 70%;
   }
 
   .actions {
     display: flex;
     margin: 30px;
-    width: 98%;
+    width: 70%;
     flex-direction: row;
     justify-content: flex-end;
 
@@ -28,5 +30,12 @@ form {
       width: 100px;
       margin: 10px;
     }
+  }
+
+  rvu-exam-types-control {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    height: 400px;
   }
 }
