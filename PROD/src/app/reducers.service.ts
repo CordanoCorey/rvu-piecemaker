@@ -16,10 +16,11 @@ import { ActionReducerMap } from '@ngrx/store';
 
 import { examsReducer } from './exams/exams.reducer';
 import { examTypesReducer } from './exam-types/exam-types.reducer';
+import { examGroupsReducer } from './exams/exam-groups.reducer';
 import { goalsReducer } from './goals/goals.reducer';
 import { servicesReducer } from './services/services.reducer';
 import { shiftsReducer } from './shifts/shifts.reducer';
-import { currentUserReducer, tabsReducer, examGroupsReducer } from './shared/reducers';
+import { currentUserReducer, tabsReducer } from './shared/reducers';
 
 @Injectable({
   providedIn: 'root'

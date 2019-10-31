@@ -29,7 +29,3 @@ export class TabsActions {
     };
   }
 }
-
-export class ExamGroupsActions {
-  static GET = '[ExamGroups] GET';
-}

@@ -91,6 +91,11 @@
     align-items: center;
     justify-content: space-evenly;
 
+    #date {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
     .row {
       display: flex;
       flex-direction: row;

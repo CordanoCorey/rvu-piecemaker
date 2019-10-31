@@ -1,7 +1,7 @@
 import { build, Token, StorageActions, Action } from '@caiu/library';
 
-import { CurrentUserActions, TabsActions, ExamGroupsActions } from './actions';
-import { CurrentUser, Tabs, ExamGroups } from './models';
+import { CurrentUserActions, TabsActions } from './actions';
+import { CurrentUser, Tabs } from './models';
 
 export function currentUserReducer(state: CurrentUser = new CurrentUser(), action: Action): CurrentUser {
   switch (action.type) {
@@ -31,15 +31,6 @@ export function tabsReducer(state: Tabs = new Tabs(), action: Action): Tabs {
   switch (action.type) {
     case TabsActions.SET_ACTIVE:
       return build(Tabs, { items: action.payload });
-    default:
-      return state;
-  }
-}
-
-export function examGroupsReducer(state: ExamGroups = new ExamGroups(), action: Action): ExamGroups {
-  switch (action.type) {
-    case ExamGroupsActions.GET:
-      return state.update(action.payload);
     default:
       return state;
   }

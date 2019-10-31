@@ -58,6 +58,7 @@
     </div>
   </div>
   <div class="content">
+    <span id="date">{{ date | date: 'longDate' }}</span>
     <mat-form-field class="select-services" required>
       <mat-label>Shift Assignment</mat-label>
       <mat-select [value]="serviceId" panelClass="services-panel" (selectionChange)="changeServiceId($event.value)">

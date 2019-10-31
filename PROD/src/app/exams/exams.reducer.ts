@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { Exams, Exam } from './exams.model';
 import { ShiftActions } from '../shifts/shifts.reducer';
 import { activeDateSelector, userIdSelector } from '../shared/selectors';
+import { ExamGroups } from '../shared/models';
 
 export class ExamsActions {
   static GET = '[Exams] GET';
@@ -16,6 +17,10 @@ export class ExamsActions {
 export class ExamActions {
   static DELETE = '[Exams] DELETE';
   static PUT = '[Exams] PUT';
+}
+
+export class ExamGroupsActions {
+  static GET = '[ExamGroups] GET';
 }
 
 export function examsReducer(state: Exams = new Exams(), action: Action): Exams {
@@ -75,4 +80,13 @@ export function rvuTotalByDateSelector(store: Store<any>): Observable<{ [key: st
       }, {});
     })
   );
+}
+
+export function examGroupsReducer(state: ExamGroups = new ExamGroups(), action: Action): ExamGroups {
+  switch (action.type) {
+    case ExamGroupsActions.GET:
+      return state.update(action.payload);
+    default:
+      return state;
+  }
 }
