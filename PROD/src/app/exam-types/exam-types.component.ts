@@ -9,9 +9,10 @@ import { examTypesSelector, ExamTypesActions } from './exam-types.reducer';
 import { ExamTypeFormComponent } from './exam-type-form/exam-type-form.component';
 import { ExamFormComponent } from '../exam/exam-form/exam-form.component';
 import { Exam } from '../exams/exams.model';
-import { ExamsActions, ExamGroupsActions } from '../exams/exams.reducer';
+import { ExamsActions } from '../exams/exams.reducer';
+import { ExamGroup } from '../exams/exam-groups.model';
+import { ExamGroupsActions } from '../exams/exam-groups.reducer';
 import { Shift } from '../shifts/shifts.model';
-import { ExamGroup } from '../shared/models';
 import { shiftSelector } from '../shifts/shifts.reducer';
 import { examGroupsSelector, activeDateSelector, userIdSelector } from '../shared/selectors';
 

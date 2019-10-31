@@ -3,7 +3,8 @@ import { Store } from '@ngrx/store';
 import { Observable, interval, combineLatest } from 'rxjs';
 import { map, distinctUntilChanged, take } from 'rxjs/operators';
 
-import { CurrentUser, ExamGroup, Tab } from './models';
+import { CurrentUser, Tab } from './models';
+import { ExamGroup } from '../exams/exam-groups.model';
 
 export function isAdminUserSelector(store: Store<any>): Observable<boolean> {
   return userSelector(store).pipe(

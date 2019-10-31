@@ -1,3 +1,8 @@
 <rvu-container>
-  <div id="exams"></div>
+  <div id="exams">
+    <div class="exam-groups-list">
+      <button mat-button *ngFor="let examGroup of examGroups$ | async">{{ examGroup.name }}</button>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
 </rvu-container>
