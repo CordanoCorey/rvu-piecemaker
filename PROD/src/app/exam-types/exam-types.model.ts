@@ -38,13 +38,13 @@ export class ExamTypeXref {
 
 export class ExamTypes extends Collection<ExamType> {
   static ToXref(examTypes: ExamType[], value: ExamTypeXref[]): ExamTypeXref[] {
-    return examTypes.map(type => {
+    return examTypes.map((type, i) => {
       const existing = value.find(y => y.examTypeId === type.id);
       return build(ExamTypeXref, existing, {
         examTypeId: type.id,
         examTypeModality: type.modalityName,
         examTypeName: type.name,
-        order: existing ? existing.order : value.length
+        order: existing ? existing.order : value.length === 0 ? i : value.length
       });
     });
   }
