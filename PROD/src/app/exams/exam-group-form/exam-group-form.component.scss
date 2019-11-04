@@ -1,0 +1,46 @@
+@import '~@angular/material/_theming';
+@import '../../../common';
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  .left {
+    width: calc(100% - 400px);
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: flex-start;
+  }
+
+  mat-form-field {
+    @include mat-elevation(4);
+    padding: 20px 20px 10px 20px;
+    margin-bottom: 30px;
+    width: 90%;
+  }
+
+  .actions {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    .mat-raised-button {
+      color: #fff;
+      width: 100px;
+      margin: 10px;
+    }
+  }
+
+  rvu-exam-types-control {
+    position: absolute;
+    right: 0;
+    top: 0px;
+  }
+}

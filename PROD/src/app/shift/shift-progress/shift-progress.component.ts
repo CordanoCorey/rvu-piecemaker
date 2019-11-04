@@ -44,7 +44,6 @@ export class ShiftProgressComponent extends SmartComponent implements OnInit {
     const start = this.startTimestamp;
     const current = this.currentTime.getTime();
     const end = this.endTimestamp;
-    // console.log(start, current, end, Math.min(100, ((current - start) / (end - start)) * 100));
     return Math.min(100, ((current - start) / (end - start)) * 100);
   }
 

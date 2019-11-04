@@ -10,8 +10,8 @@ using RvuPiecemaker.Entities.Context;
 namespace RvuPiecemaker.Entity.Migrations
 {
     [DbContext(typeof(RvuPiecemakerContext))]
-    [Migration("20191023192005_service_description_length")]
-    partial class service_description_length
+    [Migration("20191102165400_ServiceExamTypeXrefOrder")]
+    partial class ServiceExamTypeXrefOrder
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -646,7 +646,7 @@ namespace RvuPiecemaker.Entity.Migrations
                     b.Property<DateTime>("CreatedDate");
 
                     b.Property<string>("Description")
-                        .HasMaxLength(100000);
+                        .HasMaxLength(8000);
 
                     b.Property<int>("DoctorTypeId");
 
@@ -704,6 +704,8 @@ namespace RvuPiecemaker.Entity.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ExamTypeId");
+
+                    b.Property<int>("Order");
 
                     b.Property<int>("ServiceId");
 

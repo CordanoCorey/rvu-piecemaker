@@ -20,7 +20,8 @@ namespace RvuPiecemaker.API.Features.Services
     [HttpGet]
     public IActionResult Get()
     {
-      return Get(_service.GetServices);
+      var result = _service.GetUserServices(UserId);
+      return Ok(result);
     }
 
     [HttpPut("{id}")]

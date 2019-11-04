@@ -1,7 +1,7 @@
 <div class="exam-types">
   <div class="active-group">
-    <h3 class="font-effect-3d-float">{{ groupName }}</h3>
-    <button mat-mini-fab color="primary"><mat-icon>edit</mat-icon></button>
+    <h3 class="font-effect-3d-float">{{ groupName$ | async }}</h3>
+    <button mat-mini-fab color="primary" [routerLink]="groupLink$ | async"><mat-icon>edit</mat-icon></button>
   </div>
   <div class="group-input" *ngIf="(routeName$ | async) === 'exams'">
     <input class="typeahead" matInput type="text" placeholder="Find Exam Type" />

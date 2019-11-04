@@ -138,48 +138,45 @@ export class CalendarComponent extends DumbComponent implements OnInit {
   }
 
   get calendarDays(): CalendarDay[] {
-    const d =
-      this._calendarDays && Array.isArray(this._calendarDays)
-        ? DateHelper.DaysInMonth(this.activeDate).map(date => {
-            const day = build(this.ctor, this._calendarDays.find(x => DateHelper.IsSameDay(date, x.date)));
-            const dayType = build(
-              CalendarEventType,
-              this.calendarEventTypes.find(
-                x =>
-                  x.id ===
-                  (day && day.dayType
-                    ? day.dayType.id
-                    : DateHelper.IsBetween(date, this.startDate, this.endDate)
-                    ? DateHelper.IsWeekend(date)
-                      ? this.defaultWeekendTypeId
-                      : this.defaultWeekdayTypeId
-                    : this.defaultInactiveTypeId)
-              )
-            );
-            return build(this.ctor, day, {
-              date,
-              dayType,
-              isActive: DateHelper.IsSameDay(date, this.activeDate),
-              color: day.dayType.color || build(CalendarEventType, this.calendarEventTypes.find(y => y.id === dayType.id)).color
-            });
-          })
-        : DateHelper.DaysInMonth(this.activeDate).map(date => {
-            const events = this.calendarEvents
-              .filter(event => DateHelper.IsBetween(date, event.startTime, event.endTime) || DateHelper.IsSameDay(date, event.startTime))
-              .map(event => build(CalendarEvent, event, {}));
-            const eventTypeId =
-              build(CalendarEvent, events.find(y => y.eventType.allDay)).eventTypeId || (DateHelper.IsWeekend(date) ? this.defaultWeekendTypeId : this.defaultWeekdayTypeId);
-            const dayType = build(CalendarEventType, this.calendarEventTypes.find(x => x.id === eventTypeId));
-            return build(this.ctor, {
-              date,
-              events,
-              dayType,
-              isActive: DateHelper.IsSameDay(date, this.activeDate),
-              color: dayType.color || build(CalendarEventType, this.calendarEventTypes.find(y => y.id === dayType.id)).color
-            });
+    return this._calendarDays && Array.isArray(this._calendarDays)
+      ? DateHelper.DaysInMonth(this.activeDate).map(date => {
+          const day = build(this.ctor, this._calendarDays.find(x => DateHelper.IsSameDay(date, x.date)));
+          const dayType = build(
+            CalendarEventType,
+            this.calendarEventTypes.find(
+              x =>
+                x.id ===
+                (day && day.dayType
+                  ? day.dayType.id
+                  : DateHelper.IsBetween(date, this.startDate, this.endDate)
+                  ? DateHelper.IsWeekend(date)
+                    ? this.defaultWeekendTypeId
+                    : this.defaultWeekdayTypeId
+                  : this.defaultInactiveTypeId)
+            )
+          );
+          return build(this.ctor, day, {
+            date,
+            dayType,
+            isActive: DateHelper.IsSameDay(date, this.activeDate),
+            color: day.dayType.color || build(CalendarEventType, this.calendarEventTypes.find(y => y.id === dayType.id)).color
           });
-    // console.dir(d);
-    return d;
+        })
+      : DateHelper.DaysInMonth(this.activeDate).map(date => {
+          const events = this.calendarEvents
+            .filter(event => DateHelper.IsBetween(date, event.startTime, event.endTime) || DateHelper.IsSameDay(date, event.startTime))
+            .map(event => build(CalendarEvent, event, {}));
+          const eventTypeId =
+            build(CalendarEvent, events.find(y => y.eventType.allDay)).eventTypeId || (DateHelper.IsWeekend(date) ? this.defaultWeekendTypeId : this.defaultWeekdayTypeId);
+          const dayType = build(CalendarEventType, this.calendarEventTypes.find(x => x.id === eventTypeId));
+          return build(this.ctor, {
+            date,
+            events,
+            dayType,
+            isActive: DateHelper.IsSameDay(date, this.activeDate),
+            color: dayType.color || build(CalendarEventType, this.calendarEventTypes.find(y => y.id === dayType.id)).color
+          });
+        });
   }
 
   get calendarEvents(): CalendarEvent[] {
@@ -221,10 +218,6 @@ export class CalendarComponent extends DumbComponent implements OnInit {
   }
 
   ngOnInit() {}
-
-  ngOnChanges(changes) {
-    // console.dir(changes);
-  }
 
   changeTab(e: number) {
     switch (e) {

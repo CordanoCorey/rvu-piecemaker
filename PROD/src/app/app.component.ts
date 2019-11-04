@@ -191,7 +191,6 @@ export class AppComponent extends SmartComponent implements OnInit {
 
   @HostListener('window:mousemove')
   resetTimer() {
-    // console.log(new Date().getTime() - this.lastActive.getTime());
     // this.dispatch({ type: CurrentUserActions.RESET_LAST_ACTIVE });
     clearTimeout(this.time);
     this.time = setTimeout(() => {

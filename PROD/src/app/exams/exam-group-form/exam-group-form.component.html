@@ -1,1 +1,23 @@
-<p>exam-group-form works!</p>
+<form [formGroup]="form">
+  <div class="left">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Exam Group Name" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="5"
+        cdkAutosizeMaxRows="15"
+        placeholder="Description"
+        formControlName="description"
+      ></textarea>
+    </mat-form-field>
+    <div class="actions">
+      <button [style.background]="'red'" mat-raised-button>DELETE</button>
+      <button [style.background]="'green'" mat-raised-button (click)="onSave()">SAVE</button>
+    </div>
+  </div>
+  <rvu-exam-types-control formControlName="examTypes"></rvu-exam-types-control>
+</form>

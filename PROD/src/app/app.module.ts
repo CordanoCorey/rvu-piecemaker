@@ -28,6 +28,7 @@ import { ReducersService } from './reducers.service';
 import { UserEffects } from './shared/effects';
 import { authTokenSelector } from './shared/selectors';
 import { SharedModule } from './shared/shared.module';
+import { ExamsEffects } from './exams/exams.effects';
 import { GoalsEffects } from './goals/goals.effects';
 import { ShiftsEffects } from './shifts/shifts.effects';
 
@@ -43,7 +44,7 @@ export function getReducers(reducersService: ReducersService) {
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    EffectsModule.forRoot([EventEffects, HttpEffects, MessagesEffects, RouterEffects, UserEffects, StorageEffects, ShiftsEffects]),
+    EffectsModule.forRoot([EventEffects, HttpEffects, MessagesEffects, RouterEffects, UserEffects, StorageEffects, ExamsEffects, ShiftsEffects]),
     ErrorsModule.forRoot(),
     FlexLayoutModule,
     FormsModule,

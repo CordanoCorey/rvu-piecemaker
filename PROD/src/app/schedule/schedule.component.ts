@@ -20,10 +20,10 @@ export class ScheduleComponent extends SmartComponent implements OnInit {
     build(CalendarEventType, { id: 2, name: 'Off', allDay: true, color: '#e57373' }),
     build(CalendarEventType, { id: 3, name: 'Shift', allDay: true, color: '#00568c' })
   ];
-  rvuTotals: { [key: string]: number } = {};
+  _rvuTotals: { [key: string]: number } = {};
   rvuTotals$: Observable<{ [key: string]: number }>;
   today = new Date();
-  userId = 0;
+  _userId = 0;
   userId$: Observable<number>;
 
   constructor(public store: Store<any>) {
@@ -34,6 +34,23 @@ export class ScheduleComponent extends SmartComponent implements OnInit {
 
   get endDate(): Date {
     return new Date(this.today.getFullYear() + 1, 12, 31);
+  }
+
+  set rvuTotals(value: { [key: string]: number }) {
+    this._rvuTotals = value;
+  }
+
+  get rvuTotals(): { [key: string]: number } {
+    return this._rvuTotals;
+  }
+
+  set userId(value: number) {
+    this._userId = value;
+    this.getExams();
+  }
+
+  get userId(): number {
+    return this._userId;
   }
 
   ngOnInit() {

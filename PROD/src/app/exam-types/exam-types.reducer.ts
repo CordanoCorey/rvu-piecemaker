@@ -35,5 +35,5 @@ export function examTypesReducer(state: ExamTypes = new ExamTypes(), action: Act
 }
 
 export function examTypesSelector(store: Store<any>): Observable<ExamType[]> {
-  return store.select('examTypes').pipe(map(x => x.asArray));
+  return store.select('examTypes').pipe(map(x => x.asArray.sort((a, b) => compareStrings(`${a.modalityName}-${a.name}`, `${b.modalityName}-${b.name}`))));
 }

@@ -53,11 +53,5 @@ export class ShiftOverviewComponent extends SmartComponent implements OnInit {
 
   ngOnInit() {
     this.sync(['activeShiftId', 'rvuGoalPerHour', 'shift', 'shiftId']);
-    this.lastShift$.subscribe(x => {
-      // console.dir(x);
-    });
-    this.nextShift$.subscribe(x => {
-      // console.dir(x);
-    });
   }
 }

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material';
 import { SmartComponent, HttpActions, inArray, build, routeParamIdSelector, MessageSubscription, compareStrings, routeNameSelector } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { ExamType } from './exam-types.model';
 import { examTypesSelector, ExamTypesActions } from './exam-types.reducer';
@@ -30,6 +31,8 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
   groupId = 0;
   groupId$: Observable<number>;
   groupIdSubject = new BehaviorSubject<number>(0);
+  groupLink$: Observable<string>;
+  groupName$: Observable<string>;
   messages = [
     build(MessageSubscription, {
       action: ExamsActions.POST,
@@ -72,6 +75,8 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
         .filter(x => (groupId === 0 || inArray(x.examGroupIds, groupId)) && (!searchTerm || x.name.toLowerCase().includes(searchTerm.toLowerCase())))
         .sort((a, b) => compareStrings(`${a.modalityName}-${a.name}`, `${b.modalityName}-${b.name}`));
     });
+    this.groupName$ = combineLatest(this.examGroups$, this.groupId$, (examGroups, groupId) => build(ExamType, examGroups.find(x => x.id === groupId)).name || 'ALL');
+    this.groupLink$ = this.groupId$.pipe(map(id => (id ? `/exams/${id}` : `/exams/0`)));
   }
 
   set examTypes(value: ExamType[]) {
@@ -80,10 +85,6 @@ export class ExamTypesComponent extends SmartComponent implements OnInit {
 
   get examTypes(): ExamType[] {
     return this._examTypes;
-  }
-
-  get groupName(): string {
-    return build(ExamType, this.examTypes.find(x => x.id === this.groupId)).name || 'ALL';
   }
 
   ngOnInit() {

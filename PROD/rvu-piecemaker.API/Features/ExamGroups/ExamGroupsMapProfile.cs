@@ -12,9 +12,18 @@ namespace RvuPiecemaker.API.Features.ExamGroups
     public ExamGroupsMapProfile()
     {
       CreateMap<ExamGroup, ExamGroupModel>()
-          ;
+          .ForMember(dest => dest.ExamTypes, opt => opt.MapFrom(src => src.ExamGroupXref))
+      ;
 
-      CreateMap<ExamGroupModel, ExamGroup>();
+      CreateMap<ExamGroupModel, ExamGroup>()
+          .ForMember(dest => dest.ExamGroupXref, opt => opt.MapFrom(src => src.ExamTypes))
+      ;
+
+      CreateMap<ExamGroupXref, ExamGroupXrefModel>()
+      ;
+
+      CreateMap<ExamGroupXrefModel, ExamGroupXref>()
+      ;
     }
   }
 }

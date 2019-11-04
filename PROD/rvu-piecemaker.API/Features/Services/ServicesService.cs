@@ -8,6 +8,7 @@ namespace RvuPiecemaker.API.Features.Services
   public interface IServicesService
   {
     IEnumerable<ServiceModel> GetServices();
+    IEnumerable<ServiceModel> GetUserServices(int userId);
     ServiceModel GetService(int id);
     ServiceModel InsertService(ServiceModel model);
     ServiceModel UpdateService(ServiceModel model);
@@ -36,6 +37,11 @@ namespace RvuPiecemaker.API.Features.Services
     public IEnumerable<ServiceModel> GetServices()
     {
       return _repo.All();
+    }
+
+    public IEnumerable<ServiceModel> GetUserServices(int userId)
+    {
+      return _repo.FindByUser(userId);
     }
 
     public ServiceModel InsertService(ServiceModel model)

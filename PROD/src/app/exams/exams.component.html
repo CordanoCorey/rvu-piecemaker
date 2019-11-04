@@ -1,8 +1,11 @@
 <rvu-container>
   <div id="exams">
     <div class="exam-groups-list">
-      <button mat-button *ngFor="let examGroup of examGroups$ | async">{{ examGroup.name }}</button>
+      <button mat-raised-button class="btn-add" routerLink="/exams/0"><mat-icon>add</mat-icon>Add Group</button>
+      <button mat-button *ngFor="let examGroup of examGroups$ | async" [routerLink]="'/exams/' + examGroup.id">{{ examGroup.name }}</button>
     </div>
-    <router-outlet></router-outlet>
+    <div class="form-wrapper">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </rvu-container>

@@ -20,7 +20,35 @@ export class ExamType extends BaseEntity {
   }
 }
 
+export class ExamTypeXref {
+  id = 0;
+  examGroupId = 0;
+  examTypeId = 0;
+  examTypeModality = '';
+  examTypeName = '';
+  order = null;
+  serviceId = 0;
+
+  get metadata(): Metadata {
+    return build(Metadata, {
+      ignore: ['id', 'examGroupId', 'serviceId']
+    });
+  }
+}
+
 export class ExamTypes extends Collection<ExamType> {
+  static ToXref(examTypes: ExamType[], value: ExamTypeXref[]): ExamTypeXref[] {
+    return examTypes.map(type => {
+      const existing = value.find(y => y.examTypeId === type.id);
+      return build(ExamTypeXref, existing, {
+        examTypeId: type.id,
+        examTypeModality: type.modalityName,
+        examTypeName: type.name,
+        order: existing ? existing.order : value.length
+      });
+    });
+  }
+
   constructor() {
     super(ExamType);
   }
@@ -40,21 +68,5 @@ export class ExamTypeRow {
 
   get rvuTotal(): number {
     return this.rvuEach * this.count;
-  }
-}
-
-export class ExamTypeXref {
-  id = 0;
-  examGroupId = 0;
-  examTypeId = 0;
-  examTypeModality = '';
-  examTypeName = '';
-  order = 0;
-  serviceId = 0;
-
-  get metadata(): Metadata {
-    return build(Metadata, {
-      ignore: ['id', 'examGroupId', 'serviceId']
-    });
   }
 }

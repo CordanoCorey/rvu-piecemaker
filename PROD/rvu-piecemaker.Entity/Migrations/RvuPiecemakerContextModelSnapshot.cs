@@ -703,6 +703,8 @@ namespace RvuPiecemaker.Entity.Migrations
 
                     b.Property<int>("ExamTypeId");
 
+                    b.Property<int>("Order");
+
                     b.Property<int>("ServiceId");
 
                     b.HasKey("Id");

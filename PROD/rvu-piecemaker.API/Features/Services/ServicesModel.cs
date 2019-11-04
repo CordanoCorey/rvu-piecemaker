@@ -14,5 +14,14 @@ namespace RvuPiecemaker.API.Features.Services
     public string Description { get; set; }
     public int DoctorTypeId { get; set; }
     public int? ParentId { get; set; }
+    public IEnumerable<ServiceExamTypeModel> ExamTypes { get; set; }
+  }
+
+  public class ServiceExamTypeModel
+  {
+    public int Id { get; set; }
+    public int Order { get; set; }
+    public int ExamTypeId { get; set; }
+    public int ServiceId { get; set; }
   }
 }

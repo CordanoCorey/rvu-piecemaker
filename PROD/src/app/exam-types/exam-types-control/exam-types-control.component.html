@@ -1,10 +1,14 @@
 <div class="exam-types-control">
   <div class="heading"></div>
+  <div class="icons">
+    <mat-icon class="font-effect-emboss" (click)="filter()">filter_list</mat-icon>
+    <mat-icon class="font-effect-emboss" (click)="reorder()">sort</mat-icon>
+  </div>
   <div class="apply-to-all">
     <mat-checkbox [checked]="(countSelected$ | async) === (examTypes$ | async).length" (change)="onApplyToAll($event.checked)" #selectAllExamTypes>Select All</mat-checkbox>
     <mat-checkbox [checked]="(countSelected$ | async) === 0" (change)="onApplyToAll(!$event.checked)" #unselectAllExamTypes>Unselect All</mat-checkbox>
   </div>
-  <mat-form-field>
+  <mat-form-field class="search">
     <input matInput placeholder="Find Exam Types" [value]="searchTerm$ | async" (keyup)="searchTermSubject.next(search.value)" #search />
     <button mat-button *ngIf="search.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchTerm()">
       <mat-icon>close</mat-icon>

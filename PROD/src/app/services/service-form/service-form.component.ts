@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 
 import { Service } from '../services.model';
 import { Observable } from 'rxjs';
-import { serviceSelector, ServiceActions } from '../services.reducer';
+import { serviceSelector, ServiceActions, ServicesActions } from '../services.reducer';
 
 @Component({
   selector: 'rvu-service-form',
@@ -43,6 +43,10 @@ export class ServiceFormComponent extends SmartComponent implements OnInit {
 
   onSave() {
     this.updateService(this.valueOut);
+  }
+
+  addService(e: Service) {
+    this.dispatch(HttpActions.post(`services`, e, ServicesActions.POST, ServicesActions.POST_ERROR));
   }
 
   updateService(e: Service) {

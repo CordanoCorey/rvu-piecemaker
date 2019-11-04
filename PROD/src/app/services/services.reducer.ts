@@ -7,16 +7,19 @@ import { Services, Service } from './services.model';
 
 export class ServicesActions {
   static GET = '[Services] GET';
+  static POST = '[Services] POST';
+  static POST_ERROR = '[Services] POST ERROR';
 }
 
 export class ServiceActions {
-  static PUT = '[Services] PUT';
-  static PUT_ERROR = '[Services] PUT ERROR';
+  static PUT = '[Service] PUT';
+  static PUT_ERROR = '[Service] PUT ERROR';
 }
 
 export function servicesReducer(state: Services = new Services(), action: Action): Services {
   switch (action.type) {
     case ServicesActions.GET:
+    case ServicesActions.POST:
     case ServiceActions.PUT:
       return state.update(action.payload);
     default:

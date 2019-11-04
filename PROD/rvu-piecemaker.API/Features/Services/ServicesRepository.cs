@@ -1,6 +1,7 @@
 using AutoMapper;
 using CAIU.Common;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using RvuPiecemaker.Entities.Context;
 using RvuPiecemaker.Entities.DataClasses;
 using System;
@@ -12,6 +13,27 @@ namespace RvuPiecemaker.API.Features.Services
 {
   public interface IServicesRepository : IBaseRepository<Service, ServiceModel>
   {
+    IEnumerable<ServiceModel> FindByUser(int userId);
+  }
+
+  public class ServiceExamTypeComparer : IEqualityComparer<ServiceExamTypeXref>
+  {
+    public bool Equals(ServiceExamTypeXref b1, ServiceExamTypeXref b2)
+    {
+      if (b1.ExamTypeId == b2.ExamTypeId)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+
+    public int GetHashCode(ServiceExamTypeXref obj)
+    {
+      return obj.Id.GetHashCode();
+    }
   }
 
   public class ServicesRepository : BaseRepository<RvuPiecemakerContext, Service, ServiceModel>, IServicesRepository
@@ -27,12 +49,40 @@ namespace RvuPiecemaker.API.Features.Services
 
     protected override IQueryable<Service> Include(IQueryable<Service> queryable)
     {
-      return queryable;
+      return queryable
+        .Include(x => x.ServiceExamTypes)
+        ;
     }
 
     protected override IQueryable<Service> IncludeSingle(IQueryable<Service> queryable)
     {
-      return queryable;
+      return queryable
+        .Include(x => x.ServiceExamTypes)
+        ;
+    }
+
+    public IEnumerable<ServiceModel> FindByUser(int userId)
+    {
+      return FindBy(x => true);
+    }
+
+    public override ServiceModel Update(ServiceModel model)
+    {
+      var entity = _mapper.Map<Service>(model);
+      var existing = FindEntityByKey(model.Id)?.ServiceExamTypes;
+      var add = entity.ServiceExamTypes.Except(existing, new ServiceExamTypeComparer()).ToList();
+      var remove = existing.Except(entity.ServiceExamTypes, new ServiceExamTypeComparer()).ToList();
+      _context.ChangeTracker.TrackGraph(entity, (EntityEntryGraphNode node) =>
+      {
+        var entry = node.Entry;
+        entry.State = entry.IsKeySet ? EntityState.Modified : EntityState.Added;
+      });
+      foreach (var item in remove)
+      {
+        _context.Set<ServiceExamTypeXref>().Remove(item);
+      }
+      Save();
+      return Map(entity);
     }
   }
 }

@@ -108,9 +108,6 @@ export class Shifts extends Collection<Shift> {
       .filter(x => x.startTime > d && !DateHelper.IsBetween(d, x.startTime, x.endTime))
       .sort((a, b) => compareDates(a.startTime, b.startTime))
       .reverse();
-    // console.dir(this.asArray.filter(x => x.startTime > d));
-    // console.dir(ordered.filter(x => x.id !== 0));
-    // console.dir(ordered.find((x, i) => i === 0));
     return build(Shift, ordered.find((x, i) => i === 0)).id;
   }
 

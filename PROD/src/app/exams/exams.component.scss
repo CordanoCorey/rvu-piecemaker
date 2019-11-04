@@ -1,3 +1,23 @@
 #exams {
-  width: 800px;
+  width: 90%;
+  height: 100%;
+  padding: 50px 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .exam-groups-list {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+
+    .btn-add {
+      background: green;
+      color: #fff;
+    }
+  }
+
+  .form-wrapper {
+    width: 75%;
+  }
 }

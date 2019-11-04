@@ -5,7 +5,7 @@ import { SmartComponent, HttpActions, toInt, truthy, build, compareNumbers } fro
 import { Store } from '@ngrx/store';
 import { Observable, BehaviorSubject, combineLatest, Subscription } from 'rxjs';
 
-import { ExamType, ExamTypeXref } from '../exam-types.model';
+import { ExamType, ExamTypeXref, ExamTypes } from '../exam-types.model';
 import { examTypesSelector, ExamTypesActions } from '../exam-types.reducer';
 import { Ordering } from 'src/app/shared/models';
 import { map } from 'rxjs/operators';
@@ -30,6 +30,7 @@ export class ExamTypesControlComponent extends SmartComponent implements OnInit,
   private onTouch: Function;
   _value: ExamTypeXref[] = [];
   countSelected$: Observable<number>;
+  examTypes: ExamType[] = [];
   examTypes$: Observable<ExamType[]>;
   filtered$: Observable<ExamTypeXref[]>;
   initialValueSubject = new BehaviorSubject<ExamTypeXref[]>([]);
@@ -70,20 +71,7 @@ export class ExamTypesControlComponent extends SmartComponent implements OnInit,
       types
     })).subscribe(x => {
       this.selectedSubject.next(x.types.reduce((acc, type) => Object.assign({}, acc, { [type.id]: x.value.findIndex(y => y.examTypeId === type.id) !== -1 }), {}));
-      this.orderingSubject.next(
-        new Ordering(
-          x.types.map((type, order) => {
-            const existing = x.value.find(y => y.examTypeId === type.id);
-            return build(ExamTypeXref, existing, {
-              examTypeId: type.id,
-              examTypeModality: type.modalityName,
-              examTypeName: type.name,
-              order
-            });
-          }),
-          ExamTypeXref
-        )
-      );
+      this.orderingSubject.next(new Ordering(ExamTypes.ToXref(x.types, x.value), ExamTypeXref));
     });
   }
 
@@ -113,13 +101,23 @@ export class ExamTypesControlComponent extends SmartComponent implements OnInit,
   }
 
   ngOnInit() {
+    this.sync(['examTypes']);
     this.addSubscription(this.dataChanges);
-    this.sync(['value']);
+    this.value$.subscribe(x => {
+      this.onChange(x);
+    });
     this.getExamTypes();
   }
 
   clearSearchTerm() {
     this.searchTermSubject.next('');
+  }
+
+  filter() {
+    const value = this.value;
+    const all = ExamTypes.ToXref(this.examTypes, value);
+    const items = value.length === this.orderingSubject.value.items.length ? all : value;
+    this.orderingSubject.next(new Ordering(items, ExamTypeXref));
   }
 
   isSelected(id: number): boolean {
@@ -136,6 +134,12 @@ export class ExamTypesControlComponent extends SmartComponent implements OnInit,
     } else {
       this.unselectAllExamTypes();
     }
+  }
+
+  reorder() {
+    const value = this.value;
+    const items = [...value, ...this.orderingSubject.value.items.filter(x => value.findIndex(y => y.examTypeId === x.examTypeId) === -1)];
+    this.orderingSubject.next(new Ordering(items, ExamTypeXref));
   }
 
   reorderList(e: CdkDragDrop<any>) {

@@ -10,6 +10,7 @@ namespace RvuPiecemaker.Entities.DataClasses
     }
     public int Id { get; set; }
     public int ExamTypeId { get; set; }
+    public int Order { get; set; }
     public int ServiceId { get; set; }
 
     public virtual Service Service { get; set; }

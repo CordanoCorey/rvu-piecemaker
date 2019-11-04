@@ -11,7 +11,7 @@ const routes: Routes = [
     data: { routeName: 'exams', routeLabel: 'Exams' },
     children: [
       {
-        path: '',
+        path: ':examGroupId',
         component: ExamGroupFormComponent
       }
     ]

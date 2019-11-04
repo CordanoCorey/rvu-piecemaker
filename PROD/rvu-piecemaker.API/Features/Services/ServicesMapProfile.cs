@@ -12,9 +12,17 @@ namespace RvuPiecemaker.API.Features.Services
     public ServicesMapProfile()
     {
       CreateMap<Service, ServiceModel>()
-          ;
+          .ForMember(dest => dest.ExamTypes, opt => opt.MapFrom(src => src.ServiceExamTypes))
+        ;
 
       CreateMap<ServiceModel, Service>()
+          .ForMember(dest => dest.ServiceExamTypes, opt => opt.MapFrom(src => src.ExamTypes))
+        ;
+
+      CreateMap<ServiceExamTypeXref, ServiceExamTypeModel>()
+        ;
+
+      CreateMap<ServiceExamTypeModel, ServiceExamTypeXref>()
         ;
     }
   }
