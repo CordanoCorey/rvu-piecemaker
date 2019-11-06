@@ -7,7 +7,7 @@ namespace RvuPiecemaker.API.Features.ExamGroups
 {
   public interface IExamGroupsService
   {
-    IEnumerable<ExamGroupModel> GetExamGroups();
+    IEnumerable<ExamGroupModel> GetExamGroups(int userId);
     ExamGroupModel GetExamGroup(int id);
     ExamGroupModel InsertExamGroup(ExamGroupModel model);
     ExamGroupModel UpdateExamGroup(ExamGroupModel model);
@@ -33,9 +33,9 @@ namespace RvuPiecemaker.API.Features.ExamGroups
       return _repo.FindByKey(id);
     }
 
-    public IEnumerable<ExamGroupModel> GetExamGroups()
+    public IEnumerable<ExamGroupModel> GetExamGroups(int userId)
     {
-      return _repo.All();
+      return _repo.FindForUser(userId);
     }
 
     public ExamGroupModel InsertExamGroup(ExamGroupModel model)

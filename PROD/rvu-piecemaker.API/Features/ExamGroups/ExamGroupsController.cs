@@ -20,7 +20,7 @@ namespace RvuPiecemaker.API.Features.ExamGroups
     [HttpGet]
     public IActionResult Get()
     {
-      return Get(_service.GetExamGroups);
+      return Get(_service.GetExamGroups, UserId);
     }
 
     [HttpPut("{id}")]

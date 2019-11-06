@@ -13,6 +13,7 @@ namespace RvuPiecemaker.API.Features.ExamGroups
 {
   public interface IExamGroupsRepository : IBaseRepository<ExamGroup, ExamGroupModel>
   {
+    IEnumerable<ExamGroupModel> FindForUser(int userId);
   }
 
   public class ExamGroupXrefComparer : IEqualityComparer<ExamGroupXref>
@@ -79,6 +80,11 @@ namespace RvuPiecemaker.API.Features.ExamGroups
       }
       Save();
       return Map(entity);
+    }
+
+    public IEnumerable<ExamGroupModel> FindForUser(int userId)
+    {
+      return FindBy(x => x.CreatedById == userId);
     }
   }
 }
