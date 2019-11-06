@@ -12,6 +12,8 @@ export class ExamGroupsActions {
 }
 
 export class ExamGroupActions {
+  static DELETE = '[ExamGroups] DELETE';
+  static DELETE_ERROR = '[ExamGroups] DELETE ERROR';
   static PUT = '[ExamGroups] PUT';
   static PUT_ERROR = '[ExamGroups] PUT ERROR';
 }
@@ -22,6 +24,9 @@ export function examGroupsReducer(state: ExamGroups = new ExamGroups(), action: 
     case ExamGroupsActions.POST:
     case ExamGroupActions.PUT:
       return state.update(action.payload);
+
+    case ExamGroupActions.DELETE:
+      return build(ExamGroups, state.delete(action.payload));
 
     default:
       return state;

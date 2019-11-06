@@ -15,7 +15,7 @@
       ></textarea>
     </mat-form-field>
     <div class="actions">
-      <button [style.background]="'red'" mat-raised-button>DELETE</button>
+      <button [style.background]="'red'" mat-raised-button (click)="onDelete()">DELETE</button>
       <button [style.background]="'green'" mat-raised-button (click)="onSave()">SAVE</button>
     </div>
   </div>

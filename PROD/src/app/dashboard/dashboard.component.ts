@@ -17,7 +17,6 @@ export class DashboardComponent extends SmartComponent implements OnInit {
 
   constructor(public store: Store<any>) {
     super(store);
-
     // assign the results of selectors to local observables in the constructor
     this.userId$ = userIdSelector(store);
     this.userName$ = userNameSelector(store);

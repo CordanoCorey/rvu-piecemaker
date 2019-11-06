@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { SmartComponent, Control, build, HttpActions } from '@caiu/library';
+import { MatDialog } from '@angular/material';
+import { SmartComponent, Control, build, HttpActions, ConfirmDeleteComponent } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -13,11 +14,7 @@ import { examGroupSelector, ExamGroupsActions, ExamGroupActions } from '../exam-
   styleUrls: ['./exam-group-form.component.scss']
 })
 export class ExamGroupFormComponent extends SmartComponent implements OnInit {
-  @Control(ExamGroup) form: FormGroup;
-  _examGroup: ExamGroup = new ExamGroup();
-  examGroup$: Observable<ExamGroup>;
-
-  constructor(public store: Store<any>) {
+  constructor(public store: Store<any>, public dialog: MatDialog) {
     super(store);
     this.examGroup$ = examGroupSelector(store);
   }
@@ -34,9 +31,26 @@ export class ExamGroupFormComponent extends SmartComponent implements OnInit {
   get valueOut(): ExamGroup {
     return build(ExamGroup, this.examGroup, this.form.value);
   }
+  @Control(ExamGroup) form: FormGroup;
+  _examGroup: ExamGroup = new ExamGroup();
+  examGroup$: Observable<ExamGroup>;
 
   ngOnInit() {
     this.sync(['examGroup']);
+  }
+
+  closeDialog(e: boolean) {
+    if (e) {
+      this.delete(this.examGroup.id);
+    }
+  }
+
+  delete(id: number) {
+    this.dispatch(HttpActions.delete(`examgroups/${id}`, id, ExamGroupActions.DELETE, ExamGroupActions.DELETE_ERROR));
+  }
+
+  onDelete() {
+    this.openDialog(ConfirmDeleteComponent, { width: '600px' });
   }
 
   onSave() {

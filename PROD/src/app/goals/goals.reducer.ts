@@ -5,6 +5,7 @@ import { map, distinctUntilChanged } from 'rxjs/operators';
 
 import { Goals, Goal } from './goals.model';
 import { rvuRateSelector } from '../shared/selectors';
+import { rvuTotalByDateSelector } from '../exams/exams.reducer';
 
 export class GoalsActions {
   static GET = '[Goals] GET';
@@ -52,5 +53,15 @@ export function rvuGoalPerHourSelector(store: Store<any>): Observable<number> {
   return goalSelector(store).pipe(
     map(x => (x ? x.rvuTotalPerHourRemaining : 0)),
     distinctUntilChanged()
+  );
+}
+
+export function nonzeroRvuTotalsSelector(store: Store<any>): Observable<number[]> {
+  return rvuTotalByDateSelector(store).pipe(
+    map(x =>
+      Object.keys(x)
+        .map(key => x[key])
+        .filter(y => y > 0)
+    )
   );
 }
