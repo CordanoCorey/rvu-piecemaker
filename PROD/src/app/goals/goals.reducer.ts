@@ -1,4 +1,4 @@
-import { Action } from '@caiu/library';
+import { Action, DateHelper } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable, combineLatest } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
@@ -60,6 +60,7 @@ export function nonzeroRvuTotalsSelector(store: Store<any>): Observable<number[]
   return rvuTotalByDateSelector(store).pipe(
     map(x =>
       Object.keys(x)
+        .filter(key => !DateHelper.IsSameDay(new Date(), new Date(key)))
         .map(key => x[key])
         .filter(y => y > 0)
     )
