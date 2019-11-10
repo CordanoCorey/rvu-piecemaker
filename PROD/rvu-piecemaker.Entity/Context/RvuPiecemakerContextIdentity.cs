@@ -71,7 +71,7 @@ namespace RvuPiecemaker.Entities.Context
             DoctorTypeId = 1,
             ShiftTypeId = 1,
             YearTypeId = 1,
-            RvuRate = null
+            RvuRate = 38.0m
           },
           new ApplicationUser
           {
@@ -91,7 +91,7 @@ namespace RvuPiecemaker.Entities.Context
             DoctorTypeId = 1,
             ShiftTypeId = 1,
             YearTypeId = 1,
-            RvuRate = null
+            RvuRate = 38.0m
           }
           );
 

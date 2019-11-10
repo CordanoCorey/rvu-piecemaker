@@ -579,7 +579,7 @@ namespace RvuPiecemaker.Entities.Context
              Id = 34,
              Name = "CR",
              Description = "",
-             RvuTotal = 10.18m,
+             RvuTotal = 0.18m,
              ModalityId = 1,
              CptCode = "71046",
              IsAdmin = true,
@@ -608,7 +608,7 @@ namespace RvuPiecemaker.Entities.Context
              Name = "MRA Head WO",
              Description = "",
              RvuTotal = 1.2m,
-             ModalityId = 2,
+             ModalityId = 4,
              CptCode = "70544",
              IsAdmin = true,
              CreatedById = 1,
@@ -703,7 +703,7 @@ namespace RvuPiecemaker.Entities.Context
            new ExamType
            {
              Id = 43,
-             Name = "RI Cervical Spine WO",
+             Name = "MRI Cervical Spine WO",
              Description = "",
              RvuTotal = 1.48m,
              ModalityId = 4,
@@ -887,7 +887,7 @@ namespace RvuPiecemaker.Entities.Context
              Id = 56,
              Name = "US Breast UNI Limited",
              Description = "",
-             RvuTotal = 0.74m,
+             RvuTotal = 0.68m,
              ModalityId = 6,
              CptCode = "76642",
              IsAdmin = true,
@@ -1268,6 +1268,118 @@ namespace RvuPiecemaker.Entities.Context
              RvuTotal = 0.69m,
              ModalityId = 6,
              CptCode = "76856",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 84,
+             Name = "CT Chest/Abd/Pel W",
+             Description = "",
+             RvuTotal = 3.06m,
+             ModalityId = 2,
+             CptCode = "71260+74177",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 85,
+             Name = "CT Chest/Abd/Pel WO",
+             Description = "",
+             RvuTotal = 2.9m,
+             ModalityId = 2,
+             CptCode = "71250+74146",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 86,
+             Name = "CT Chest/Abd/Pel W/WO",
+             Description = "",
+             RvuTotal = 3.39m,
+             ModalityId = 2,
+             CptCode = "71270+74178",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 87,
+             Name = "CT Brain/Cervical Spine",
+             Description = "",
+             RvuTotal = 1.92m,
+             ModalityId = 2,
+             CptCode = "70450+72125",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 88,
+             Name = "MR Enterography",
+             Description = "",
+             RvuTotal = 2.2m,
+             ModalityId = 4,
+             CptCode = "",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 89,
+             Name = "US Breast Complete",
+             Description = "",
+             RvuTotal = 0.73m,
+             ModalityId = 6,
+             CptCode = "76641",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 90,
+             Name = "US Breast BIL LIM",
+             Description = "76642 (1 modifier for BIL)",
+             RvuTotal = 1.02m,
+             ModalityId = 6,
+             CptCode = "76642",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 91,
+             Name = "US Breast Complete",
+             Description = "",
+             RvuTotal = 0.73m,
+             ModalityId = 6,
+             CptCode = "76641",
              IsAdmin = true,
              CreatedById = 1,
              CreatedDate = new DateTime(2019, 10, 22),
