@@ -196,7 +196,7 @@ export class AppComponent extends SmartComponent implements OnInit {
     this.time = setTimeout(() => {
       this.autoLogout();
     }, 1800000); // logout after 30 minutes
-    // }, 60000);
+    // }, 6000);
   }
 
   @HostListener('window:load', ['$event'])

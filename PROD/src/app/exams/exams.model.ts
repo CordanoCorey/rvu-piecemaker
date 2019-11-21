@@ -8,6 +8,7 @@ export class Exam extends BaseEntity {
   examTypeId = 0;
   notes = '';
   serviceId = 0;
+  serviceName = '';
   shiftId = 0;
   startTime: Date = new Date();
   endTime: Date = new Date();
@@ -27,11 +28,11 @@ export class Exam extends BaseEntity {
 
   get metadata(): Metadata {
     return build(Metadata, {
-      ignore: ['id', '_examType', '_rvuTotal', 'cptCode', 'examType', 'modalityName', 'name', 'rvuTotal', 'shift']
+      ignore: ['id', '_examType', '_rvuTotal', 'cptCode', 'examType', 'modalityName', 'name', 'rvuTotal', 'serviceName', 'shift']
     });
   }
 
-  set cptCode(value: string) {}
+  set cptCode(value: string) { }
 
   get cptCode(): string {
     return this.examType.cptCode;
@@ -47,13 +48,13 @@ export class Exam extends BaseEntity {
     });
   }
 
-  set modalityName(value: string) {}
+  set modalityName(value: string) { }
 
   get modalityName(): string {
     return this.examType.modalityName;
   }
 
-  set name(value: string) {}
+  set name(value: string) { }
 
   get name(): string {
     return this.examType.name;

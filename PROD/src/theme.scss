@@ -11,20 +11,40 @@ $theme: mat-light-theme($primary, $accent);
 @include angular-material-theme($theme);
 
 .dark-theme {
-    $dark-primary: mat-palette($primary-palette);
-    $dark-accent: mat-palette($accent-palette);
+  $dark-primary: mat-palette($primary-palette);
+  $dark-accent: mat-palette($accent-palette);
 
-    $dark-theme: mat-dark-theme($dark-primary, $dark-accent);
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent);
 
-    @include angular-material-theme($dark-theme);
+  @include angular-material-theme($dark-theme);
 }
 
 .light-theme {
-    $light-primary: mat-palette($primary-palette);
-    $light-accent: mat-palette($accent-palette);
+  $light-primary: mat-palette($primary-palette);
+  $light-accent: mat-palette($accent-palette);
 
-    $light-theme: mat-dark-theme($light-primary, $light-accent);
+  $light-theme: mat-dark-theme($light-primary, $light-accent);
 }
 
 @include scrollable(#fff, $primary-color);
 @include calendar-theme($theme);
+
+mat-dialog-container {
+  padding: 0 !important;
+  height: 288px !important;
+  overflow-x: hidden !important;
+
+  .mat-dialog-title {
+    position: relative;
+    height: 60px;
+  }
+
+  .mat-dialog-content {
+    padding: 0;
+    margin: 0;
+  }
+
+  .mat-dialog-actions {
+    height: 60px;
+  }
+}

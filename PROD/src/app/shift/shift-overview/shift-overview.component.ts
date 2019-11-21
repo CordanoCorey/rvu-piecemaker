@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SmartComponent, routeParamIdSelector } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -47,11 +47,12 @@ export class ShiftOverviewComponent extends SmartComponent implements OnInit {
   }
 
   get shiftRvuGoal(): number {
-    return parseFloat((Math.round(this.rvuGoalPerHour * this.shift.totalHours * 10) / 10).toFixed(1));
+    // return parseFloat((Math.round(this.rvuGoalPerHour * this.shift.totalHours * 10) / 10).toFixed(1));
     // return Math.round(this.rvuGoalPerHour * this.shift.totalHours * 10) / 10;
+    return 60;
   }
 
   ngOnInit() {
-    this.sync(['activeShiftId', 'rvuGoalPerHour', 'shift', 'shiftId']);
+    this.sync(['activeShiftId', 'rvuGoalPerHour', 'shiftId']);
   }
 }

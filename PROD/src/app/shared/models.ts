@@ -158,9 +158,17 @@ export class Tabs extends Collection<Tab> {
 }
 
 export class CurrentUser extends BaseCurrentUser {
+  doctorTypeId = 0;
   isAdmin = false;
   rvuRate = 0;
+  yearGoalDollarAmount = 0;
   static Build(data: any): CurrentUser {
     return build(CurrentUser, BaseCurrentUser.Build(data));
+  }
+
+  get metadata(): Metadata {
+    return build(Metadata, {
+      ignore: ['id', 'expiresInDate', 'isAdmin', 'password', 'passwordResetCode', 'role', 'shiftTypeId', 'shiftType', 'token', 'year', 'yearTypeId']
+    });
   }
 }

@@ -96,6 +96,12 @@
       font-weight: bold;
     }
 
+    rvu-shift-services {
+      display: flex;
+      justify-self: flex-start;
+      margin-top: -65px;
+    }
+
     .row {
       display: flex;
       flex-direction: row;
@@ -113,6 +119,7 @@
       rvu-exam-types {
         height: 90%;
         width: 55%;
+        min-width: 700px;
       }
     }
   }

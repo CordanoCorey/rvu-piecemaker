@@ -1,5 +1,7 @@
-<rvu-shift-progress *ngIf="activeShiftId" [shift]="shift$ | async" [rvuGoal]="shiftRvuGoal" [routerLink]="'/shifts/' + shift.id"></rvu-shift-progress>
-<!-- <rvu-shift-progress *ngIf="!activeShiftId" [shift]="shift$ | async" [rvuGoal]="shiftRvuGoal" [routerLink]="'/shifts/' + shift.id"></rvu-shift-progress> -->
+<rvu-shift-progress *ngIf="activeShiftId" [shift]="shift" [rvuGoal]="shiftRvuGoal" [routerLink]="'/shifts/' + shift.id">
+</rvu-shift-progress>
+<rvu-shift-progress *ngIf="!activeShiftId" [shift]="shift" [rvuGoal]="shiftRvuGoal"
+  [routerLink]="'/shifts/' + shift.id"></rvu-shift-progress>
 
 <rvu-shift-recap></rvu-shift-recap>
 

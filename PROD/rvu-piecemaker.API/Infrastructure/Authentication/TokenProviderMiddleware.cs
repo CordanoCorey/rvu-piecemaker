@@ -4,6 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using RvuPiecemaker.API.Features.Shifts;
+using RvuPiecemaker.API.Features.Users;
 using RvuPiecemaker.Entities.DataClasses;
 
 namespace RvuPiecemaker.API.Infrastructure.Authentication
@@ -29,18 +31,21 @@ namespace RvuPiecemaker.API.Infrastructure.Authentication
     private readonly SignInManager<ApplicationUser> _signInManager;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly JsonSerializerSettings _serializerSettings;
+    private readonly IMapper _mapper;
 
     public TokenProviderMiddleware(
         RequestDelegate next,
         IOptions<TokenProviderOptions> options,
         SignInManager<ApplicationUser> sim,
         UserManager<ApplicationUser> um,
-        ILoggerFactory loggerFactory)
+        ILoggerFactory loggerFactory,
+        IMapper mapper)
     {
       _next = next;
       _signInManager = sim;
       _userManager = um;
       _logger = loggerFactory.CreateLogger<TokenProviderMiddleware>();
+      _mapper = mapper;
 
       _options = options.Value;
       ThrowIfInvalidOptions(_options);
@@ -158,7 +163,7 @@ namespace RvuPiecemaker.API.Infrastructure.Authentication
       {
         access_token = encodedJwt,
         expires_in = (int)_options.Expiration.TotalSeconds,
-        user = await _userManager.FindByEmailAsync(email)
+        user = _mapper.Map<UserModel>(await _userManager.FindByEmailAsync(email))
       };
 
       // Serialize and return the response

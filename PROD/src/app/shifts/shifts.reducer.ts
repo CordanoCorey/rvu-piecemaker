@@ -1,10 +1,11 @@
-import { Action, routeParamIdSelector, build, truthy } from '@caiu/library';
+import { Action, routeParamIdSelector, build, truthy, roundToDecimalPlace } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 
 import { Shifts, Shift } from './shifts.model';
 import { Exams, Exam } from '../exams/exams.model';
+import { completedExamsSelector } from '../exams/exams.reducer';
 import { userIdSelector } from '../shared/selectors';
 
 export class ShiftsActions {
@@ -101,4 +102,10 @@ export function userShiftsSelector(store: Store<any>): Observable<Shift[]> {
 
 export function rvuTotalForYearSelector(store: Store<any>): Observable<number> {
   return userShiftsSelector(store).pipe(map(x => x.reduce((acc, y) => acc + y.rvuTotal, 0)));
+}
+
+export function shiftRvuTotalSelector(store: Store<any>): Observable<number> {
+  return completedExamsSelector(store).pipe(
+    map(exams => roundToDecimalPlace(exams.reduce((acc, x) => acc + x.rvuTotal, 0), 2))
+  );
 }

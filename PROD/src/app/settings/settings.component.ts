@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SmartComponent, build } from '@caiu/library';
+import { SmartComponent, build, routeNameSelector } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -16,6 +16,7 @@ export class SettingsComponent extends SmartComponent implements OnInit {
 
   constructor(public store: Store<any>) {
     super(store);
+    this.routeName$ = routeNameSelector(store);
   }
 
   get tabs(): Tab[] {

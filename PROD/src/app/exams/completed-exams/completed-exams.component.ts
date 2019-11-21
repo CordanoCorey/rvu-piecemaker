@@ -32,19 +32,19 @@ export class CompletedExamsComponent extends SmartComponent implements OnInit {
   get data(): Exam[] | ExamTypeRow[] {
     return this.groupByExamType
       ? this.completedExams
-          .reduce((acc, x) => {
-            const existing = build(ExamTypeRow, acc.find(y => y.examTypeId === x.examTypeId));
-            const row = build(ExamTypeRow, existing, {
-              examTypeId: x.examTypeId,
-              name: x.name,
-              cptCode: x.cptCode,
-              modalityName: x.modalityName,
-              rvuEach: x.rvuTotal,
-              count: existing.count + 1
-            });
-            return [...acc.filter(y => y.examTypeId !== x.examTypeId), row];
-          }, [])
-          .sort((a, b) => compareStrings(a.name, b.name))
+        .reduce((acc, x) => {
+          const existing = build(ExamTypeRow, acc.find(y => y.examTypeId === x.examTypeId));
+          const row = build(ExamTypeRow, existing, {
+            examTypeId: x.examTypeId,
+            name: x.name,
+            cptCode: x.cptCode,
+            modalityName: x.modalityName,
+            rvuEach: x.rvuTotal,
+            count: existing.count + 1
+          });
+          return [...acc.filter(y => y.examTypeId !== x.examTypeId), row];
+        }, [])
+        .sort((a, b) => compareStrings(a.name, b.name))
       : this.completedExams.sort((a, b) => compareDates(a.createdDate, b.createdDate));
   }
 
@@ -60,7 +60,7 @@ export class CompletedExamsComponent extends SmartComponent implements OnInit {
   }
 
   get displayedColumns(): string[] {
-    return this.groupByExamType ? ['name', 'cptCode', 'modalityName', 'rvuEach', 'count', 'rvuTotal'] : ['actions', 'name', 'createdDate', 'notes', 'rvuTotal'];
+    return this.groupByExamType ? ['name', 'cptCode', 'modalityName', 'rvuEach', 'count', 'rvuTotal'] : ['actions', 'name', 'serviceName', 'createdDate', 'notes', 'rvuTotal'];
   }
 
   get gridTitle(): string {

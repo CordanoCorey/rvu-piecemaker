@@ -1,9 +1,10 @@
-import { Action, routeParamIdSelector, compareStrings } from '@caiu/library';
+import { Action, routeParamIdSelector, compareStrings, inArray } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Services, Service } from './services.model';
+import { completedExamsSelector } from '../exams/exams.reducer';
 
 export class ServicesActions {
   static GET = '[Services] GET';
@@ -41,4 +42,11 @@ export function servicesSelector(store: Store<any>): Observable<Service[]> {
 
 export function serviceSelector(store: Store<any>): Observable<Service> {
   return combineLatest(store.select('services'), routeParamIdSelector(store, 'serviceId'), (services, id) => services.get(id));
+}
+
+export function shiftServicesSelector(store: Store<any>): Observable<Service[]> {
+  return combineLatest(store.select('services'), completedExamsSelector(store), (services, exams) => {
+    const ids = exams.map(x => x.serviceId);
+    return services.asArray.filter(x => inArray(ids, x.id));
+  })
 }

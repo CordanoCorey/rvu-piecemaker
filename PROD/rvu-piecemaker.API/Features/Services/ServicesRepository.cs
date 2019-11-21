@@ -20,14 +20,7 @@ namespace RvuPiecemaker.API.Features.Services
   {
     public bool Equals(ServiceExamTypeXref b1, ServiceExamTypeXref b2)
     {
-      if (b1.ExamTypeId == b2.ExamTypeId)
-      {
-        return true;
-      }
-      else
-      {
-        return false;
-      }
+      return b1.ExamTypeId == b2.ExamTypeId;
     }
 
     public int GetHashCode(ServiceExamTypeXref obj)
@@ -69,9 +62,7 @@ namespace RvuPiecemaker.API.Features.Services
     public override ServiceModel Update(ServiceModel model)
     {
       var entity = _mapper.Map<Service>(model);
-      var existing = FindEntityByKey(model.Id)?.ServiceExamTypes;
-      var add = entity.ServiceExamTypes.Except(existing, new ServiceExamTypeComparer()).ToList();
-      var remove = existing.Except(entity.ServiceExamTypes, new ServiceExamTypeComparer()).ToList();
+      var remove = FindEntityByKey(model.Id)?.ServiceExamTypes.Except(entity.ServiceExamTypes, new ServiceExamTypeComparer()).ToList();
       _context.ChangeTracker.TrackGraph(entity, (EntityEntryGraphNode node) =>
       {
         var entry = node.Entry;

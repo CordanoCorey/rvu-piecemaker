@@ -12,6 +12,7 @@ namespace RvuPiecemaker.API.Features.Exams
     public ExamsMapProfile()
     {
       CreateMap<Exam, ExamModel>()
+          .ForMember(dest => dest.ServiceName, opt => opt.MapFrom(src => src.Service.Name))
           .ForMember(dest => dest.Shift, opt => opt.Ignore())
       ;
 
@@ -20,8 +21,8 @@ namespace RvuPiecemaker.API.Features.Exams
       ;
 
       CreateMap<ExamType, ExamTypeModel>()
-          .ForMember(dest => dest.ModalityName, opt => opt.MapFrom(src => src.Modality.Name))
           .ForMember(dest => dest.ExamGroupIds, opt => opt.MapFrom(src => src.ExamGroupXref.Select(x => x.ExamGroupId)))
+          .ForMember(dest => dest.ModalityName, opt => opt.MapFrom(src => src.Modality.Name))
       ;
 
       CreateMap<ExamTypeModel, ExamType>()

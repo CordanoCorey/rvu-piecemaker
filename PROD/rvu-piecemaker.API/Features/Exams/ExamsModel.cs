@@ -14,6 +14,7 @@ namespace RvuPiecemaker.API.Features.Exams
     public string Notes { get; set; }
     public decimal? RvuTotal { get; set; }
     public int ServiceId { get; set; }
+    public string ServiceName { get; set; }
     public int? ShiftId { get; set; }
     public DateTime StartTime { get; set; }
     public DateTime? EndTime { get; set; }

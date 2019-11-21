@@ -1,5 +1,7 @@
 <div id="shift" class="scrollable">
-  <a id="home" routerLink="/"><mat-icon class="font-effect-emboss">home</mat-icon></a>
+  <a id="home" routerLink="/">
+    <mat-icon class="font-effect-emboss">home</mat-icon>
+  </a>
   <span id="user-name">{{ userName$ | async }}</span>
   <div id="header-icons">
     <div class="toolbar-items">
@@ -66,6 +68,7 @@
       </mat-select>
     </mat-form-field>
     <button *ngIf="serviceId" mat-mini-fab class="info-fab font-effect-emboss" (click)="openServiceInfo()">?</button>
+    <rvu-shift-services></rvu-shift-services>
     <div class="row">
       <rvu-shift-overview></rvu-shift-overview>
       <rvu-exam-types></rvu-exam-types>

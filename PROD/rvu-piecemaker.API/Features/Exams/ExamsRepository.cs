@@ -27,7 +27,8 @@ namespace RvuPiecemaker.API.Features.Exams
     {
       return queryable
         .Include(x => x.ExamType)
-        .ThenInclude(y => y.Modality)
+          .ThenInclude(y => y.Modality)
+        .Include(x => x.Service)
        ;
     }
 
@@ -35,7 +36,8 @@ namespace RvuPiecemaker.API.Features.Exams
     {
       return queryable
         .Include(x => x.ExamType)
-        .ThenInclude(y => y.Modality)
+          .ThenInclude(y => y.Modality)
+        .Include(x => x.Service)
        ;
     }
 
@@ -43,7 +45,8 @@ namespace RvuPiecemaker.API.Features.Exams
     {
       return queryable
         .Include(x => x.ExamType)
-        .ThenInclude(y => y.Modality)
+          .ThenInclude(y => y.Modality)
+        .Include(x => x.Service)
        ;
     }
 
