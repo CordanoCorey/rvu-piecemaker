@@ -1081,7 +1081,7 @@ namespace RvuPiecemaker.Entities.Context
            new ExamType
            {
              Id = 70,
-             Name = "MRI Face W/WO",
+             Name = "MRI Neck/Face W/WO",
              Description = "",
              RvuTotal = 2.15m,
              ModalityId = 4,
@@ -1221,7 +1221,7 @@ namespace RvuPiecemaker.Entities.Context
            new ExamType
            {
              Id = 80,
-             Name = "CT Face W/WO",
+             Name = "CT Maxillofacial W/WO",
              Description = "",
              RvuTotal = 1.27m,
              ModalityId = 2,
@@ -1380,6 +1380,216 @@ namespace RvuPiecemaker.Entities.Context
              RvuTotal = 0.73m,
              ModalityId = 6,
              CptCode = "76641",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 92,
+             Name = "CT Neck W/WO",
+             Description = "",
+             RvuTotal = 1.62m,
+             ModalityId = 2,
+             CptCode = "70492",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 93,
+             Name = "MRI Chest WO",
+             Description = "",
+             RvuTotal = 1.46m,
+             ModalityId = 4,
+             CptCode = "71550",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 94,
+             Name = "US Head",
+             Description = "",
+             RvuTotal = 0.63m,
+             ModalityId = 6,
+             CptCode = "76506",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 95,
+             Name = "US Head/Neck",
+             Description = "",
+             RvuTotal = 0.56m,
+             ModalityId = 6,
+             CptCode = "76536",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 96,
+             Name = "US Pregnant Uterus TV",
+             Description = "",
+             RvuTotal = 0.75m,
+             ModalityId = 6,
+             CptCode = "76817",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 97,
+             Name = "US soft tissue limited",
+             Description = "",
+             RvuTotal = 0.49m,
+             ModalityId = 6,
+             CptCode = "76882",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 98,
+             Name = "US Carotid",
+             Description = "",
+             RvuTotal = 0.8m,
+             ModalityId = 6,
+             CptCode = "93880",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 99,
+             Name = "US Breast Biopsy vacuum",
+             Description = "",
+             RvuTotal = 3.1m,
+             ModalityId = 6,
+             CptCode = "19083",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 100,
+             Name = "US Breast Biopsy WO vacuum",
+             Description = "",
+             RvuTotal = 0.0m,
+             ModalityId = 6,
+             CptCode = "",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 101,
+             Name = "MRI Breast",
+             Description = "",
+             RvuTotal = 0.0m,
+             ModalityId = 4,
+             CptCode = "",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 102,
+             Name = "MRI Breast Biopsy",
+             Description = "",
+             RvuTotal = 0.0m,
+             ModalityId = 4,
+             CptCode = "",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 103,
+             Name = "MG Stereotactic Biopsy 3D",
+             Description = "",
+             RvuTotal = 0.0m,
+             ModalityId = 3,
+             CptCode = "",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 104,
+             Name = "MG Stereotactic Biopsy 2D",
+             Description = "",
+             RvuTotal = 0.0m,
+             ModalityId = 3,
+             CptCode = "",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 105,
+             Name = "MRI Upper Extremity WO",
+             Description = "",
+             RvuTotal = 01.35m,
+             ModalityId = 4,
+             CptCode = "73218",
+             IsAdmin = true,
+             CreatedById = 1,
+             CreatedDate = new DateTime(2019, 10, 22),
+             LastModifiedById = 1,
+             LastModifiedDate = new DateTime(2019, 10, 22)
+           },
+           new ExamType
+           {
+             Id = 106,
+             Name = "MRI Upper Extremity W/WO",
+             Description = "",
+             RvuTotal = 2.15m,
+             ModalityId = 6,
+             CptCode = "73220",
              IsAdmin = true,
              CreatedById = 1,
              CreatedDate = new DateTime(2019, 10, 22),
