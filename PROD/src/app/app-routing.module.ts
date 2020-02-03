@@ -39,6 +39,10 @@ const routes: Routes = [
         canActivate: [AuthenticatedGuard]
       },
       {
+        path: 'reports',
+        loadChildren: () => import('./reports/reports.module').then(m => m.ReportsModule)
+      },
+      {
         path: 'reset-password',
         loadChildren: () => import('./reset-password/reset-password.module').then(m => m.ResetPasswordModule)
       },
@@ -79,4 +83,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [AuthenticatedGuard]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

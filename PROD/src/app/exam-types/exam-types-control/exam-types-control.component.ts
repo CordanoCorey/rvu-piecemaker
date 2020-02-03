@@ -94,7 +94,7 @@ export class ExamTypesControlComponent extends SmartComponent implements OnInit,
     }
   }
 
-  onBlur(e: any) {}
+  onBlur(e: any) { }
 
   get filtered(): boolean {
     return truthy(this.searchTermSubject.value);
@@ -143,9 +143,7 @@ export class ExamTypesControlComponent extends SmartComponent implements OnInit,
   }
 
   reorderList(e: CdkDragDrop<any>) {
-    console.dir(this.orderingSubject.value.items);
     this.orderingSubject.next(new Ordering(this.orderingSubject.value.move(e.item.data, e.currentIndex), ExamTypeXref));
-    console.dir(this.orderingSubject.value.items);
   }
 
   selectAllExamTypes() {

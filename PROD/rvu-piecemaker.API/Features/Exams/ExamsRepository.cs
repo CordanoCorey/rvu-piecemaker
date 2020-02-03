@@ -15,6 +15,7 @@ namespace RvuPiecemaker.API.Features.Exams
     IEnumerable<ExamModel> FindBy(int userId);
     IEnumerable<ExamModel> FindBy(DateTime date);
     IEnumerable<ExamModel> FindBy(int userId, DateTime date);
+    IEnumerable<ExamModel> FindBy(int userId, DateTime startDate, DateTime endDate);
   }
 
   public class ExamsRepository : BaseRepository<RvuPiecemakerContext, Exam, ExamModel>, IExamsRepository
@@ -63,6 +64,11 @@ namespace RvuPiecemaker.API.Features.Exams
     public IEnumerable<ExamModel> FindBy(int userId, DateTime date)
     {
       return FindBy(x => x.CreatedById == userId && x.StartTime.Date == date);
+    }
+
+    public IEnumerable<ExamModel> FindBy(int userId, DateTime startDate, DateTime endDate)
+    {
+      return FindBy(x => x.CreatedById == userId && x.StartTime.Date >= startDate && x.StartTime.Date <= endDate);
     }
   }
 }

@@ -1,7 +1,7 @@
-import { build, Token, routeParamSelector, lookupValuesSelector, LookupValue, routeParamIdSelector } from '@caiu/library';
+import { build, Token, routeParamSelector, lookupValuesSelector, LookupValue, routeParamIdSelector, DateRange } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable, interval, combineLatest } from 'rxjs';
-import { map, distinctUntilChanged, take } from 'rxjs/operators';
+import { map, distinctUntilChanged, take, startWith, filter } from 'rxjs/operators';
 
 import { CurrentUser, Tab } from './models';
 import { ExamGroup } from '../exams/exam-groups.model';
@@ -86,4 +86,12 @@ export function rvuRateSelector(store: Store<any>): Observable<number> {
 
 export function activeDateSelector(store: Store<any>): Observable<Date> {
   return routeParamSelector(store, 'date').pipe(map(x => (x ? new Date(x) : new Date())));
+}
+
+export function activeDateRangeSelector(store: Store<any>): Observable<DateRange> {
+  return combineLatest(routeParamSelector(store, 'date').pipe(map(x => (x ? new Date(x) : null))),
+    routeParamSelector(store, 'endDate').pipe(map(x => (x ? new Date(x) : null)), startWith(null)),
+    (startDate, endDate) => build(DateRange, { startDate, endDate })).pipe(
+      filter(x => x.startDate !== null)
+    );
 }

@@ -23,10 +23,17 @@ namespace RvuPiecemaker.API.Features.Exams
       return Get(_service.GetUserExams, UserId);
     }
 
-    [HttpGet]
-    public IActionResult GetByDate([FromQuery]DateTime date)
+    [HttpGet("{date}")]
+    public IActionResult GetDate(DateTime date)
     {
       var result = _service.GetExams(UserId, date);
+      return Ok(result);
+    }
+
+    [HttpGet]
+    public IActionResult GetDateRange([FromQuery]DateTime startDate, [FromQuery]DateTime endDate)
+    {
+      var result = _service.GetExamsBetweenDates(UserId, startDate, endDate);
       return Ok(result);
     }
 

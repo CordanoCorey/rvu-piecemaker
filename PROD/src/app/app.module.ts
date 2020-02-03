@@ -25,9 +25,9 @@ import 'hammerjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReducersService } from './reducers.service';
+import { SharedModule } from './shared/shared.module';
 import { UserEffects } from './shared/effects';
 import { authTokenSelector } from './shared/selectors';
-import { SharedModule } from './shared/shared.module';
 import { ExamsEffects } from './exams/exams.effects';
 import { GoalsEffects } from './goals/goals.effects';
 import { ShiftsEffects } from './shifts/shifts.effects';
@@ -67,4 +67,4 @@ export function getReducers(reducersService: ReducersService) {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

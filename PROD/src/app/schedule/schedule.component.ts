@@ -11,8 +11,7 @@ import { userIdSelector } from '../shared/selectors';
 @Component({
   selector: 'rvu-schedule',
   templateUrl: './schedule.component.html',
-  styleUrls: ['./schedule.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./schedule.component.scss']
 })
 export class ScheduleComponent extends SmartComponent implements OnInit {
   calendarDayTypes: CalendarEventType[] = [
@@ -37,7 +36,9 @@ export class ScheduleComponent extends SmartComponent implements OnInit {
   }
 
   set rvuTotals(value: { [key: string]: number }) {
-    this._rvuTotals = value;
+    setTimeout(() => {
+      this._rvuTotals = value;
+    }, 0);
   }
 
   get rvuTotals(): { [key: string]: number } {

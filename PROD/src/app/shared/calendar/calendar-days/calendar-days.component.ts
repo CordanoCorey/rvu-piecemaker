@@ -7,8 +7,8 @@ import { Calendar, CalendarDay, CalendarEvent, CalendarEventType } from '../cale
 @Component({
   selector: 'iu-calendar-days',
   templateUrl: './calendar-days.component.html',
-  styleUrls: ['./calendar-days.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./calendar-days.component.scss']
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarDaysComponent implements OnInit {
   @Input() activeDate: Date = new Date();
@@ -24,9 +24,9 @@ export class CalendarDaysComponent implements OnInit {
   @Output() changeDayType = new EventEmitter<{ date: Date; dayTypeId: number }>();
   @Output() saveEvent = new EventEmitter<CalendarEvent>();
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onChangeDayType(date: Date, e: CalendarEventType) {
     this.changeDayType.emit({ date, dayTypeId: e.id });

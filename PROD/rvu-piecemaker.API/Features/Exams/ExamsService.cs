@@ -13,6 +13,7 @@ namespace RvuPiecemaker.API.Features.Exams
     IEnumerable<ExamModel> GetExams(int userId, DateTime date);
     IEnumerable<ExamModel> GetUserExams(int userId);
     IEnumerable<ExamModel> GetExamsByDate(DateTime date);
+    IEnumerable<ExamModel> GetExamsBetweenDates(int userId, DateTime startDate, DateTime endDate);
     IEnumerable<ExamTypeModel> GetUserExamTypes(int userId);
     ExamModel GetExam(int id);
     ExamTypeModel GetExamType(int id);
@@ -122,6 +123,11 @@ namespace RvuPiecemaker.API.Features.Exams
     public IEnumerable<ExamModel> GetExams(int userId, DateTime date)
     {
       return _repo.FindBy(userId, date);
+    }
+
+    public IEnumerable<ExamModel> GetExamsBetweenDates(int userId, DateTime startDate, DateTime endDate)
+    {
+      return _repo.FindBy(userId, startDate, endDate);
     }
   }
 }

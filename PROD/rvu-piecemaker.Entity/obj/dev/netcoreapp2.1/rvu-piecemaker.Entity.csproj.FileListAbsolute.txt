@@ -25,7 +25,6 @@ C:\appdev\rvu\PROD\rvu-piecemaker.Entity\bin\dev\netcoreapp2.1\rvu-piecemaker.En
 C:\appdev\rvu\PROD\rvu-piecemaker.Entity\bin\dev\netcoreapp2.1\rvu-piecemaker.Entity.dll
 C:\appdev\rvu\PROD\rvu-piecemaker.Entity\bin\dev\netcoreapp2.1\rvu-piecemaker.Entity.pdb
 C:\appdev\rvu\PROD\rvu-piecemaker.Entity\obj\dev\netcoreapp2.1\rvu-piecemaker.Entity.csprojAssemblyReference.cache
-C:\appdev\rvu\PROD\rvu-piecemaker.Entity\obj\dev\netcoreapp2.1\rvu-piecemaker.Entity.csproj.CoreCompileInputs.cache
 C:\appdev\rvu\PROD\rvu-piecemaker.Entity\obj\dev\netcoreapp2.1\rvu-piecemaker.Entity.AssemblyInfoInputs.cache
 C:\appdev\rvu\PROD\rvu-piecemaker.Entity\obj\dev\netcoreapp2.1\rvu-piecemaker.Entity.AssemblyInfo.cs
 C:\appdev\rvu\PROD\rvu-piecemaker.Entity\obj\dev\netcoreapp2.1\rvu-piecemaker.Entity.dll

@@ -23,9 +23,6 @@ export class GoalsComponent extends SmartComponent implements OnInit {
     super(store);
     this.goal$ = goalSelector(store);
     this.rvuTotals$ = nonzeroRvuTotalsSelector(store);
-    // this.goal$.subscribe(x => {
-    //   console.dir(x);
-    // });
   }
 
   get rvusPerDay(): number {

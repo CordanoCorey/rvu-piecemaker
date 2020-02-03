@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { Exams, Exam } from './exams.model';
 import { ShiftActions } from '../shifts/shifts.reducer';
-import { activeDateSelector, userIdSelector } from '../shared/selectors';
+import { activeDateRangeSelector, userIdSelector } from '../shared/selectors';
 
 export class ExamsActions {
   static GET = '[Exams] GET';
@@ -45,9 +45,11 @@ export function userExamsSelector(store: Store<any>): Observable<Exam[]> {
 }
 
 export function completedExamsSelector(store: Store<any>): Observable<Exam[]> {
-  // return combineLatest(examsSelector(store), routeParamIdSelector(store, 'shiftId'), (exams, shiftId) => exams.asArray.filter(x => x.shiftId === shiftId));
-  return combineLatest(examsSelector(store), activeDateSelector(store), userIdSelector(store), (exams, date, userId) =>
-    exams.asArray.filter(x => x.userId === userId && DateHelper.IsSameDay(x.startTime, date))
+  return combineLatest(examsSelector(store), activeDateRangeSelector(store), userIdSelector(store), (exams, dateRange, userId) =>
+    exams.asArray.filter(x => x.userId === userId
+      && (dateRange.endDate && !DateHelper.IsSameDay(dateRange.startDate, dateRange.endDate) ?
+        DateHelper.IsBetween(x.startTime, dateRange.startDate, dateRange.endDate)
+        : DateHelper.IsSameDay(x.startTime, dateRange.startDate)))
   );
 }
 

@@ -23,7 +23,6 @@ export class UserFormComponent extends SmartComponent implements OnInit {
   }
 
   set user(value: CurrentUser) {
-    console.dir(value);
     this._user = value;
     this.setValue(value);
   }
@@ -33,7 +32,6 @@ export class UserFormComponent extends SmartComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.dir(this.form.controls);
     this.sync(['user']);
   }
 }

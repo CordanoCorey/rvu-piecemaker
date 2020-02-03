@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\appdev\\rvu-piecemaker\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj": {}
+    "C:\\appdev\\rvu\\DEV\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj": {}
   },
   "projects": {
-    "C:\\appdev\\rvu-piecemaker\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj": {
+    "C:\\appdev\\rvu\\DEV\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\appdev\\rvu-piecemaker\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj",
+        "projectUniqueName": "C:\\appdev\\rvu\\DEV\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj",
         "projectName": "rvu-piecemaker.Entity",
-        "projectPath": "C:\\appdev\\rvu-piecemaker\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj",
+        "projectPath": "C:\\appdev\\rvu\\DEV\\rvu-piecemaker.Entity\\rvu-piecemaker.Entity.csproj",
         "packagesPath": "C:\\Users\\cgelbaugh\\.nuget\\packages\\",
-        "outputPath": "C:\\appdev\\rvu-piecemaker\\rvu-piecemaker.Entity\\obj\\",
+        "outputPath": "C:\\appdev\\rvu\\DEV\\rvu-piecemaker.Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -51,7 +51,6 @@ C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\rvu-piecemaker.API.p
 C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\rvu-piecemaker.Entity.dll
 C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\rvu-piecemaker.Entity.pdb
 C:\appdev\rvu\PROD\rvu-piecemaker.API\obj\dev\netcoreapp2.1\rvu-piecemaker.API.csprojAssemblyReference.cache
-C:\appdev\rvu\PROD\rvu-piecemaker.API\obj\dev\netcoreapp2.1\rvu-piecemaker.API.csproj.CoreCompileInputs.cache
 C:\appdev\rvu\PROD\rvu-piecemaker.API\obj\dev\netcoreapp2.1\rvu-piecemaker.API.RazorAssemblyInfo.cache
 C:\appdev\rvu\PROD\rvu-piecemaker.API\obj\dev\netcoreapp2.1\rvu-piecemaker.API.RazorAssemblyInfo.cs
 C:\appdev\rvu\PROD\rvu-piecemaker.API\obj\dev\netcoreapp2.1\rvu-piecemaker.API.AssemblyInfoInputs.cache
@@ -60,3 +59,16 @@ C:\appdev\rvu\PROD\rvu-piecemaker.API\obj\dev\netcoreapp2.1\rvu-piecemaker.API.R
 C:\appdev\rvu\PROD\rvu-piecemaker.API\obj\dev\netcoreapp2.1\rvu-piecemaker.API.csproj.CopyComplete
 C:\appdev\rvu\PROD\rvu-piecemaker.API\obj\dev\netcoreapp2.1\rvu-piecemaker.API.dll
 C:\appdev\rvu\PROD\rvu-piecemaker.API\obj\dev\netcoreapp2.1\rvu-piecemaker.API.pdb
+C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\web.config
+C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\web.demo.config
+C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\web.dev.config
+C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\web.prod.config
+C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\web.staging.config
+C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\web.test.config
+C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\appsettings.dev.json
+C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\appsettings.prod.json
+C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\appsettings.staging.json
+C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\appsettings.test.json
+C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\Properties\launchSettings.json
+C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\appsettings.json
+C:\appdev\rvu\PROD\rvu-piecemaker.API\bin\dev\netcoreapp2.1\appsettings.local.json

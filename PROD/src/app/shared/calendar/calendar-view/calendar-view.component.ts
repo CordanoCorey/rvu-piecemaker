@@ -7,8 +7,8 @@ import { CalendarDay, CalendarEvent, CalendarEventType } from '../calendar.model
 @Component({
   selector: 'iu-calendar-view',
   templateUrl: './calendar-view.component.html',
-  styleUrls: ['./calendar-view.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./calendar-view.component.scss']
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarViewComponent extends DumbComponent implements OnInit {
   @ViewChild('wrapper', { static: true }) wrapper: ElementRef;
@@ -42,7 +42,7 @@ export class CalendarViewComponent extends DumbComponent implements OnInit {
     super();
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   isActive(day: Date) {
     return DateHelper.IsSameDay(day, this.activeDate);

@@ -102,7 +102,7 @@ export class AppComponent extends SmartComponent implements OnInit {
   }
 
   get sessionStorageMapper(): (s: any) => any {
-    return state => {};
+    return state => { };
   }
 
   get toastChanges(): Subscription {
@@ -196,7 +196,6 @@ export class AppComponent extends SmartComponent implements OnInit {
     this.time = setTimeout(() => {
       this.autoLogout();
     }, 1800000); // logout after 30 minutes
-    // }, 6000);
   }
 
   @HostListener('window:load', ['$event'])

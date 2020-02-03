@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { SmartComponent, compareDates, build, ConfirmDeleteComponent, HttpActions, compareStrings, roundToDecimalPlace } from '@caiu/library';
+import { SmartComponent, compareDates, build, ConfirmDeleteComponent, HttpActions, compareStrings, roundToDecimalPlace, DateRange } from '@caiu/library';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Exam } from '../exams.model';
 import { completedExamsSelector, ExamActions, ExamsActions } from '../exams.reducer';
 import { ExamTypeRow } from '../../exam-types/exam-types.model';
 import { ExamFormComponent } from '../../exam/exam-form/exam-form.component';
-import { activeDateSelector } from 'src/app/shared/selectors';
+import { activeDateRangeSelector } from 'src/app/shared/selectors';
 
 @Component({
   selector: 'rvu-completed-exams',
@@ -19,14 +19,14 @@ export class CompletedExamsComponent extends SmartComponent implements OnInit {
   @Input() groupByExamType = false;
   completedExams: Exam[] = [];
   completedExams$: Observable<Exam[]>;
-  _date: Date = new Date();
-  date$: Observable<Date>;
+  _dateRange: DateRange = new DateRange();
+  dateRange$: Observable<DateRange>;
   deleting: Exam;
 
   constructor(public store: Store<any>, public dialog: MatDialog) {
     super(store);
     this.completedExams$ = completedExamsSelector(store);
-    this.date$ = activeDateSelector(store);
+    this.dateRange$ = activeDateRangeSelector(store);
   }
 
   get data(): Exam[] | ExamTypeRow[] {
@@ -48,15 +48,15 @@ export class CompletedExamsComponent extends SmartComponent implements OnInit {
       : this.completedExams.sort((a, b) => compareDates(a.createdDate, b.createdDate));
   }
 
-  set date(value: Date) {
-    this._date = value;
+  set dateRange(value: DateRange) {
+    this._dateRange = value;
     if (value) {
-      this.getExams(value);
+      this.getExams(value.startDate, value.endDate);
     }
   }
 
-  get date(): Date {
-    return this._date;
+  get dateRange(): DateRange {
+    return this._dateRange;
   }
 
   get displayedColumns(): string[] {
@@ -72,7 +72,7 @@ export class CompletedExamsComponent extends SmartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sync(['completedExams', 'date']);
+    this.sync(['completedExams', 'dateRange']);
   }
 
   closeDialog(e: any) {
@@ -83,8 +83,12 @@ export class CompletedExamsComponent extends SmartComponent implements OnInit {
     super.closeDialog(e);
   }
 
-  getExams(date: Date) {
-    this.dispatch(HttpActions.get(`exams?date=${date.toDateString()}`, ExamsActions.GET));
+  getExams(startDate: Date, endDate?: Date) {
+    if (!endDate) {
+      this.dispatch(HttpActions.get(`exams/${startDate.toDateString()}`, ExamsActions.GET));
+    } else {
+      this.dispatch(HttpActions.get(`exams?startDate=${startDate.toDateString()}&&endDate=${endDate.toDateString()}`, ExamsActions.GET));
+    }
   }
 
   onDeleteExam(e: Exam) {

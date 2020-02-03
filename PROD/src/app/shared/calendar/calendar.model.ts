@@ -109,6 +109,7 @@ export class CalendarEvent {
 
 export class CalendarDay {
   date: Date = new Date();
+  dayTotal = 0;
   dayType: CalendarEventType = new CalendarEventType();
   events: CalendarEvent[] = [];
   isActive = false;
